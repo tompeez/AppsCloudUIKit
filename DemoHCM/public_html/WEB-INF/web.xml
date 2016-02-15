@@ -19,6 +19,15 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <param-name>oracle.adf.view.rich.versionString.HIDDEN</param-name>
     <param-value>true</param-value>
   </context-param>
+  <context-param>
+    <param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <description>Security precaution to prevent clickjacking: bust frames if the ancestor window domain(protocol, host, and port) and the frame domain are different. Another options for this parameter are always and never.</description>
+    <param-name>org.apache.myfaces.trinidad.security.FRAME_BUSTING</param-name>
+    <param-value>differentOrigin</param-value>
+  </context-param>
   <filter>
     <filter-name>trinidad</filter-name>
     <filter-class>org.apache.myfaces.trinidad.webapp.TrinidadFilter</filter-class>
@@ -120,6 +129,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <mime-mapping>
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
+  </mime-mapping>
+  <mime-mapping>
+    <extension>amf</extension>
+    <mime-type>application/x-amf</mime-type>
   </mime-mapping>
   <jsp-config>
     <jsp-property-group>

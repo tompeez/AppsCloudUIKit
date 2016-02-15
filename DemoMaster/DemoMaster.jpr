@@ -4,9 +4,11 @@
       <value n="oracle.adfdt.controller.adfc.source.migration.AdfControllerSchemaMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdt.controller.common.migrator.ProjectMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdt.controller.jsf2.diagram.migrate.JsfNodeMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.adfdt.controller.migrate.TrinidadDatabindingsProjectMigrator" v="11.1.2.0.0"/>
       <value n="oracle.adfdt.controller.struts.addin.db.ADFStrutsProjectMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdt.controller.struts.addin.StrutsProjectMigrator" v="11.1.1.1.0"/>
-      <value n="oracle.adfdtinternal.dvt.datapresdt.migration.DVTDataMapMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.adfdtinternal.dvt.datapresdt.migration.DVTDataMapMigrator" v="11.1.1.1.0;11.1.1.1.0.3"/>
+      <value n="oracle.adfdtinternal.dvt.datapresdt.migration.DVTWebAppConfigurationMigrator" v="12.1.3.0.0"/>
       <value n="oracle.adfdtinternal.model.ide.migration.ProjectMigrator" v="11.1.1.1.0.11.1.1"/>
       <value n="oracle.adfdtinternal.model.ide.security.wizard.FormPageMigrator" v="11.1.1.0.0"/>
       <value n="oracle.adfdtinternal.model.ide.security.wizard.JpsFilterMigrator" v="11.1.1.1.0"/>
@@ -16,28 +18,37 @@
       <value n="oracle.adfdtinternal.view.common.migration.wizards.MigrationHelper" v="11.1.1.1.0.3"/>
       <value n="oracle.adfdtinternal.view.rich.binding.migration.JarResourceMigrator" v="11.1.1.1.0"/>
       <value n="oracle.adfdtinternal.view.rich.migration.ComponentIdNodeMigratorHelper" v="11.1.1.1.0.01"/>
+      <value n="oracle.adfdtinternal.view.rich.migration.FacesLibraryVersionMigrator" v="11.1.1.1.0.1"/>
       <value n="oracle.adfdtinternal.view.rich.migration.LibraryVersionMigrator" v="11.1.1.1.0"/>
       <value n="oracle.bm.commonIde.ProjectUpgrader" v="11.1.1.1.0"/>
       <value n="oracle.bm.migration.project.MigratorRegistryProjectUpgradeAdapter" v="11.1.1.1.0"/>
-      <value n="oracle.ide.model.Project" v="11.1.1.1.0"/>
+      <value n="oracle.ide.model.Project" v="11.1.1.1.0;12.1.3.0.0"/>
       <value n="oracle.ide.model.ResourcePathsMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.ideimpl.model.TechnologyScopeUpdateMigrator" v="11.1.2.0.0.5"/>
       <value n="oracle.jbo.dt.jclient.migrator.JCProjectMigrator" v="11.1.1.1.0"/>
-      <value n="oracle.jbo.dt.jdevx.deployment.JbdProjectMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.jbo.dt.jdevx.deployment.JbdProjectMigrator" v="11.1.1.1.0;11.1.2.0.0"/>
+      <value n="oracle.jbo.dt.jdevx.ui.appnav.APAdfConfigMigrator" v="11.1.2.0.0"/>
       <value n="oracle.jbo.dt.jdevx.ui.appnav.APProjectMigrator" v="11.1.1.0.1.5"/>
       <value n="oracle.jbo.dt.migrate.ResourceBundlePathMigrator" v="11.1.1.1.0.5"/>
       <value n="oracle.jbo.dt.migration.ServiceInterfaceMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.jdeveloper.dbmodeler.Migration" v="12.1.1.0.0"/>
       <value n="oracle.jdeveloper.ejb.EjbMigrator" v="11.1.1.1.0"/>
       <value n="oracle.jdeveloper.library.ProjectLibraryMigrator" v="11.1.1.1.0"/>
       <value n="oracle.jdeveloper.model.OutputDirectoryMigrator" v="11.1.1.1.0"/>
       <value n="oracle.jdevimpl.deploy.DeploymentProfilesMigrator" v="11.1.1.1.0"/>
       <value n="oracle.jdevimpl.deploy.jps.JpsDataMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.deploy.migrators.DeploymentMigrator" v="12.1.2.0.1"/>
       <value n="oracle.jdevimpl.jsp.JspMigrator" v="11.1.1"/>
-      <value n="oracle.jdevimpl.offlinedb.migration.OfflineDBProjectMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.offlinedb.migration.OfflineDBProjectMigrator" v="11.1.1.1.0;12.1.1.0.0"/>
       <value n="oracle.jdevimpl.offlinedb.migration.OfflineTransferMigrator" v="11.1.1.1.0"/>
       <value n="oracle.jdevimpl.resourcebundle.XliffAddin$XliffMigratorHelper" v="11.1.1.1.0"/>
       <value n="oracle.jdevimpl.webapp.jsp.libraries.JspLibraryMigrator" v="11.1.1.1.4"/>
+      <value n="oracle.jdevimpl.webapp.jsp.taglibraries.trinidad.migration.TrinidadLibraryVersionMigrator" v="11.1.1.1.0.1"/>
       <value n="oracle.jdevimpl.webapp.WebAppContentSetNodeMigratorHelper" v="11.1.1"/>
       <value n="oracle.jdevimpl.webapp.WebAppNodeMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.webapp.WebAppProjectNodeMigratorHelper" v="12.1.2.0.0"/>
+      <value n="oracle.jdevimpl.webservices.rest.migration.RestLibraryMigrator" v="12.1.1.0.0"/>
+      <value n="oracle.jdevimpl.webservices.rest.migration.RestPathMigrator" v="11.1.2.0.0"/>
       <value n="oracle.jdevimpl.webservices.WebServicesMigratorHelper" v="11.1.1.1.0"/>
       <value n="oracle.jdevimpl.xml.wl.WeblogicMigratorHelper" v="11.1.1.1.0"/>
       <value n="oracle.modeler.bmmigrate.management.Migration" v="11.1.1.1.0"/>
@@ -53,17 +64,24 @@
       <string v="oracle.mds.internal.dt.ide.MDSLibraryCustCSProvider/mdsContentSet"/>
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
+      <string v="oracle.mds.internal.dt.ide.MDSADFLibVirtualNodeCSProvider/mdsLibVirtualNodeContentSet"/>
    </list>
    <value n="defaultPackage" v="oracle.apps.uikit"/>
+   <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
+      <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
+   </hash>
    <hash n="oracle.ide.model.DependencyConfiguration">
       <list n="dependencyList"/>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
+         <string v="ADFm"/>
          <string v="HTML"/>
+         <string v="JAVASCRIPT"/>
          <string v="Java"/>
          <string v="JSP"/>
          <string v="ADFc"/>
+         <string v="TRINIDAD"/>
          <string v="XML"/>
          <string v="JSF"/>
          <string v="ADF_FACES"/>
@@ -110,7 +128,12 @@
                      </list>
                      <value n="displayName" v="Web Files"/>
                      <hash n="filters">
-                        <list n="rules"/>
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
                      </hash>
                      <value n="internalName" v="web-files"/>
                      <value n="type" v="1"/>
@@ -126,7 +149,12 @@
                      </list>
                      <value n="displayName" v="WEB-INF/classes"/>
                      <hash n="filters">
-                        <list n="rules"/>
+                        <list n="rules">
+                           <hash>
+                              <value n="pattern" v="**"/>
+                              <value n="type" v="0"/>
+                           </hash>
+                        </list>
                      </hash>
                      <value n="internalName" v="project-output"/>
                      <value n="targetWithinJar" v="WEB-INF/classes"/>
@@ -148,9 +176,7 @@
                </list>
             </hash>
             <url n="jarURL" path="../libs/AppsCloudUIKit.war"/>
-            <hash n="libraryDependencies">
-               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
-            </hash>
+            <hash n="libraryDependencies"/>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
             <value n="profileName" v="AppsCloudUIKit"/>
          </hash>
@@ -168,6 +194,12 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
+            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
+               <value n="unboundedTaskFlow" v="true"/>
+               <value n="viewActivityId" v="Welcome"/>
+            </hash>
+            <value n="runActiveFile" v="false"/>
+            <url n="targetURL" path="public_html/WEB-INF/adfc-config.xml"/>
          </hash>
       </hash>
       <list n="runConfigurationList">
@@ -310,6 +342,10 @@
          </hash>
          <hash>
             <value n="id" v="Json-simple-1.1.1.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="JSF 2.1"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -474,10 +510,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="JSF 1.2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="JSTL 1.2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -561,10 +593,28 @@
             <value n="id" v="Json-simple-1.1.1.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="JSF 2.1"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
+   </hash>
+   <hash n="oracle.jdevimpl.webapp.facelets.libraries.ProjectFaceletsTagLibraries">
+      <list n="facelets-tag-libraries">
+         <hash>
+            <value n="libraries" v="ADF Faces Components"/>
+            <value n="name" v="appsCloudUIKitDCs"/>
+            <value n="prefix" v="acdc"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsclouduikitdcs.taglib.xml"/>
+            <value n="URI" v="/appsCloudUIKitDCs"/>
+            <value n="version" v="2.0"/>
+         </hash>
+      </list>
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
       <list n="tag-libraries">
@@ -578,28 +628,6 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/adf-richclient-impl-11.jar!/META-INF/afu.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/adf/faces/rich"/>
             <value n="version" v="11"/>
-         </hash>
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="JSF Core"/>
-               <value n="version" v="1.2"/>
-            </hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="name" v="JSF Core"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_1.2.9/glassfish.jsf_1.0.0.0_1-2-15.jar!/META-INF/jsf_core.tld"/>
-            <value n="URI" v="http://java.sun.com/jsf/core"/>
-            <value n="version" v="1.2"/>
-         </hash>
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="JSF HTML"/>
-               <value n="version" v="1.2"/>
-            </hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="name" v="JSF HTML"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_1.2.9/glassfish.jsf_1.0.0.0_1-2-15.jar!/META-INF/html_basic.tld"/>
-            <value n="URI" v="http://java.sun.com/jsf/html"/>
-            <value n="version" v="1.2"/>
          </hash>
          <hash>
             <hash n="baseLibrary">
@@ -700,6 +728,28 @@
             <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
             <value n="URI" v="/appsCloudUIKitDCs"/>
             <value n="version" v="1.0"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSF Core"/>
+               <value n="version" v="2.1"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSF Core"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_2.1/jsf-impl.jar!/META-INF/jsf_core.tld"/>
+            <value n="URI" v="http://java.sun.com/jsf/core"/>
+            <value n="version" v="2.1"/>
+         </hash>
+         <hash>
+            <hash n="baseLibrary">
+               <value n="name" v="JSF HTML"/>
+               <value n="version" v="2.1"/>
+            </hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="name" v="JSF HTML"/>
+            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.jsf_2.1/jsf-impl.jar!/META-INF/html_basic.tld"/>
+            <value n="URI" v="http://java.sun.com/jsf/html"/>
+            <value n="version" v="2.1"/>
          </hash>
       </list>
    </hash>
