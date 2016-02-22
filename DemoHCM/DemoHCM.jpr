@@ -73,6 +73,7 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFm"/>
+         <string v="Ant"/>
          <string v="HTML"/>
          <string v="JAVASCRIPT"/>
          <string v="Java"/>
@@ -82,6 +83,17 @@
          <string v="XML"/>
          <string v="JSF"/>
          <string v="ADF_FACES"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
+      <value n="makeTarget" v="all"/>
+      <url n="projectBuildfile" path="DemoHCM_build.xml"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="compile"/>
+         <string v="copy"/>
+         <string v="deploy"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
