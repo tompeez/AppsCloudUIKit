@@ -126,12 +126,15 @@ public class SessionState {
         children.add(new Node(idx++, "Financial Reports", "report", "WEB-INF/oracle/apps/uikit/fin/reports/flow/FinancialReportsFlow.xml", "FinancialReportsFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
+       /*
+        * 
         //Add Show My Contacts node
         _nodeList.add(new Node(idx++, "Map My Contacts", "signpost", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsMapFlow.xml", "ContactsMapFlow"));
         //Add Directory node
         _nodeList.add(new Node(idx++, "Directory", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         //Add Cloud Plug node
         _nodeList.add(new Node(idx++, "PaaS Cloud", "cloudplug", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+      **/   
     }//_buildNodeList
 
     private void _buildInfoletsList(){
