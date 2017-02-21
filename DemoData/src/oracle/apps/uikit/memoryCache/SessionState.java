@@ -48,8 +48,8 @@ public class SessionState {
 
     public SessionState(){
         super();
-        ADFContext.getCurrent().getSessionScope().put("loggedInUserName", "Lisa Jones");
-        ADFContext.getCurrent().getSessionScope().put("loggedInUserJob", "Group Manager");
+        //ADFContext.getCurrent().getSessionScope().put("loggedInUserName", "");
+        ADFContext.getCurrent().getSessionScope().put("loggedInUserJob", "Fan");
         setWelcomePopupActive(true);
         setWelcomeMode("springboard"); //Show icon grid by default
         setShowChildren(false); //Do not open any functional groups by default

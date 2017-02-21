@@ -32,6 +32,26 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
       <fixed-outcome>done</fixed-outcome>
     </outcome>
   </method-call>
+  <router id="LoginRouter">
+    <case id="__55">
+      <expression>#{empty sessionScope.loggedInUserName}</expression>
+      <outcome>login</outcome>
+    </case>
+    <case id="__56">
+      <expression>#{not empty sessionScope.loggedInUserName}</expression>
+      <outcome>whereTogo</outcome>
+    </case>
+    <default-outcome>home</default-outcome>
+  </router>
+  <view id="Login">
+    <page>/Login.jspx</page>
+  </view>
+  <method-call id="removeUserFromSession">
+    <method>#{backingBeanScope.UtilsBean.removeUserFromSession}</method>
+    <outcome>
+      <fixed-outcome>login</fixed-outcome>
+    </outcome>
+  </method-call>
   <control-flow-rule id="__5">
     <from-activity-id id="__6">Welcome</from-activity-id>
     <control-flow-case id="__7">
@@ -40,7 +60,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     </control-flow-case>
     <control-flow-case id="__30">
       <from-outcome id="__32">navigateTo</from-outcome>
-      <to-activity-id id="__31">NavigationRouter</to-activity-id>
+      <to-activity-id id="__31">LoginRouter</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__10">
@@ -58,7 +78,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     </control-flow-case>
     <control-flow-case id="__36">
       <from-outcome id="__38">navigateTo</from-outcome>
-      <to-activity-id id="__37">NavigationRouter</to-activity-id>
+      <to-activity-id id="__37">LoginRouter</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__20">
@@ -77,6 +97,38 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <control-flow-case id="__33">
       <from-outcome id="__35">filmStrip</from-outcome>
       <to-activity-id id="__34">FilmStrip</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__57">
+    <from-activity-id>LoginRouter</from-activity-id>
+    <control-flow-case id="__58">
+      <from-outcome>whereTogo</from-outcome>
+      <to-activity-id>NavigationRouter</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__59">
+      <from-outcome>login</from-outcome>
+      <to-activity-id>Login</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__60">
+    <from-activity-id>Login</from-activity-id>
+    <control-flow-case id="__61">
+      <from-outcome>loggedIn</from-outcome>
+      <to-activity-id>LoginRouter</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__62">
+    <from-activity-id>removeUserFromSession</from-activity-id>
+    <control-flow-case id="__63">
+      <from-outcome>login</from-outcome>
+      <to-activity-id>LoginRouter</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__64">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__65">
+      <from-outcome>logout</from-outcome>
+      <to-activity-id>removeUserFromSession</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__43">

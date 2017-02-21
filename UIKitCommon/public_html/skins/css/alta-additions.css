@@ -9,7 +9,7 @@
 }
 
 .AFGlobalBackgroundColor:alias {
-  color: #1d4a6d;
+  color: #7bb04a;
 }
 
 .AFBrandingLinkColor:alias {
@@ -17,7 +17,7 @@
 }
 
 .AFBrandingBackgroundColor:alias {
-  color: #1d4a6d;
+  color: #7bb04a;
 }
 
 .AFBrandingTextColor:alias {
@@ -37,7 +37,7 @@
 }
 
 .AFBrandingBarLogo {
-    background-image: url('/images/logo-oracle-light.png');
+    background-image: url("../../images/logo_topten_brand_green.png");
     padding-top: 5px;
     height: 25px;
     max-width: 200px;
@@ -67,7 +67,7 @@ af|goLink:link:active {
 }
 
 .FuseSelectionBorderColor:alias {
-     color: #0572ce;
+     color: #9adc5c;
 }
 
 .select-border {
@@ -104,11 +104,11 @@ af|dialog::main {
 }
 
 .AFSelectedColor:alias {
-   color: #cedceb;
+   color: #d5ebcc;
 }
 
 .AFGridCellActiveColor:alias {
-   color: #d1e4f5;
+   color: #d5ebcc;
 }
 
 .AppsGrayColor{
