@@ -190,7 +190,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                             <af:toolbar id="pt_t2">
                               <af:spacer width="20" id="pt_s3"/>
                               <af:commandLink id="pt_cl1"
-                                              text="#{uikitcommonBundle.LOGOUT}"/>
+                                              text="#{uikitcommonBundle.LOGOUT}" action="logout"/>
                             </af:toolbar>
                           </f:facet>
                           <af:spacer width="150" id="pt_s4" height="5"/>

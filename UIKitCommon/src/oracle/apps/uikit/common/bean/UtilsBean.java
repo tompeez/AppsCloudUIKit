@@ -33,14 +33,18 @@ package oracle.apps.uikit.common.bean;
 **/
 
 import java.io.IOException;
+
 import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.ValueExpression;
+
 import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.ViewHandler;
@@ -48,11 +52,14 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
 import javax.servlet.http.HttpServletResponse;
+
 import oracle.adf.controller.ControllerContext;
 import oracle.adf.share.ADFContext;
 import oracle.adf.share.security.SecurityContext;
 import oracle.adf.view.rich.context.AdfFacesContext;
+
 import org.apache.myfaces.trinidad.context.RequestContext;
 
 public class UtilsBean {
@@ -251,7 +258,7 @@ public class UtilsBean {
     //Redirect to URL
     public void redirectToUrl(String url){
         HttpServletResponse response = (HttpServletResponse)_extCtx.getResponse();
-        if (url == null) url = _extCtx.getRequestContextPath()+"/adfAuthentication?logout=true&end_url=/faces/start.jspx";
+        if (url == null) url = _extCtx.getRequestContextPath()+"/adfAuthentication?logout=true&end_url=/faces/Login.jspx";
         try{ response.sendRedirect(url); }
         catch (Exception e) { e.printStackTrace(); }
     }//redirectToUrl
@@ -270,5 +277,10 @@ public class UtilsBean {
     public Map<String, Object> getSessionParameters(){
         return _extCtx.getSessionMap();
     }//getSessionParameters
+    
+    // remove current user from session and goto Login page
+    public void removeUserFromSession(){
+        getSessionScope().put("loggedInUserName", "");
+    }
 
 }//UtilsBean

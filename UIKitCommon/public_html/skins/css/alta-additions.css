@@ -37,7 +37,7 @@
 }
 
 .AFBrandingBarLogo {
-    background-image: url('/images/logo-oracle-light.png');
+    background-image: url("../../images/logo_topten_brand_green.png");
     padding-top: 5px;
     height: 25px;
     max-width: 200px;
