@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="loginPageDef"
+                Package="oracle.apps.uikit.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UsersView1" RangeSize="25" DataControl="AppModuleDataControl" id="UsersView1Iterator"/>
+  </executables>
+ <bindings>
+    <attributeValues IterBinding="UsersView1Iterator" id="Userid">
+      <AttrNames>
+        <Item Value="Userid"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
