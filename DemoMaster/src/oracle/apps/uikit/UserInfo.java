@@ -1,8 +1,6 @@
 package oracle.apps.uikit;
 
-import java.io.Serializable;
-
-public class UserInfo implements Serializable {
+public class UserInfo {
     private int userId;
     private String firstName;
     private String lastName;

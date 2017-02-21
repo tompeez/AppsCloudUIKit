@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="oracle.apps.uikit.AppModule">
-      <AppModuleConfig DeployPlatform="LOCAL" name="AppModuleLocal" ApplicationName="oracle.apps.uikit.AppModule" jbo.project="oracle.apps.uikit.DemoMaster">
+      <AppModuleConfig name="AppModuleLocal" jbo.project="oracle.apps.uikit.DemoMaster" ApplicationName="oracle.apps.uikit.AppModule" DeployPlatform="LOCAL">
          <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="oracle.apps.uikit.AppModule"/>
-         <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/HFConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/hfDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
-      <AppModuleConfig jbo.project="oracle.apps.uikit.DemoMaster" ApplicationName="oracle.apps.uikit.AppModule" DeployPlatform="LOCAL" name="AppModuleShared">
-         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <AppModuleConfig name="AppModuleShared" jbo.project="oracle.apps.uikit.DemoMaster" ApplicationName="oracle.apps.uikit.AppModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
          <Database jbo.TypeMapEntries="OracleApps"/>
          <Security AppModuleJndiName="oracle.apps.uikit.AppModule"/>
-         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/HFConnDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/hfDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

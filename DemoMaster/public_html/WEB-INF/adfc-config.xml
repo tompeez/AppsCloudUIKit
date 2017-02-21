@@ -32,9 +32,6 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
       <fixed-outcome>done</fixed-outcome>
     </outcome>
   </method-call>
-  <view id="login">
-    <page>/login.jsf</page>
-  </view>
   <control-flow-rule id="__5">
     <from-activity-id id="__6">Welcome</from-activity-id>
     <control-flow-case id="__7">
@@ -82,13 +79,6 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
       <to-activity-id id="__34">FilmStrip</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
-  <control-flow-rule id="__56">
-    <from-activity-id>login</from-activity-id>
-    <control-flow-case id="__57">
-      <from-outcome>main1</from-outcome>
-      <to-activity-id>Welcome</to-activity-id>
-    </control-flow-case>
-  </control-flow-rule>
   <managed-bean id="__43">
     <managed-bean-name id="__42">SessionState</managed-bean-name>
     <managed-bean-class id="__41">oracle.apps.uikit.memoryCache.SessionState</managed-bean-class>
@@ -108,10 +98,5 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <managed-bean-name id="__52">WelcomeBean</managed-bean-name>
     <managed-bean-class id="__53">oracle.apps.uikit.bean.WelcomeBean</managed-bean-class>
     <managed-bean-scope id="__51">backingBean</managed-bean-scope>
-  </managed-bean>
-  <managed-bean id="__55">
-    <managed-bean-name>LoginBean</managed-bean-name>
-    <managed-bean-class>oracle.apps.uikit.bean.Login</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>

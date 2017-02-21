@@ -3,34 +3,13 @@
                 Package="oracle.apps.uikit.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables">
-      <variable Type="java.lang.String" Name="Login_UserLastName" IsQueriable="false"/>
-      <variable Type="java.lang.String" Name="Login_password" IsQueriable="false"/>
-    </variableIterator>
+    <variableIterator id="variables"/>
     <iterator Binds="UsersView1" RangeSize="25" DataControl="AppModuleDataControl" id="UsersView1Iterator"/>
-    <methodIterator Binds="Login.result" DataControl="AppModuleDataControl" RangeSize="25" id="LoginIterator"/>
   </executables>
  <bindings>
     <attributeValues IterBinding="UsersView1Iterator" id="Userid">
       <AttrNames>
         <Item Value="Userid"/>
-      </AttrNames>
-    </attributeValues>
-    <methodAction id="Login" RequiresUpdateModel="true" Action="invokeMethod" MethodName="Login"
-                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
-                  InstanceName="data.AppModuleDataControl.dataProvider"
-                  ReturnName="data.AppModuleDataControl.methodResults.Login_AppModuleDataControl_dataProvider_Login_result">
-      <NamedData NDName="UserLastName" NDType="java.lang.String" NDValue="${bindings.Login_UserLastName}"/>
-      <NamedData NDName="password" NDType="java.lang.String" NDValue="${bindings.Login_password}"/>
-    </methodAction>
-    <attributeValues IterBinding="variables" id="UserLastName">
-      <AttrNames>
-        <Item Value="Login_UserLastName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="variables" id="password">
-      <AttrNames>
-        <Item Value="Login_password"/>
       </AttrNames>
     </attributeValues>
   </bindings>

@@ -7,28 +7,11 @@
   Version="12.2.1.0.31"
   InheritPersonalization="merge"
   ClearCacheOnRollback="true"
-  ComponentClass="oracle.apps.uikit.AppModuleImpl"
-  ComponentInterface="oracle.apps.uikit.common.AppModule">
+  ComponentClass="oracle.apps.uikit.AppModuleImpl">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewUsage
     Name="UsersView1"
     ViewObjectName="oracle.apps.uikit.UsersView"/>
-  <ClientInterface
-    Name="__clientInterface">
-    <Method
-      Name="Login"
-      MethodName="Login">
-      <Return
-        Name="_return_type_"
-        Type="oracle.apps.uikit.UserInfo"/>
-      <Parameter
-        Name="UserLastName"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="password"
-        Type="java.lang.String"/>
-    </Method>
-  </ClientInterface>
 </AppModule>
