@@ -3,7 +3,8 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
         xmlns:h="http://java.sun.com/jsf/html">
     <af:document title="login.jsf" id="d1">
-            <af:pageTemplate viewId="/template.jsf" id="pt1">
+        <af:messages id="m1"/>
+        <af:pageTemplate viewId="/template.jsf" id="pt1">
             <f:facet name="Body">
                <af:panelGridLayout id="pgl6" binding="#{backingBeanScope.login.pgl6}"
                                    inlineStyle="background-color:ThreeDFace;">
@@ -19,7 +20,8 @@
                                 <af:inputText label="Username" id="it1" binding="#{backingBeanScope.login.it1}"
                                               value="#{backingBeanScope.login.lastName}"
                                               inlineStyle="color:Black; font-size:large;"/>
-                                <af:inputText label="Password" id="it2" binding="#{backingBeanScope.login.it2}"
+                        
+                                        <af:inputText label="Password" id="it2" binding="#{backingBeanScope.login.it2}"
                                               secret="true" value="#{backingBeanScope.login.password}"
                                               inlineStyle="color:Black; font-size:large;"/>
                                 <af:outputText value="#{backingBeanScope.login.loginmesssage}" id="ot2"
