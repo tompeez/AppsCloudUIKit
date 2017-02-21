@@ -20,7 +20,7 @@
                       <!-- Header -->
                         <af:panelLabelAndMessage id="pt_plam1" showRequired="false"
                                                  inlineStyle="background-color:White; color:Red; font-size:small; font-weight:bold;padding-left:80%;"/>
-                        <af:panelSplitter id="pt_ps1" orientation="horizontal" splitterPosition="95" disabled="true"
+                        <af:panelSplitter id="pt_ps1" orientation="horizontal" splitterPosition="90" disabled="true"
                                           inlineStyle="width:1008px;">
                             <f:facet name="first">
                                 <af:panelGroupLayout id="pt_pgl3"/>

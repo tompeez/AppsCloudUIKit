@@ -17,7 +17,6 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <page path="/FilmStrip.jspx" usageId="oracle_apps_uikit_FilmStripPageDef"/>
     <page path="/oracle/apps/uikit/page/Announcements.jsff"
           usageId="oracle_apps_uikit_AnnouncementsPageDef"/>
-    <page path="/login.jsf" usageId="oracle_apps_uikit_loginPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="oracle_apps_uikit_WelcomePageDef"
@@ -28,13 +27,5 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
           path="oracle.apps.uikit.pageDefs.FilmStripPageDef"/>
     <page id="oracle_apps_uikit_AnnouncementsPageDef"
           path="oracle.apps.uikit.page.AnnouncementsPageDef"/>
-    <page id="oracle_apps_uikit_loginPageDef" path="oracle.apps.uikit.pageDefs.loginPageDef"/>
   </pageDefinitionUsages>
-  <dataControlUsages>
-    <BC4JDataControl id="AppModuleDataControl" Package="oracle.apps.uikit"
-                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
-                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
-                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
-                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
-  </dataControlUsages>
 </Application>

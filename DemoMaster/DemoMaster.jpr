@@ -77,9 +77,6 @@
       <string v="oracle.mds.internal.dt.ide.MDSADFLibVirtualNodeCSProvider/mdsLibVirtualNodeContentSet"/>
    </list>
    <value n="defaultPackage" v="oracle.apps.uikit"/>
-   <value n="jbo.JpxName" v="oracle.apps.uikit.DemoMaster"/>
-   <value n="jbo.NoAttrEnumClasses" v="true"/>
-   <value n="JboProject" v="true"/>
    <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
       <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
    </hash>
@@ -88,7 +85,6 @@
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
-         <string v="ADFbc"/>
          <string v="ADFm"/>
          <string v="HTML"/>
          <string v="JAVASCRIPT"/>
@@ -101,31 +97,7 @@
          <string v="ADF_FACES"/>
       </list>
    </hash>
-   <value n="oracle.jbo.SavedPreferences" v="true"/>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
-      <list n="copyRes">
-         <string v=".cpx"/>
-         <string v=".dcx"/>
-         <string v=".ejx"/>
-         <string v=".gif"/>
-         <string v=".ini"/>
-         <string v=".jpeg"/>
-         <string v=".jpg"/>
-         <string v=".png"/>
-         <string v=".properties"/>
-         <string v=".sva"/>
-         <string v=".tag"/>
-         <string v=".tld"/>
-         <string v=".wsdl"/>
-         <string v=".xcfg"/>
-         <string v=".xlf"/>
-         <string v=".xml"/>
-         <string v=".xsd"/>
-         <string v=".xsl"/>
-         <string v=".jpx"/>
-         <string v=".rpx"/>
-         <string v=".bcs"/>
-      </list>
       <value n="internalEncoding" v="UTF-8"/>
       <list n="Javac.commandline.optionlist">
          <string v="-g"/>
@@ -218,52 +190,9 @@
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
             <value n="profileName" v="AppsCloudUIKit"/>
          </hash>
-         <hash n="AppsCloudUIKit_DemoMaster">
-            <value n="adflib-connectionDetails" v="true"/>
-            <value n="adflib-nonReusablesError" v="false"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
-            </hash>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="WEB-INF/classes/**"/>
-                              <value n="type" v="1"/>
-                           </hash>
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="deploy/AppsCloudUIKit_DemoMaster.jar"/>
-            <hash n="LibraryDependencies">
-               <list n="dependencyList"/>
-            </hash>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="AppsCloudUIKit_DemoMaster"/>
-         </hash>
       </hash>
       <list n="profileList">
          <string v="AppsCloudUIKit"/>
-         <string v="AppsCloudUIKit_DemoMaster"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -338,6 +267,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="JSF 1.2"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="JSTL 1.2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -375,6 +308,10 @@
          </hash>
          <hash>
             <value n="id" v="ADF Faces Databinding Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Model Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -427,42 +364,6 @@
          </hash>
          <hash>
             <value n="id" v="Oracle Page Templates"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle XML Parser v2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="JDeveloper Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Connection Manager"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons-lang3-3.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -575,15 +476,6 @@
                <value n="id" v="Json-simple-1.1.1.jar"/>
                <value n="locked" v="true"/>
             </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../JavaLibs/commons-lang3-3.4-bin/commons-lang3-3.4/commons-lang3-3.4.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Commons-lang3-3.4.jar"/>
-               <value n="id" v="Commons-lang3-3.4.jar"/>
-               <value n="locked" v="true"/>
-            </hash>
          </list>
       </hash>
       <list n="libraryReferences">
@@ -676,6 +568,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="ADF Model Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -725,42 +621,6 @@
          </hash>
          <hash>
             <value n="id" v="Oracle Page Templates"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Security"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle XML Parser v2"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="JDeveloper Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF Model Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Runtime"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Oracle JDBC"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Connection Manager"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons-lang3-3.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

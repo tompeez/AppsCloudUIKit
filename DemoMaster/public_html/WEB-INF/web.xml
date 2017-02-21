@@ -81,12 +81,6 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <listener>
     <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
   </listener>
-  <listener>
-    <listener-class>oracle.adf.mbean.share.connection.ADFConnectionLifeCycleCallBack</listener-class>
-  </listener>
-  <listener>
-    <listener-class>oracle.bc4j.mbean.BC4JConfigLifeCycleCallBack</listener-class>
-  </listener>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -155,10 +149,6 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <mime-mapping>
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
-  </mime-mapping>
-  <mime-mapping>
-    <extension>amf</extension>
-    <mime-type>application/x-amf</mime-type>
   </mime-mapping>
   <jsp-config>
     <jsp-property-group>
