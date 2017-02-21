@@ -282,9 +282,21 @@
             <value n="runActiveFile" v="false"/>
             <url n="targetURL" path="public_html/WEB-INF/adfc-config.xml"/>
          </hash>
+         <hash n="Login">
+            <value n="custom" v="false"/>
+            <value n="name" v="Login"/>
+            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
+               <value n="unboundedTaskFlow" v="true"/>
+               <value n="viewActivityId" v="login"/>
+            </hash>
+            <value n="runActiveFile" v="false"/>
+            <url n="runDirectoryURL" path="."/>
+            <url n="targetURL" path="public_html/WEB-INF/adfc-config.xml"/>
+         </hash>
       </hash>
       <list n="runConfigurationList">
          <string v="Default"/>
+         <string v="Login"/>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectLibraries">
@@ -434,6 +446,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Commons-lang3-3.4.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -455,14 +471,6 @@
          </hash>
          <hash>
             <value n="id" v="Connection Manager"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons-lang3-3.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -732,6 +740,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="Commons-lang3-3.4.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -753,14 +765,6 @@
          </hash>
          <hash>
             <value n="id" v="Connection Manager"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Commons-lang3-3.4.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

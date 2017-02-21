@@ -1,5 +1,7 @@
 package oracle.apps.uikit;
 
+import oracle.apps.uikit.common.AppModule;
+
 import oracle.jbo.Row;
 import oracle.jbo.ViewCriteria;
 import oracle.jbo.ViewCriteriaRow;
@@ -12,7 +14,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class AppModuleImpl extends ApplicationModuleImpl {
+public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     /**
      * This is the default constructor (do not remove).
      */
