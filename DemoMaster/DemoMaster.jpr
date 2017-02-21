@@ -621,6 +621,20 @@
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
    </hash>
+   <hash n="oracle.jdevimpl.webapp.facelets.libraries.ProjectFaceletsTagLibraries">
+      <list n="facelets-tag-libraries">
+         <hash>
+            <value n="libraries" v="ADF Faces Components"/>
+            <value n="name" v="appsCloudUIKitDCs"/>
+            <value n="prefix" v="acdc"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="taglibURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsclouduikitdcs.taglib.xml"/>
+            <value n="URI" v="/appsCloudUIKitDCs"/>
+            <value n="version" v="2.0"/>
+         </hash>
+      </list>
+   </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
       <list n="tag-libraries">
          <hash>
