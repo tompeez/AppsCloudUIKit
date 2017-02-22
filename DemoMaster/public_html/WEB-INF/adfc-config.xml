@@ -151,4 +151,9 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <managed-bean-class id="__53">oracle.apps.uikit.bean.WelcomeBean</managed-bean-class>
     <managed-bean-scope id="__51">backingBean</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__66">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>oracle.apps.uikit.bean.LoginBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

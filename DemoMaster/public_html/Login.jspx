@@ -4,6 +4,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="Login" id="d1">
+            <af:messages id="m1"/>
             <af:form id="f1">
                 <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/SimpleUIShell.jspx" id="pt1">
                     <f:facet name="globalNavigator"/>
@@ -20,8 +21,9 @@
                                     <f:facet name="footer"/>
                                     <af:outputText value="Bitte melden Sie sich an" id="ot1"/>
                                     <af:inputText label="Name" id="it1" value="#{sessionScope.loggedInUserName}"/>
-                                    <af:inputText label="Passwort" id="it2"/>
-                                    <af:button text="Anmelden" id="b1" action="loggedIn"/>
+                                    <af:inputText label="Passwort" id="it2"
+                                                  value="#{bindings.userPassword1.inputValue}" secret="true"/>
+                                    <af:button text="Anmelden" id="b1" action="#{LoginBean.Login_Action}"/>
                                 </af:panelFormLayout>
                             </f:facet>
                         </af:panelStretchLayout>

@@ -13,6 +13,14 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="bindUsername"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindPassword"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="HfUser"
     Entity="de.adfprojectsesions.hf.model.adfbc.entities.HfUser"/>
@@ -22,7 +30,8 @@
     PrecisionRule="true"
     EntityAttrName="IntKey"
     EntityUsage="HfUser"
-    AliasName="INT_KEY"/>
+    AliasName="INT_KEY"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="Username"
     IsNotNull="true"
@@ -55,6 +64,52 @@
     EntityAttrName="LastChange"
     EntityUsage="HfUser"
     AliasName="LAST_CHANGE"/>
+  <ViewCriteria
+    Name="HfUserLoginCriteria"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfUserView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="HfUserViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Username"
+        ViewAttribute="Username"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindUsername"
+        ValidateBindVars="true"
+        IsBindVarValue="true"
+        Required="Required"/>
+      <ViewCriteriaItem
+        Name="Password"
+        ViewAttribute="Password"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindPassword"
+        ValidateBindVars="true"
+        IsBindVarValue="true"
+        Required="Required"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="HfPlaylistView"
     ViewLink="de.adfprojectsesions.hf.model.adfbc.views.viewlinks.HfPlaylistHfUserFk1Link"

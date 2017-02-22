@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="LoginPageDef"
+                Package="oracle.apps.uikit.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="userPassword" Type="java.land.String"/>
+    </variableIterator>
+    <iterator Binds="HfUserLoginView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfUserLoginViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="variables" id="userPassword1">
+      <AttrNames>
+        <Item Value="userPassword"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="HfUserLoginViewIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="bindUsername" NDType="java.lang.String"/>
+      <NamedData NDName="bindPassword" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

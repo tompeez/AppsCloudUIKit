@@ -17,6 +17,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <page path="/FilmStrip.jspx" usageId="oracle_apps_uikit_FilmStripPageDef"/>
     <page path="/oracle/apps/uikit/page/Announcements.jsff"
           usageId="oracle_apps_uikit_AnnouncementsPageDef"/>
+    <page path="/Login.jspx" usageId="oracle_apps_uikit_LoginPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="oracle_apps_uikit_WelcomePageDef"
@@ -27,5 +28,13 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
           path="oracle.apps.uikit.pageDefs.FilmStripPageDef"/>
     <page id="oracle_apps_uikit_AnnouncementsPageDef"
           path="oracle.apps.uikit.page.AnnouncementsPageDef"/>
+    <page id="oracle_apps_uikit_LoginPageDef" path="oracle.apps.uikit.pageDefs.LoginPageDef"/>
   </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="HFAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
 </Application>
