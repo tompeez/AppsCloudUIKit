@@ -37,6 +37,7 @@
       <hash><url n="URL" path="DemoFIN/DemoFIN.jpr"/></hash>
       <hash><url n="URL" path="DemoHCM/DemoHCM.jpr"/></hash>
       <hash><url n="URL" path="DemoMaster/DemoMaster.jpr"/></hash>
+      <hash><url n="URL" path="HFModel/HFModel.jpr"/></hash>
       <hash><url n="URL" path="UIKitCommon/UIKitCommon.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">

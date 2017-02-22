@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HfPlaylistRat"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="HF_PLAYLIST_RAT"
+  AliasName="HfPlaylistRat"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="IntKey"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="INT_KEY"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_RAT"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Rating"
+    IsNotNull="true"
+    Precision="1"
+    Scale="0"
+    ColumnName="RATING"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_RAT"/>
+  <Attribute
+    Name="Description"
+    Precision="2000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_RAT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HfPlaylistIk"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="HF_PLAYLIST_IK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_RAT"/>
+  <Attribute
+    Name="RaterName"
+    Precision="255"
+    ColumnName="RATER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_RAT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IntSeq"
+    Precision="10"
+    Scale="0"
+    ColumnName="INT_SEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_RAT"/>
+  <Attribute
+    Name="LastChange"
+    ColumnName="LAST_CHANGE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="HF_PLAYLIST_RAT"/>
+  <AccessorAttribute
+    Name="HfPlaylist"
+    Association="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistRatFk1Assoc"
+    AssociationEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistRatFk1Assoc.HfPlaylist"
+    AssociationOtherEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistRatFk1Assoc.HfPlaylistRat"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="HfPlaylistRatPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_RAT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylistRat.IntKey"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="HfPlaylistRatFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="HF_PLAYLIST_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_RAT_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylistRat.HfPlaylistIk"/>
+    </AttrArray>
+  </Key>
+</Entity>

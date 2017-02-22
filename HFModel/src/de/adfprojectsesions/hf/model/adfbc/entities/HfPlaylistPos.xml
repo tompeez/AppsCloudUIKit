@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HfPlaylistPos"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="HF_PLAYLIST_POS"
+  AliasName="HfPlaylistPos"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="IntKey"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="INT_KEY"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_POS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="HfPlaylistIk"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="HF_PLAYLIST_IK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_POS"/>
+  <Attribute
+    Name="OrderNum"
+    Precision="3"
+    Scale="0"
+    ColumnName="ORDER_NUM"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_POS"/>
+  <Attribute
+    Name="IntSeq"
+    Precision="10"
+    Scale="0"
+    ColumnName="INT_SEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST_POS"/>
+  <Attribute
+    Name="LastChange"
+    ColumnName="LAST_CHANGE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="HF_PLAYLIST_POS"/>
+  <Attribute
+    Name="TrackName"
+    Precision="255"
+    ColumnName="TRACK_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Album"
+    Precision="255"
+    ColumnName="ALBUM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Artist"
+    Precision="255"
+    ColumnName="ARTIST"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ArtistId"
+    Precision="255"
+    ColumnName="ARTIST_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AlbumId"
+    Precision="255"
+    ColumnName="ALBUM_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TrackId"
+    Precision="255"
+    ColumnName="TRACK_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Genre"
+    Precision="255"
+    ColumnName="GENRE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImageUrl"
+    Precision="255"
+    ColumnName="IMAGE_URL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST_POS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="HfPlaylist"
+    Association="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistPosFk1Assoc"
+    AssociationEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistPosFk1Assoc.HfPlaylist"
+    AssociationOtherEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistPosFk1Assoc.HfPlaylistPos"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="HfPlaylistPosPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_POS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylistPos.IntKey"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="HfPlaylistPosFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="HF_PLAYLIST_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_POS_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylistPos.HfPlaylistIk"/>
+    </AttrArray>
+  </Key>
+</Entity>

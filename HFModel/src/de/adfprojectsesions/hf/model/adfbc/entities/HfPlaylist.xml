@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="HfPlaylist"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="HF_PLAYLIST"
+  AliasName="HfPlaylist"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="IntKey"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="INT_KEY"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="PlaylistName"
+    IsNotNull="true"
+    Precision="255"
+    ColumnName="PLAYLIST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="255"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HfCatIk"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="HF_CAT_IK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST"/>
+  <Attribute
+    Name="HfUserIk"
+    IsNotNull="true"
+    Precision="11"
+    Scale="0"
+    ColumnName="HF_USER_IK"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST"/>
+  <Attribute
+    Name="Description"
+    Precision="2000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IntSeq"
+    Precision="10"
+    Scale="0"
+    ColumnName="INT_SEQ"
+    SQLType="NUMERIC"
+    Type="java.lang.Long"
+    ColumnType="NUMBER"
+    TableName="HF_PLAYLIST"/>
+  <Attribute
+    Name="LastChange"
+    ColumnName="LAST_CHANGE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="HF_PLAYLIST"/>
+  <Attribute
+    Name="ShareFlag"
+    Precision="1"
+    ColumnName="SHARE_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="HF_PLAYLIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="HfCat"
+    Association="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistHfCatFk1Assoc"
+    AssociationEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistHfCatFk1Assoc.HfCat"
+    AssociationOtherEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistHfCatFk1Assoc.HfPlaylist"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="HfPlaylistPos"
+    Association="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistPosFk1Assoc"
+    AssociationEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistPosFk1Assoc.HfPlaylistPos"
+    AssociationOtherEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistPosFk1Assoc.HfPlaylist"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="HfPlaylistRat"
+    Association="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistRatFk1Assoc"
+    AssociationEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistRatFk1Assoc.HfPlaylistRat"
+    AssociationOtherEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistRatFk1Assoc.HfPlaylist"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="HfUser"
+    Association="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistHfUserFk1Assoc"
+    AssociationEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistHfUserFk1Assoc.HfUser"
+    AssociationOtherEnd="de.adfprojectsesions.hf.model.adfbc.entities.assocs.HfPlaylistHfUserFk1Assoc.HfPlaylist"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="HfPlaylistPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.IntKey"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="HfPlaylistHfCatFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="HF_CAT_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_HF_CAT_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfCatIk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="HfPlaylistHfUserFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="HF_USER_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HF_PLAYLIST_HF_USER_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfUserIk"/>
+    </AttrArray>
+  </Key>
+</Entity>
