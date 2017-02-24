@@ -113,6 +113,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <url-pattern>/afr/*</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>resources</servlet-name>
+    <url-pattern>/images/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>BIGRAPHSERVLET</servlet-name>
     <url-pattern>/servlet/GraphServlet/*</url-pattern>
   </servlet-mapping>

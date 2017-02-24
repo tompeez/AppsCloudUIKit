@@ -14,7 +14,7 @@ public class Node {
     private String _icon; //base icon name only e.g. 'dashboard'
     private String _taskFlowId;
     private String _taskFlowName;
-    private String _iconType = "dot";
+    private String _iconType = "shiny";
     private boolean _group;
     private boolean _showChildren;
     private List<Node> _children;

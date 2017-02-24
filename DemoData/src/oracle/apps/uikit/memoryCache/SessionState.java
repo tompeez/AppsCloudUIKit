@@ -48,7 +48,6 @@ public class SessionState {
 
     public SessionState(){
         super();
-        //ADFContext.getCurrent().getSessionScope().put("loggedInUserName", "");
         ADFContext.getCurrent().getSessionScope().put("loggedInUserJob", "Fan");
         setWelcomePopupActive(true);
         setWelcomeMode("springboard"); //Show icon grid by default
@@ -92,46 +91,47 @@ public class SessionState {
         //unique id, name, base icon, task flow id, task flow name
         //
         //Build the Sales group and children
-        newNode = new Node(idx++, "Sales", "cluster", "", "");
+        newNode = new Node(idx++, "Playlisten", "cluster", "", "");
         children = new ArrayList<Node>();
         children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Leads", "contactbowl", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Campaigns", "envelopechart", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Opportunities", "briefcasecash", "WEB-INF/oracle/apps/uikit/crm/opportunities/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
-        children.add(new Node(idx++, "Forecasts", "crystalball", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Accounts", "buildings", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Contacts", "contacts", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsFlow.xml", "ContactsFlow"));
-        children.add(new Node(idx++, "Activities", "calendarclipboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Light Box", "lightbulbbox", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Service Feedback", "envelope", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Alle Listen", "cluster", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Geteilte Listen", "peopleconnect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Nach Kategorien", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Opportunities", "briefcasecash", "WEB-INF/oracle/apps/uikit/crm/opportunities/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
+//        children.add(new Node(idx++, "Forecasts", "crystalball", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Accounts", "buildings", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Contacts", "contacts", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsFlow.xml", "ContactsFlow"));
+//        children.add(new Node(idx++, "Activities", "calendarclipboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Light Box", "lightbulbbox", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Service Feedback", "envelope", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
         //Build the My Team group and children
-        newNode = new Node(idx++, "My Team", "cluster", "", "");
+        newNode = new Node(idx++, "Stammdaten", "formwrench", "", "");
         children = new ArrayList<Node>();
-        children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "New Person", "personnew", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "My Team", "group", "WEB-INF/oracle/apps/uikit/hcm/myTeam/flow/MyTeamFlow.xml", "MyTeamFlow"));
-        children.add(new Node(idx++, "Manage Users", "personselect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Team Talent", "persongrid", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Team Goals", "persontarget", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Team Performance", "persongraph", "WEB-INF/oracle/apps/uikit/hcm/performance/flow/PerformanceFlow.xml", "PerformanceFlow"));
+//        children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Kategorien", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Anwender", "personedit", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Manage Users", "personselect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Team Talent", "persongrid", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Team Goals", "persontarget", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Team Performance", "persongraph", "WEB-INF/oracle/apps/uikit/hcm/performance/flow/PerformanceFlow.xml", "PerformanceFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
         //Build the Finance group and children
-        newNode = new Node(idx++, "General Accounting", "cluster", "", "");
+        newNode = new Node(idx++, "Einstellungen", "configure", "", "");
         children = new ArrayList<Node>();
-        children.add(new Node(idx++, "Journals", "ledger", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Period Close", "ledgerclock", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Financial Reports", "report", "WEB-INF/oracle/apps/uikit/fin/reports/flow/FinancialReportsFlow.xml", "FinancialReportsFlow"));
+        children.add(new Node(idx++, "Listen", "formwrench", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Anzeige", "controls", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "weitere Einstellungen", "gears", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
         //Add Show My Contacts node
-        _nodeList.add(new Node(idx++, "Map My Contacts", "signpost", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsMapFlow.xml", "ContactsMapFlow"));
+//        _nodeList.add(new Node(idx++, "Map My Contacts", "signpost", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsMapFlow.xml", "ContactsMapFlow"));
         //Add Directory node
-        _nodeList.add(new Node(idx++, "Directory", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        _nodeList.add(new Node(idx++, "Directory", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         //Add Cloud Plug node
-        _nodeList.add(new Node(idx++, "PaaS Cloud", "cloudplug", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        _nodeList.add(new Node(idx++, "PaaS Cloud", "cloudplug", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
     }//_buildNodeList
 
     private void _buildInfoletsList(){

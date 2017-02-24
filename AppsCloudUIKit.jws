@@ -174,4 +174,9 @@
          </list>
       </hash>
    </hash>
+   <hash n="oracle.mds.internal.dt.ide.CustOptions">
+      <list n="customizationLibraries">
+         <hash/>
+      </list>
+   </hash>
 </jws:workspace>
