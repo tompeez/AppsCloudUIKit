@@ -23,7 +23,13 @@
                                     <af:inputText label="Name" id="it1" value="#{sessionScope.loggedInUserName}"/>
                                     <af:inputText label="Passwort" id="it2"
                                                   value="#{bindings.userPassword1.inputValue}" secret="true"/>
-                                    <af:button text="Anmelden" id="b1" action="#{LoginBean.Login_Action}"/>
+                                    <af:button text="Anmelden" id="b1"
+                                               actionListener="#{LoginBean.onAnmelden}"/>
+                                    <af:panelGroupLayout id="pgl1">
+                                        <af:outputText value="Sie haben noch keinen Account?" id="ot2"/>
+                                        <af:spacer width="10" height="10" id="s1"/>
+                                        <af:link text="Registrieren" id="l1"/>
+                                    </af:panelGroupLayout>
                                 </af:panelFormLayout>
                             </f:facet>
                         </af:panelStretchLayout>

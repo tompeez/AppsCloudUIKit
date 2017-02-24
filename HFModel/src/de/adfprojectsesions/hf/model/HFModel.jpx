@@ -11,7 +11,7 @@
     <Attr Name="_DTExpressionTypeChecking" Value="true"/>
     <Attr Name="_jbo.TypeMapEntries" Value="OracleApps"/>
     <Attr Name="_jprName" Value="../../../../../HFModel.jpr"/>
-    <Attr Name="_NamedConnection" Value="HFConn"/>
+    <Attr Name="_NamedConnection" Value="HfConn"/>
     <Attr Name="_appModuleNames0" Value="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule"/>
   </DesignTime>
   <Containee

@@ -16,11 +16,13 @@
   <Variable
     Name="bindUsername"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="java.lang.String"
+    DefaultValue="-"/>
   <Variable
     Name="bindPassword"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="java.lang.String"
+    DefaultValue="-"/>
   <EntityUsage
     Name="HfUser"
     Entity="de.adfprojectsesions.hf.model.adfbc.entities.HfUser"/>
@@ -96,18 +98,20 @@
         Operator="="
         Conjunction="AND"
         Value=":bindUsername"
-        ValidateBindVars="true"
         IsBindVarValue="true"
-        Required="Required"/>
+        Required="Required"
+        UpperColumns="1"
+        ValidateBindVars="true"/>
       <ViewCriteriaItem
         Name="Password"
         ViewAttribute="Password"
         Operator="="
         Conjunction="AND"
         Value=":bindPassword"
-        ValidateBindVars="true"
         IsBindVarValue="true"
-        Required="Required"/>
+        Required="Required"
+        UpperColumns="0"
+        ValidateBindVars="true"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

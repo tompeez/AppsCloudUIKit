@@ -3,6 +3,14 @@ package oracle.apps.uikit.bean;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.application.FacesMessage;
+
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+
+import javax.faces.event.ActionEvent;
+
+import oracle.adf.controller.ControllerContext;
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
@@ -15,14 +23,24 @@ import oracle.binding.OperationBinding;
 import oracle.jbo.Row;
 
 public class LoginBean {
+    private static final String VIEWID_WELCOMEPAGE = "Welcome";
+    private static final String MSG_METHODNOTFOUND =
+        "Die Anmelderoutine konnte aktuell nicht ausgeführt werden! Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.";
+    private static final String MSG_ERROR = "Fehler";
+    private static final String MSG_NAMEPWDWRONG =
+        "Es konnte keine Anmeldung mit den von Ihnen angegebenen Werten gefunden werden";
+
     public LoginBean() {
         super();
     }
 
-    public String Login_Action() {
+
+    public void onAnmelden(ActionEvent actionEvent) {
         // GET A METHOD FROM PAGEDEF AND EXECUTE IT
         // get the binding container
         BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        UIComponent ui = (UIComponent) actionEvent.getSource();
 
 
         // get an ADF attributevalue from the ADF page definitions
@@ -35,9 +53,12 @@ public class LoginBean {
 
         // get an Action or MethodAction
         OperationBinding method = bindings.getOperationBinding("ExecuteWithParams");
-        if (method == null) {
+        if (method ==
+            null) {
             // handle method not found error...
-
+            FacesMessage msg =
+      new FacesMessage(FacesMessage.SEVERITY_ERROR, MSG_ERROR, MSG_METHODNOTFOUND);
+            facesContext.addMessage(ui.getClientId(facesContext), msg);
         }
         // if there are parameters to set...
         Map paramsMap = method.getParamsMap();
@@ -59,18 +80,25 @@ public class LoginBean {
         DCBindingContainer dcBindings = (DCBindingContainer) bindings;
         // Get a attribute value of the current row of iterator
         DCIteratorBinding iterBind = (DCIteratorBinding) dcBindings.get("HfUserLoginViewIterator");
-        
+
         Row currentRow = iterBind.getCurrentRow();
         if (currentRow != null) {
             //            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("userKey", user);
             String userLongName = (String) currentRow.getAttribute("Longname");
             String userName = (String) currentRow.getAttribute("Username");
             sessionParamsVar2.put("loggedInUserName", userLongName);
-            return "loggedIn";
+            // Navigation zur Welcome Seite
+            ControllerContext ccontext = ControllerContext.getInstance();
+            //set the viewId – the name of the view activity to
+            //go to - to display
+            String viewId = VIEWID_WELCOMEPAGE;
+            ccontext.getCurrentViewPort().setViewId(viewId);
+            return;
         }
-        //        setLoginmesssage("Username und das Passwort, stimmen nicht überein.");
-        //        setNoteslable("");
-        //        password = null;
-        return null;
+
+        // Keinen passenden Login gefunden -> Fehlermeldung anzeigen
+        FacesMessage msg =
+            new FacesMessage(FacesMessage.SEVERITY_ERROR, MSG_ERROR, MSG_NAMEPWDWRONG);
+        facesContext.addMessage(ui.getClientId(facesContext), msg);
     }
 }
