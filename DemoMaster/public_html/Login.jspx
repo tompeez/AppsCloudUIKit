@@ -3,7 +3,7 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="Login" id="d1">
+        <af:document title="Login xxyyzz" id="d1">
             <af:messages id="m1"/>
             <af:form id="f1">
                 <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/SimpleUIShell.jspx" id="pt1">

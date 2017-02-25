@@ -18,13 +18,13 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
       <af:panelGroupLayout id="pgl2" layout="vertical"
                            styleClass="feeds-front-top-panel AFStretchWidth">
         <af:panelStretchLayout id="psl1" dimensionsFrom="children"
-                               startWidth="auto" endWidth="25px"
+                               startWidth="auto" endWidth="0px"
                                topHeight="0px" bottomHeight="0px">
           <f:facet name="start">
             <af:panelGroupLayout id="pgl4" valign="top" layout="horizontal">
               <af:image source="/images/qual_placeholderperson_53.png"
                         shortDesc="#{demomasterBundle.DEFAULT_PERSON_IMAGE}"
-                        id="i1" inlineStyle="max-width:55px; max-height:70px;"/>
+                        id="i1" inlineStyle="max-width:55px; max-height:60px;"/>
               <af:spacer width="10" height="10" id="s2"/>
             </af:panelGroupLayout>
           </f:facet>
@@ -39,210 +39,12 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                              styleClass="text-normal-3 feeds-medium-text truncate-text"/>
             </af:panelGroupLayout>
           </f:facet>
-          <f:facet name="end">
-            <af:panelGroupLayout id="pgl5" layout="vertical" halign="end"
-                                 valign="bottom" styleClass="AFStretchWidth">
-              <af:spacer height="40" id="s3"/>
-              <af:commandImageLink id="cil1" partialSubmit="true"
-                                   icon="/images/func_messageadd_24_ena.png"
-                                   disabledIcon="/images/func_messageadd_24_dis.png"
-                                   hoverIcon="/images/func_messageadd_24_hov.png"
-                                   depressedIcon="/images/func_messageadd_24_act.png"/>
-            </af:panelGroupLayout>
-          </f:facet>
+          <f:facet name="end"/>
         </af:panelStretchLayout>
-      </af:panelGroupLayout>
-      <af:panelGroupLayout id="pgl1" layout="vertical"
-                           styleClass="AFStretchWidth osn-wall-panel feeds-front-top-panel-bottom-size">
-        <af:panelFormLayout id="pfl1" fieldWidth="100%"
-                            styleClass="AFStretchWidth">
-          <af:inputText id="it1" simple="true"
-                        placeholder="#{demoMasterBundle.SHARE_THOUGHTS_WITH_YOUR_COLLE}"
-                        styleClass="osn-wall-pane-input AFStretchWidth"/>
-        </af:panelFormLayout>
       </af:panelGroupLayout>
       <af:spacer width="15" height="15" id="s1"/>
       <af:panelGroupLayout id="pgl3" layout="vertical"
-                           styleClass="feeds-front-bottom-panel AFStretchWidth">
-        <af:spacer width="10" height="10" id="s4"/>
-        <af:panelGridLayout id="pgl7">
-          <af:gridRow id="gr1">
-            <af:gridCell width="30%" id="gc2"
-                         halign="stretch" valign="middle">
-              <af:panelGroupLayout id="pgl8" halign="center" layout="vertical">
-                <af:outputText value="#{'23'}" id="ot2"
-                               styleClass="text-sapphire feeds-number truncate-text"/>
-                <af:outputText id="ot5"
-                               value="#{demoMasterBundle.CONVERSATIONS}"
-                               styleClass="text-normal-3 feeds-medium-text truncate-text"/>
-                <af:spacer width="5" height="5" id="s14"/>
-              </af:panelGroupLayout>
-            </af:gridCell>
-            <af:gridCell width="5%" id="gc3"
-                         halign="center">
-              <af:image source="/images/seperator_img.png" shortDesc="#{''}"
-                        id="i2" styleClass="separator"/>
-            </af:gridCell>
-            <af:gridCell width="30%" id="gc5"
-                         halign="stretch" valign="middle">
-              <af:panelGroupLayout id="pgl9" layout="vertical" halign="center">
-                <af:outputText value="#{'70'}" id="ot3"
-                               styleClass="text-sapphire feeds-number truncate-text"/>
-                <af:outputText value="#{demoMasterBundle.FOLLOWING}" id="ot6"
-                               styleClass="text-normal-3 feeds-medium-text truncate-text"/>
-                <af:spacer width="5" height="5" id="s15"/>
-              </af:panelGroupLayout>
-            </af:gridCell>
-            <af:gridCell width="5%" id="gc4"
-                         halign="center">
-              <af:image source="/images/seperator_img.png" shortDesc="#{''}"
-                        id="i3" styleClass="separator"/>
-            </af:gridCell>
-            <af:gridCell width="30%"
-                         id="gc1" halign="stretch" valign="middle">
-              <af:panelGroupLayout id="pgl10" layout="vertical"
-                                   halign="center">
-                <af:outputText value="#{'17'}" id="ot4"
-                               styleClass="text-sapphire feeds-number truncate-text"/>
-                <af:outputText value="#{demoMasterBundle.FOLLOWERS}" id="ot7"
-                               styleClass="text-normal-3 feeds-medium-text truncate-text"/>
-                <af:spacer width="5" height="5" id="s16"/>
-              </af:panelGroupLayout>
-            </af:gridCell>
-          </af:gridRow>
-        </af:panelGridLayout>
-        <af:separator id="s5"/>
-        <af:panelGroupLayout id="pgl11" layout="scroll"
-                             styleClass="feeds-front-bottom-panel-bottom-area spacerBorder AFStretchWidth"
-                             inlineStyle="text-align:left;">
-          <af:panelGridLayout id="pgl23" dimensionsFrom="children">
-            <af:gridRow id="gr5" height="45px">
-              <af:gridCell id="gc16" valign="middle" width="30px"
-                           marginStart="10px">
-                <af:outputText value="#{'1'}" id="ot21"
-                               styleClass="feeds-number-card box-green"/>
-              </af:gridCell>
-              <af:gridCell id="gc17" halign="stretch" valign="middle"
-                           width="100%" marginStart="15px">
-                <af:outputText value="#{demoMasterBundle.WELCOME_TO_THE_RDK}"
-                               id="ot22"
-                               styleClass="nowrap text-normal-1 feeds-title"/>
-              </af:gridCell>
-              <af:gridCell id="gc15" halign="end" valign="middle" width="35px"
-                           marginStart="10px" marginEnd="10px">
-                <af:commandImageLink id="cil8"
-                                     icon="/images/func_circlearrow_24_ena.png"
-                                     disabledIcon="/images/func_circlearrow_24_dis.png"
-                                     hoverIcon="/images/func_circlearrow_24_hov.png"
-                                     depressedIcon="/images/func_circlearrow_24_act.png"
-                                     partialSubmit="true">
-                  <af:setPropertyListener from="#{'backEmployeeNews'}"
-                                          to="#{pageFlowScope.feedsDeck}"
-                                          type="action"/>
-                  <af:setPropertyListener from="#{'welcome'}"
-                                          to="#{pageFlowScope.backFace}"
-                                          type="action"/>
-                </af:commandImageLink>
-              </af:gridCell>
-            </af:gridRow>
-          </af:panelGridLayout>
-          <af:separator id="s26"/>
-          <af:panelGridLayout id="pgl16" dimensionsFrom="children">
-            <af:gridRow height="45px"
-                        id="gr2">
-              <af:gridCell width="30px" id="gc8" valign="middle"
-                           marginStart="10px">
-                <af:outputText value="#{'2'}" id="ot8"
-                               styleClass="feeds-number-card box-green"/>
-              </af:gridCell>
-              <af:gridCell width="100%" id="gc7" valign="middle"
-                           halign="stretch" marginStart="15px">
-                <af:outputText value="#{demoMasterBundle.EMPLOYEE_NEWS}"
-                               id="ot9"
-                               styleClass="nowrap text-normal-1 feeds-title"/>
-              </af:gridCell>
-              <af:gridCell width="35px"
-                           id="gc6" valign="middle" halign="end"
-                           marginEnd="10px" marginStart="10px">
-                <af:commandImageLink id="cil2"
-                                     icon="/images/func_circlearrow_24_ena.png"
-                                     disabledIcon="/images/func_circlearrow_24_dis.png"
-                                     hoverIcon="/images/func_circlearrow_24_hov.png"
-                                     depressedIcon="/images/func_circlearrow_24_act.png"
-                                     partialSubmit="true">
-                  <af:setPropertyListener from="#{'backEmployeeNews'}"
-                                          to="#{pageFlowScope.feedsDeck}"
-                                          type="action"/>
-                  <af:setPropertyListener from="#{'news'}"
-                                          to="#{pageFlowScope.backFace}"
-                                          type="action"/>
-                </af:commandImageLink>
-              </af:gridCell>
-            </af:gridRow>
-          </af:panelGridLayout>
-          <af:separator id="s7"/>
-          <af:panelGridLayout id="pgl12" dimensionsFrom="children">
-            <af:gridRow height="45px"
-                        id="gr3">
-              <af:gridCell marginStart="10px" width="30px" id="gc10"
-                           valign="middle">
-                <af:outputText value="#{'0'}" id="ot12"
-                               styleClass="feeds-number-card box-orange"/>
-              </af:gridCell>
-              <af:gridCell marginStart="15px" width="100%" id="gc11"
-                           halign="stretch" valign="middle">
-                <af:outputText value="#{demoMasterBundle.MY_FLAGS}"
-                               id="ot10"
-                               styleClass="nowrap text-normal-1 feeds-title"/>
-              </af:gridCell>
-              <af:gridCell marginStart="10px" width="35px" marginEnd="10px"
-                           id="gc9" halign="end" valign="middle">
-                <af:commandImageLink id="cil3"
-                                     icon="/images/func_circlearrow_24_ena.png"
-                                     disabledIcon="/images/func_circlearrow_24_dis.png"
-                                     hoverIcon="/images/func_circlearrow_24_hov.png"
-                                     depressedIcon="/images/func_circlearrow_24_act.png"
-                                     partialSubmit="true" disabled="true">
-                  <af:setPropertyListener from="#{'backMyFlags'}"
-                                          to="#{pageFlowScope.feedsDeck}"
-                                          type="action"/>
-                </af:commandImageLink>
-              </af:gridCell>
-            </af:gridRow>
-          </af:panelGridLayout>
-          <af:separator id="s8"/>
-          <af:panelGridLayout id="pgl13" dimensionsFrom="children">
-            <af:gridRow height="45px"
-                        id="gr4">
-              <af:gridCell marginStart="10px" width="30px" id="gc14"
-                           valign="middle">
-                <af:outputText value="#{'0'}" id="ot13"
-                               styleClass="feeds-number-card box-lightblue"/>
-              </af:gridCell>
-              <af:gridCell marginStart="15px" width="100%" id="gc13"
-                           halign="stretch" valign="middle">
-                <af:outputText value="#{demoMasterBundle.ACTIVITIES}"
-                               id="ot11"
-                               styleClass="nowrap text-normal-1 feeds-title"/>
-              </af:gridCell>
-              <af:gridCell marginStart="10px" width="35px" marginEnd="10px"
-                           id="gc12" halign="end" valign="middle">
-                <af:commandImageLink id="cil4"
-                                     icon="/images/func_circlearrow_24_ena.png"
-                                     disabledIcon="/images/func_circlearrow_24_dis.png"
-                                     hoverIcon="/images/func_circlearrow_24_hov.png"
-                                     depressedIcon="/images/func_circlearrow_24_act.png"
-                                     partialSubmit="true" disabled="true">
-                  <af:setPropertyListener from="#{'backActivities'}"
-                                          to="#{pageFlowScope.feedsDeck}"
-                                          type="action"/>
-                </af:commandImageLink>
-              </af:gridCell>
-            </af:gridRow>
-          </af:panelGridLayout>
-        </af:panelGroupLayout>
-        <af:spacer width="10" height="10" id="s6"/>
-      </af:panelGroupLayout>
+                           styleClass="feeds-front-bottom-panel AFStretchWidth"/>
     </af:panelGroupLayout>
     <af:panelGroupLayout id="backEmployeeNews" layout="vertical"
                          styleClass="feeds-panel">

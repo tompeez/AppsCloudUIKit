@@ -52,33 +52,38 @@ public class SessionState {
         setWelcomePopupActive(true);
         setWelcomeMode("springboard"); //Show icon grid by default
         setShowChildren(false); //Do not open any functional groups by default
+        //build navigation tree
         if (_nodeList == null)
             _buildNodeList();
+        
         setFilmStripShowStrip(""); //Show film strip by default
         setFilmStripShowHandle(true);
         setFilmStripMode("strip"); //Default mode is strip
+        
+        //build inflolets for the flip of hte welcome page
         if (_infoletsList == null)
             _buildInfoletsList();
-        //CRM Contacts
-        if (_contactsList == null)
-            _buildContactsList();
-        if (_filteredContactsList == null)
-            _filteredContactsList = new ArrayList<Person>();
-        if (_mapContactsList == null)
-            _mapContactsList = new ArrayList<Person>();
-        //CRM Opportunities
-        if (_opportunitiesList == null)
-            _buildOpportunitiesList();
-        if (_filteredOpportunitiesList == null)
-            _filteredOpportunitiesList = new ArrayList<Opportunity>();
-        //ERP Financial Reports
-        if (_financialReportsList == null)
-            _buildFinancialReportsList();
-        if (_filteredFinancialReportsList == null)
-            _filteredFinancialReportsList = new ArrayList<FinancialReport>();
-        //HCM Performance & My Team
-        if (_myTeamList == null)
-            _buildMyTeamList();
+        
+//        //CRM Contacts
+//        if (_contactsList == null)
+//            _buildContactsList();
+//        if (_filteredContactsList == null)
+//            _filteredContactsList = new ArrayList<Person>();
+//        if (_mapContactsList == null)
+//            _mapContactsList = new ArrayList<Person>();
+//        //CRM Opportunities
+//        if (_opportunitiesList == null)
+//            _buildOpportunitiesList();
+//        if (_filteredOpportunitiesList == null)
+//            _filteredOpportunitiesList = new ArrayList<Opportunity>();
+//        //ERP Financial Reports
+//        if (_financialReportsList == null)
+//            _buildFinancialReportsList();
+//        if (_filteredFinancialReportsList == null)
+//            _filteredFinancialReportsList = new ArrayList<FinancialReport>();
+//        //HCM Performance & My Team
+//        if (_myTeamList == null)
+//            _buildMyTeamList();
     }//constructor
 
     private void _buildNodeList(){
@@ -139,16 +144,16 @@ public class SessionState {
         _infoletsList = new ArrayList<Infolet>();
         //id, rendered, contentTFId, contentTFName
         _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/LeadsFlow.xml", "LeadsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/DealRegistrationFlow.xml", "DealRegistrationFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/MaintenanceSRsFlow.xml", "MaintenanceSRsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/YTDEarningsFlow.xml", "YTDEarningsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/WellnessFlow.xml", "WellnessFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/APReconciliationFlow.xml", "APReconciliationFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/ARReconciliationFlow.xml", "ARReconciliationFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/PeriodCloseFlow.xml", "PeriodCloseFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/RequisitionsFlow.xml", "RequisitionsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/MyTeamsGoalsFlow.xml", "MyTeamsGoalsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/DealRegistrationFlow.xml", "DealRegistrationFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/MaintenanceSRsFlow.xml", "MaintenanceSRsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/YTDEarningsFlow.xml", "YTDEarningsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/WellnessFlow.xml", "WellnessFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/APReconciliationFlow.xml", "APReconciliationFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/ARReconciliationFlow.xml", "ARReconciliationFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/PeriodCloseFlow.xml", "PeriodCloseFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/RequisitionsFlow.xml", "RequisitionsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/MyTeamsGoalsFlow.xml", "MyTeamsGoalsFlow"));
     }//_buildInfoletsList
 
     private void _buildContactsList(){

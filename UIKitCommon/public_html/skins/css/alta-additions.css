@@ -2310,7 +2310,9 @@ af|panelCollection.empty-collapsed af|toolbox {
     border-top: 1px solid -tr-property-ref(".FuseContainerBorder:alias","color");
     border-left: 1px solid -tr-property-ref(".FuseContainerBorder:alias","color");
     border-right: 1px solid -tr-property-ref(".FuseContainerBorder:alias","color");
-    border-radius: 0.7em 0.7em 0em 0em;
+    border-radius: 0.7em 0.7em 0.7em 0.7em;
+    padding: 8px 10px;
+    height: 80px;
 }
 
 .feeds-front-bottom-panel {
@@ -2320,7 +2322,7 @@ af|panelCollection.empty-collapsed af|toolbox {
     background-color: #f4f4f4;
     border: 1px solid -tr-property-ref(".FuseContainerBorder:alias","color");
     border-radius: 0.7em 0.7em 0.7em 0.7em;
-    height:375px;
+    height:175px;
 }
 
 .feeds-front-bottom-panel-top-area{
@@ -2333,10 +2335,6 @@ af|panelCollection.empty-collapsed af|toolbox {
     width:330px !important;
 }
 
-.feeds-front-top-panel {
-    padding: 8px 10px;
-    height: 75px;
-}
 
 /*.feeds-front-top-panel-size{
     height: 75px;
