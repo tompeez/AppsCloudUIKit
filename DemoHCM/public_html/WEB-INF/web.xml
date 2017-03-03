@@ -28,6 +28,18 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <param-name>org.apache.myfaces.trinidad.security.FRAME_BUSTING</param-name>
     <param-value>differentOrigin</param-value>
   </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_DECORATORS</param-name>
+    <param-value>oracle.adfinternal.view.faces.facelets.rich.AdfTagDecorator</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_RESOURCE_RESOLVER</param-name>
+    <param-value>oracle.adfinternal.view.faces.facelets.rich.AdfFaceletsResourceResolver</param-value>
+  </context-param>
   <filter>
     <filter-name>trinidad</filter-name>
     <filter-class>org.apache.myfaces.trinidad.webapp.TrinidadFilter</filter-class>
@@ -60,6 +72,9 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   </filter-mapping>
   <listener>
     <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
+  </listener>
+  <listener>
+    <listener-class>oracle.adf.mbean.share.connection.ADFConnectionLifeCycleCallBack</listener-class>
   </listener>
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>

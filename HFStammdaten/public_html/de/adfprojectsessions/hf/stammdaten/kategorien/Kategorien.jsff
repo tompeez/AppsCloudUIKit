@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:acdc="/appsCloudUIKitDCs"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="hfBundle" value="#{adfBundle['de.adfprojectsessions.hf.stammdaten.HFStammdatenBundle']}"/>
+    <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
+        <f:facet name="pageContents">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle[KATEGORIEN]}">
+                    <f:facet name="customToolbar"/>
+                    <f:facet name="pageContext"/>
+                </acdc:PageHeaderDC>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:panelGroupLayout id="pgl3">
+                        <af:toolbar id="t1" flex="1" stretchId="toolbarExpander">
+                            <af:inputText label="#{hfBundle.FIND}" id="it1" columns="25" placeholder="Name contains ..."
+                                          usage="search" value="#{viewScope.KategorienBean.nameSearch}"
+                                          autoSubmit="true"/>
+                            <af:commandButton id="cb1" icon="/images/func_search_16_ena.png" partialSubmit="true"
+                                              actionListener="#{viewScope.KategorienBean.handleNameSearch}"/>
+                            <af:spacer width="15" id="s3"/>
+                            <af:spacer id="toolbarExpander" clientComponent="true"/>
+                            <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.CREATE_KATEGORIE}"
+                                              actionListener="#{viewScope.KategorienBean.handleCreateKategorie}"
+                                              action="create"/>
+                        </af:toolbar>
+                        <acdc:CardViewListViewDC id="cvlvdc1"
+                                                 binding="#{viewScope.KategorienBean.cardViewListView}">
+                            <f:facet name="cardView">
+                                <af:iterator id="i1" value="#{bindings.HfCatView.collectionModel}" var="row"
+                                             varStatus="status" rows="0">
+                                    <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
+                                        <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="true"
+                                                     cardSelectActionListener="#{viewScope.KategorienBean.handleKategorieSelection}"
+                                                     title="#{row.CatName}"
+                                                     titleAction="#{viewScope.KategorienBean.handleCustomTitleAction}"
+                                                     titleActionListener="#{viewScope.KategorienBean.handleEditKategorie}">
+                                            <f:facet name="frontContents">
+                                                <af:panelStretchLayout id="psl1">
+                                                    <f:facet name="start"/>
+                                                    <f:facet name="end">
+                                                        <af:panelGroupLayout id="pgl7" layout="vertical">
+                                                            <af:spacer height="55" id="s9"/>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
+                                                    <f:facet name="top">
+                                                        <af:spacer width="10" height="5" id="s4"/>
+                                                    </f:facet>
+                                                    <f:facet name="bottom"/>
+                                                    <f:facet name="center">
+                                                        <af:panelGroupLayout id="pgl6" layout="vertical">
+                                                            <af:outputText value="#{row.intKey}" id="ot1"/>
+                                                            <af:outputText value="#{row.catDesc}" id="ot3"/>
+                                                            <af:outputText value="#{row.lastChange}" id="ot4"/>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
+                                                </af:panelStretchLayout>
+                                            </f:facet>
+                                        </acdc:CardDC>
+                                    </af:panelGroupLayout>
+                                </af:iterator>
+                            </f:facet>
+                            <f:facet name="listView">
+                                <af:listView value="#{bindings.HfCatView.collectionModel}" var="item"
+                                             emptyText="#{hfBundle.NO_KATEGORIES_FOUND}"
+                                             fetchSize="#{bindings.HfCatView.rangeSize}" id="lv1">
+                                    <af:listItem id="li1">
+                                        <af:panelGridLayout id="pgl4">
+                                            <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                                <af:gridCell marginStart="5px" width="50px" id="gc1">
+                                                    <af:outputFormatted value="#{item.bindings.IntKey.inputValue}"
+                                                                        id="of1">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.HfCatView.hints.IntKey.format}"/>
+                                                    </af:outputFormatted>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="20%" id="gc2">
+                                                    <af:outputFormatted value="#{item.bindings.CatName.inputValue}"
+                                                                        id="of2"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="60%" id="gc3">
+                                                    <af:outputFormatted value="#{item.bindings.CatDesc.inputValue}"
+                                                                        id="of3"/>
+                                                </af:gridCell>
+                                                <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc4">
+                                                    <af:outputFormatted value="#{item.bindings.LastChange.inputValue}"
+                                                                        id="of4">
+                                                        <af:convertDateTime pattern="#{bindings.HfCatView.hints.LastChange.format}"/>
+                                                    </af:outputFormatted>
+                                                </af:gridCell>
+                                            </af:gridRow>
+                                        </af:panelGridLayout>
+                                    </af:listItem>
+                                </af:listView>
+                            </f:facet>
+                            <f:facet name="filterPanel"/>
+                            <f:facet name="toolbarPanel"/>
+                        </acdc:CardViewListViewDC>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="footerStart"/>
+        <f:facet name="footer"/>
+        <f:facet name="footerEnd"/>
+        <f:facet name="startPanel"/>
+        <f:facet name="endPanel"/>
+        <f:facet name="headerStart"/>
+        <f:facet name="header"/>
+        <f:facet name="headerEnd"/>
+    </af:pageTemplate>
+</ui:composition>

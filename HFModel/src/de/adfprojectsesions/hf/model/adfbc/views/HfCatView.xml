@@ -12,7 +12,43 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="de.adfprojectsesions.hf.model.adfbc.views.HfCatViewImpl"
+  ComponentInterface="de.adfprojectsesions.hf.model.adfbc.views.common.HfCatView"
+  ClientProxyName="de.adfprojectsesions.hf.model.adfbc.views.client.HfCatViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
+  <Variable
+    Name="bindSearchTerm"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindUserId"
+    Kind="viewcriteria"
+    Type="java.lang.Long"/>
+  <ViewAccessor
+    Name="HfUserLookupView"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfUserView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_HfUserIk"
+    ListVOName="HfUserLookupView"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HfUserIk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IntKey"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Longname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="HfCat"
     Entity="de.adfprojectsesions.hf.model.adfbc.entities.HfCat"/>
@@ -22,21 +58,37 @@
     PrecisionRule="true"
     EntityAttrName="IntKey"
     EntityUsage="HfCat"
-    AliasName="INT_KEY"/>
+    AliasName="INT_KEY"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="HfUserIk"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="HfUserIk"
     EntityUsage="HfCat"
-    AliasName="HF_USER_IK"/>
+    AliasName="HF_USER_IK"
+    LOVName="LOV_HfUserIk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CatName"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CatName"
     EntityUsage="HfCat"
-    AliasName="CAT_NAME"/>
+    AliasName="CAT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.views.HfCatView.CatName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ParentHfCatIk"
     PrecisionRule="true"
@@ -61,9 +113,115 @@
     EntityAttrName="LastChange"
     EntityUsage="HfCat"
     AliasName="LAST_CHANGE"/>
+  <ViewCriteria
+    Name="CatByNameOrDescriptionVC"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="false"/>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="HfCatViewCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="HfCatViewCriteria_HfCatViewCriteria_row_0_CatName"
+        ViewAttribute="CatName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Required="Optional"
+        Value=":bindSearchTerm"
+        IsBindVarValue="true">
+        <Properties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="50"/>
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+      <ViewCriteriaItem
+        Name="HfCatViewCriteria_HfCatViewCriteria_row_0_CatDesc"
+        ViewAttribute="CatDesc"
+        Operator="CONTAINS"
+        Conjunction="OR"
+        Value=":bindSearchTerm"
+        IsBindVarValue="true"
+        Required="Optional">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Never"/>
+          </CustomProperties>
+          <SchemaBasedProperties>
+            <DISPLAYWIDTH
+              Value="50"/>
+              
+          </SchemaBasedProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+    <ViewCriteriaRow
+      Name="CatByNameOrDescriptionVC_row_1"
+      Conjunction="AND"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="HfUserIk"
+        ViewAttribute="HfUserIk"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindUserId"
+        ValidateBindVars="true"
+        IsBindVarValue="true"
+        Required="Required">
+        <Properties>
+          <CustomProperties>
+            <Property
+              Name="renderedMode"
+              Value="Never"/>
+          </CustomProperties>
+        </Properties>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="HfPlaylistView"
     ViewLink="de.adfprojectsesions.hf.model.adfbc.views.viewlinks.HfPlaylistHfCatFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="searchDescriptionByUserId"
+      MethodName="searchDescriptionByUserId">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="searchTerm"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.Long"/>
+    </Method>
+  </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.adfprojectsesions.hf.model.HFModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

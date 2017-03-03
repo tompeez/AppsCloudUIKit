@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="kategorien-btf">
+    <default-activity>Kategorien</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__8">
+      <managed-bean-name>KategorienBean</managed-bean-name>
+      <managed-bean-class>de.adfprojectsessions.hf.stammdaten.view.beans.KategorienBean</managed-bean-class>
+      <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <view id="Kategorien">
+      <page>/de/adfprojectsessions/hf/stammdaten/kategorien/Kategorien.jsff</page>
+    </view>
+    <view id="CreateKategorie"></view>
+    <view id="EditKategorie"></view>
+    <control-flow-rule id="__1">
+      <from-activity-id>Kategorien</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>create</from-outcome>
+        <to-activity-id>CreateKategorie</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>EditKategorie</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>CreateKategorie</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>doneCreate</from-outcome>
+        <to-activity-id>Kategorien</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>EditKategorie</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>doneEdit</from-outcome>
+        <to-activity-id>Kategorien</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

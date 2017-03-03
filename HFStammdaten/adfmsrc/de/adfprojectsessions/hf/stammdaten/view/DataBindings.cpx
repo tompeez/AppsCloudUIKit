@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="de.adfprojectsessions.hf.stammdaten.view" ClientType="Generic">
+  <pageMap>
+    <page path="/de/adfprojectsessions/hf/stammdaten/kategorien/Kategorien.jsff"
+          usageId="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"
+          path="de.adfprojectsessions.hf.stammdaten.kategorien.KategorienPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="HFAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

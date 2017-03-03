@@ -115,7 +115,7 @@ public class SessionState {
         newNode = new Node(idx++, "Stammdaten", "formwrench", "", "");
         children = new ArrayList<Node>();
 //        children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Kategorien", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Kategorien", "directory", "WEB-INF/de/adfprojectsessions/hf/stammdaten/kategorie/kategorien-btf.xml", "kategorien-btf"));
         children.add(new Node(idx++, "Anwender", "personedit", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
 //        children.add(new Node(idx++, "Manage Users", "personselect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
 //        children.add(new Node(idx++, "Team Talent", "persongrid", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
