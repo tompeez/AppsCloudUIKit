@@ -6,7 +6,12 @@
   Name="HFAppModule"
   Version="12.2.1.0.31"
   InheritPersonalization="merge"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  ComponentClass="de.adfprojectsesions.hf.model.adfbc.service.HFAppModuleImpl"
+  ComponentInterface="de.adfprojectsesions.hf.model.adfbc.service.common.HFAppModule">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <ViewUsage
     Name="HfCatView"
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"/>
@@ -74,4 +79,26 @@
     SrcViewUsageName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule.HfUserView"
     DstViewUsageName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule.HfCatOfUserView"
     Reversed="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="registerUser"
+      MethodName="registerUser">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="key"
+        Type="java.lang.Integer"/>
+      <Parameter
+        Name="username"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="longname"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="password"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
 </AppModule>

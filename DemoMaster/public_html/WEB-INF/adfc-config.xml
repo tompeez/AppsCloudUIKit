@@ -52,6 +52,16 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
       <fixed-outcome>login</fixed-outcome>
     </outcome>
   </method-call>
+  <task-flow-call id="registerUser">
+    <?audit suppress oracle.adfdt.controller.adfc.source.audit.PageFragmentSemanticsDoNotMatch2b?>
+    <task-flow-reference>
+      <document>/WEB-INF/registerUser-btf.xml</document>
+      <id>registerUser</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <view id="Register">
+    <page>/Register.jspx</page>
+  </view>
   <control-flow-rule id="__5">
     <from-activity-id id="__6">Welcome</from-activity-id>
     <control-flow-case id="__7">
@@ -115,6 +125,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <control-flow-case id="__61">
       <from-outcome>loggedIn</from-outcome>
       <to-activity-id>LoginRouter</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__67">
+      <from-outcome>register</from-outcome>
+      <to-activity-id>Register</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__62">
