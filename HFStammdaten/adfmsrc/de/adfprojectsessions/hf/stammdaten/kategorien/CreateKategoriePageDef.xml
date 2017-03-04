@@ -7,6 +7,9 @@
     <iterator Binds="HfCatView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfCatViewIterator"/>
   </executables>
   <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="HFAppModuleDataControl"/>
     <attributeValues IterBinding="HfCatViewIterator" id="IntKey">
       <AttrNames>
         <Item Value="IntKey"/>
@@ -17,11 +20,6 @@
     <attributeValues IterBinding="HfCatViewIterator" id="CatName">
       <AttrNames>
         <Item Value="CatName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="HfCatViewIterator" id="ParentHfCatIk">
-      <AttrNames>
-        <Item Value="ParentHfCatIk"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="HfCatViewIterator" id="CatDesc">
@@ -39,8 +37,5 @@
         <Item Value="LastChange"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
-            DataControl="HFAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

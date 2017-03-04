@@ -85,7 +85,11 @@
     <Properties>
       <SchemaBasedProperties>
         <LABEL
-          ResId="de.adfprojectsesions.hf.model.adfbc.views.HfCatView.CatName_LABEL"/>
+          ResId="KATEGORIE"/>
+        <TOOLTIP
+          ResId="KATEGORIE"/>
+        <DISPLAYWIDTH
+          Value="50"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -100,19 +104,49 @@
     PrecisionRule="true"
     EntityAttrName="CatDesc"
     EntityUsage="HfCat"
-    AliasName="CAT_DESC"/>
+    AliasName="CAT_DESC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="BESCHREIBUNG"/>
+        <TOOLTIP
+          ResId="KATEGORIE_BESCHREIBUNG"/>
+        <DISPLAYWIDTH
+          Value="70"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IntSeq"
     PrecisionRule="true"
     EntityAttrName="IntSeq"
     EntityUsage="HfCat"
-    AliasName="INT_SEQ"/>
+    AliasName="INT_SEQ"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="AENDERUNGSNUMMER"/>
+        <TOOLTIP
+          ResId="AENDERUNGSNUMMER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="LastChange"
     PrecisionRule="true"
     EntityAttrName="LastChange"
     EntityUsage="HfCat"
-    AliasName="LAST_CHANGE"/>
+    AliasName="LAST_CHANGE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="DATUM_LETZTER_AENDERUNG"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CatByNameOrDescriptionVC"
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"

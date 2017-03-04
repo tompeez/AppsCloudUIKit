@@ -24,8 +24,15 @@
     IsUpdateable="while_insert">
     <TransientExpression
       Name="ExpressionScript"
-      CodeSourceName="HfCatRow"
-      trustMode="trusted"/>
+      CodeSourceName="HfCatRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="KATEGORIE_NR"/>
+        <TOOLTIP
+          ResId="KATEGORIE_NR"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="HfUserIk"
@@ -36,7 +43,18 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_CAT"/>
+    TableName="HF_CAT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="BENUTZER"/>
+        <TOOLTIP
+          ResId="BENUTZER"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CatName"
     IsNotNull="true"
@@ -49,6 +67,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="KATEGORIE"/>
+        <TOOLTIP
+          ResId="KATEGORIE"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ParentHfCatIk"
@@ -58,7 +84,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_CAT"/>
+    TableName="HF_CAT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="UEBERGEORDNETE_KATEGORIE"/>
+        <TOOLTIP
+          ResId="UEBERGEORDNETE_KATEGORIE"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="CatDesc"
     Precision="2000"
@@ -70,6 +105,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="BESCHREIBUNG"/>
+        <TOOLTIP
+          ResId="KATEGORIE_BESCHREIBUNG"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IntSeq"
@@ -79,7 +122,17 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_CAT"/>
+    TableName="HF_CAT"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="AENDERUNGSNUMMER"/>
+        <TOOLTIP
+          ResId="AENDERUNGSNUMMER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastChange"
     ColumnName="LAST_CHANGE"
@@ -89,12 +142,20 @@
     TableName="HF_CAT">
     <TransientExpression
       Name="ExpressionScript"
-      CodeSourceName="HfCatRow"
-      trustMode="trusted"/>
+      CodeSourceName="HfCatRow"/>
     <RecalcCondition
       Name="RecalcExpressionScript"
-      trustMode="trusted"
       CodeSourceName="HfCatRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="DATUM_LETZTER_AENDERUNG"/>
+        <FMT_FORMATTER
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfCat.LastChange_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfCat.LastChange_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="HfPlaylist"
@@ -131,4 +192,8 @@
       <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfCat.HfUserIk"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.adfprojectsesions.hf.model.HFModelBundle"/>
+  </ResourceBundle>
 </Entity>

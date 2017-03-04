@@ -15,17 +15,15 @@
                                    saveAndCloseActionListener="#{viewScope.KategorienBean.handleSaveAndClose}"/>
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:panelFormLayout id="pfl1">
-                    <af:inputText value="#{bindings.IntKey.inputValue}" label="#{bindings.IntKey.hints.label}"
-                                  required="#{bindings.IntKey.hints.mandatory}"
-                                  columns="#{bindings.IntKey.hints.displayWidth}"
-                                  maximumLength="#{bindings.IntKey.hints.precision}"
-                                  shortDesc="#{bindings.IntKey.hints.tooltip}" id="it1">
-                        <f:validator binding="#{bindings.IntKey.validator}"/>
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IntKey.format}"/>
-                    </af:inputText>
+                    <af:panelLabelAndMessage label="#{bindings.IntKey.hints.label}" id="plam1">
+                        <af:outputText value="#{bindings.IntKey.inputValue}"
+                                       shortDesc="#{bindings.IntKey.hints.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IntKey.format}"/>
+                        </af:outputText>
+                    </af:panelLabelAndMessage>
                     <af:selectOneChoice value="#{bindings.HfUserIk.inputValue}" label="#{bindings.HfUserIk.label}"
                                         required="#{bindings.HfUserIk.hints.mandatory}"
-                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" id="soc1">
+                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" readOnly="true" id="soc1">
                         <f:selectItems value="#{bindings.HfUserIk.items}" id="si1"/>
                         <f:validator binding="#{bindings.HfUserIk.validator}"/>
                     </af:selectOneChoice>
@@ -33,20 +31,14 @@
                                   required="#{bindings.CatName.hints.mandatory}"
                                   columns="#{bindings.CatName.hints.displayWidth}"
                                   maximumLength="#{bindings.CatName.hints.precision}"
-                                  shortDesc="#{bindings.CatName.hints.tooltip}" id="it2">
+                                  shortDesc="#{bindings.CatName.hints.tooltip}" id="it1">
                         <f:validator binding="#{bindings.CatName.validator}"/>
                     </af:inputText>
-                    <af:panelLabelAndMessage label="#{bindings.ParentHfCatIk.hints.label}" id="plam1">
-                        <af:outputText value="#{bindings.ParentHfCatIk.inputValue}"
-                                       shortDesc="#{bindings.ParentHfCatIk.hints.tooltip}" id="ot1">
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ParentHfCatIk.format}"/>
-                        </af:outputText>
-                    </af:panelLabelAndMessage>
                     <af:inputText value="#{bindings.CatDesc.inputValue}" label="#{bindings.CatDesc.hints.label}"
                                   required="#{bindings.CatDesc.hints.mandatory}"
                                   columns="#{bindings.CatDesc.hints.displayWidth}"
                                   maximumLength="#{bindings.CatDesc.hints.precision}"
-                                  shortDesc="#{bindings.CatDesc.hints.tooltip}" id="it3">
+                                  shortDesc="#{bindings.CatDesc.hints.tooltip}" id="it2">
                         <f:validator binding="#{bindings.CatDesc.validator}"/>
                     </af:inputText>
                     <af:panelLabelAndMessage label="#{bindings.IntSeq.hints.label}" id="plam2">
