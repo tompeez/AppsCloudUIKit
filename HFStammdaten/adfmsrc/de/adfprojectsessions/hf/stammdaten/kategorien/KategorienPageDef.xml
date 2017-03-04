@@ -5,8 +5,6 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="HfCatView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfCatViewIterator"/>
-    <searchRegion Criteria="CatByNameOrDescriptionVC" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="HfCatViewIterator" id="CatByNameOrDescriptionVCQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="HfCatViewIterator" id="HfCatView">

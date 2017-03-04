@@ -152,6 +152,7 @@
       <value n="j2eeWebContextRoot" v="AppsCloudUIKit-HFStammdaten-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <value n="activeName" v="Task Flow Tester"/>
       <hash n="runConfigurationDefinitions">
          <hash n="Task Flow Tester">
             <value n="allowInput" v="true"/>
@@ -245,10 +246,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -296,6 +293,14 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="adflibUIKitCommon.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -306,6 +311,14 @@
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
                <value n="id" v="ADF Library"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../libs/adflibUIKitCommon.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="adflibUIKitCommon.jar"/>
+               <value n="id" v="adflibUIKitCommon.jar"/>
             </hash>
          </list>
       </hash>
@@ -383,10 +396,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -432,6 +441,14 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="adflibUIKitCommon.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -563,19 +580,25 @@
          </hash>
       </list>
    </hash>
+   <hash n="oracle.jdevimpl.webapp.jsp.JspVeProjectSettings">
+      <list n="filters">
+         <string v="trinidad"/>
+      </list>
+      <list n="servlet_listeners">
+         <string v="com.sun.faces.config.ConfigureListener"/>
+      </list>
+      <list n="servlet_listeners_unselected">
+         <string v="oracle.adf.mbean.share.connection.ADFConnectionLifeCycleCallBack"/>
+         <string v="oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack"/>
+         <string v="oracle.bc4j.mbean.BC4JConfigLifeCycleCallBack"/>
+      </list>
+      <list n="servlets">
+         <string v="Faces Servlet"/>
+         <string v="resources"/>
+      </list>
+   </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
       <list n="tag-libraries">
-         <hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="libraries" v="ADF Library"/>
-            <value n="name" v="appsCloudUIKitDCs"/>
-            <value n="prefix" v="acdc"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
-            <value n="URI" v="/appsCloudUIKitDCs"/>
-            <value n="version" v="1.0"/>
-         </hash>
          <hash>
             <hash n="baseLibrary">
                <value n="name" v="JSF Core"/>
@@ -619,6 +642,30 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="adflibUIKitCommon.jar"/>
+            <value n="name" v="appsCloudUIKitDCs"/>
+            <value n="prefix" v="acdc"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
+            <value n="URI" v="/appsCloudUIKitDCs"/>
+            <value n="version" v="1.0"/>
+         </hash>
+      </list>
+      <list n="tag-libraries-internalDefinitions">
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="adflibUIKitCommon.jar"/>
+            <value n="name" v="appsCloudUIKitDCs"/>
+            <value n="prefix" v="acdc"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
+            <value n="URI" v="/appsCloudUIKitDCs"/>
+            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>

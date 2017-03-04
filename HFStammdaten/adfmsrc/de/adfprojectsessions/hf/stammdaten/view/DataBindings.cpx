@@ -4,10 +4,17 @@
   <pageMap>
     <page path="/de/adfprojectsessions/hf/stammdaten/kategorien/Kategorien.jsff"
           usageId="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/stammdaten/kategorie/kategorien-btf.xml#kategorien-btf@CreateInsert"
+          usageId="de_adfprojectsessions_hf_stammdaten_view_kategorien_btf_kategorien_btf_CreateInsertPageDef"/>
+    <page path="/CreateKategorie.jsff" usageId="de_adfprojectsessions_hf_stammdaten_view_CreateKategoriePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"
           path="de.adfprojectsessions.hf.stammdaten.kategorien.KategorienPageDef"/>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_kategorien_btf_kategorien_btf_CreateInsertPageDef"
+          path="de.adfprojectsessions.hf.stammdaten.kategorie.kategorien_btf_kategorien_btf_CreateInsertPageDef"/>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_CreateKategoriePageDef"
+          path="de.adfprojectsessions.hf.stammdaten.view.pageDefs.CreateKategoriePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
