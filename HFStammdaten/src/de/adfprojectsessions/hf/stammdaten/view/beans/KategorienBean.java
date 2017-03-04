@@ -14,6 +14,7 @@ import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.apps.uikit.common.declarativeComponents.CardViewListViewDCComponent;
 
+import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
@@ -37,20 +38,16 @@ public class KategorienBean {
     }
 
     public void handleNameSearch(ActionEvent actionEvent) {
-        // GET A METHOD FROM PAGEDEF AND EXECUTE IT
-        // get the binding container
-        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
-        // get an Action or MethodAction
-        OperationBinding method = bindings.getOperationBinding("searchDescriptionByUserId");
+        OperationBinding method = getOperationFromCurrentBindings("searchDescriptionByUserId");
         if (method == null) {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Suchmethode nicht gefunden!", "");
             FacesContext.getCurrentInstance().addMessage(null, msg);
+            return;
         }
         ADFContext adfCtx = ADFContext.getCurrent();
         // Get the scope variables
         Map<String, Object> sessionParamsVar2 = adfCtx.getSessionScope();
-        Map<String, Object> pageflowScopeVar2 = adfCtx.getPageFlowScope();
-        //#{pageFlowScope.KategorienBean.nameSearch}
+
         // if there are parameters to set...
         Map paramsMap = method.getParamsMap();
         paramsMap.put("searchTerm", this.getNameSearch());
@@ -103,4 +100,68 @@ public class KategorienBean {
 
         return null;
     }
+    
+    public String onCreateCancel() {
+         String ret = "doneCreate";
+         return ret;
+     }
+
+     public void handleCreateCancel(ActionEvent actionEvent) {
+         OperationBinding method = getOperationFromCurrentBindings("Rollback");
+         if (method == null) {
+             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Rollback nicht gefunden!", "");
+             FacesContext.getCurrentInstance().addMessage(null, msg);
+             return;
+         }
+         method.execute();
+         // Check for errors
+         List<Exception> errors = method.getErrors();
+         if (!errors.isEmpty()) {
+             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Rollback fehlgeschlagen!", "");
+             FacesContext.getCurrentInstance().addMessage(null, msg);
+             errors.get(0).printStackTrace();
+         }
+         return;
+     }
+
+     public String onSaveAndClose() {
+         String ret = "doneCreate";
+         return ret;
+     }
+
+     public void handleSaveAndClose(ActionEvent actionEvent) {
+         OperationBinding method = getOperationFromCurrentBindings("Commit");
+         if (method == null) {
+             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Rollback nicht gefunden!", "");
+             FacesContext.getCurrentInstance().addMessage(null, msg);
+             return;
+         }
+       
+         method.execute();
+         // Check for errors
+         List<Exception> errors = method.getErrors();
+         if (!errors.isEmpty()) {
+             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Rollback fehlgeschlagen!", "");
+             FacesContext.getCurrentInstance().addMessage(null, msg);
+             errors.get(0).printStackTrace();
+         }
+         return;
+     }
+    
+    private OperationBinding getOperationFromCurrentBindings(String methodName) {
+        // GET A METHOD FROM PAGEDEF AND EXECUTE IT
+        // get the binding container
+        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
+        // get an Action or MethodAction
+        OperationBinding method = bindings.getOperationBinding(methodName);
+        return method;
+    }
+    
+    private AttributeBinding getAttributeFromCurrntBinding(String attibuteName)  {
+        // get the binding container
+        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
+        // get an ADF attributevalue from the ADF page definitions
+        AttributeBinding attr = (AttributeBinding)bindings.getControlBinding("attibuteName");
+        return attr;
+    }    
 }

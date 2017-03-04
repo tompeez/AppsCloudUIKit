@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="CreateKategoriePageDef"
+                Package="de.adfprojectsessions.hf.stammdaten.kategorien">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HfCatView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfCatViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="HfCatViewIterator" id="IntKey">
+      <AttrNames>
+        <Item Value="IntKey"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="HfCatViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="HfCatViewIterator" id="CatName">
+      <AttrNames>
+        <Item Value="CatName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfCatViewIterator" id="ParentHfCatIk">
+      <AttrNames>
+        <Item Value="ParentHfCatIk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfCatViewIterator" id="CatDesc">
+      <AttrNames>
+        <Item Value="CatDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfCatViewIterator" id="IntSeq">
+      <AttrNames>
+        <Item Value="IntSeq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfCatViewIterator" id="LastChange">
+      <AttrNames>
+        <Item Value="LastChange"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="HFAppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

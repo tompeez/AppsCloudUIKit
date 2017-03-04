@@ -13,13 +13,21 @@
     <view id="Kategorien">
       <page>/de/adfprojectsessions/hf/stammdaten/kategorien/Kategorien.jsff</page>
     </view>
-    <view id="CreateKategorie"></view>
+    <view id="CreateKategorie">
+      <page>/de/adfprojectsessions/hf/stammdaten/kategorien/CreateKategorie.jsff</page>
+    </view>
     <view id="EditKategorie"></view>
+    <method-call id="CreateWithParameters">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>goEntryForm</fixed-outcome>
+      </outcome>
+    </method-call>
     <control-flow-rule id="__1">
       <from-activity-id>Kategorien</from-activity-id>
       <control-flow-case id="__2">
         <from-outcome>create</from-outcome>
-        <to-activity-id>CreateKategorie</to-activity-id>
+        <to-activity-id>CreateWithParameters</to-activity-id>
       </control-flow-case>
       <control-flow-case id="__3">
         <from-outcome>edit</from-outcome>
@@ -38,6 +46,13 @@
       <control-flow-case id="__7">
         <from-outcome>doneEdit</from-outcome>
         <to-activity-id>Kategorien</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>CreateWithParameters</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>goEntryForm</from-outcome>
+        <to-activity-id>CreateKategorie</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

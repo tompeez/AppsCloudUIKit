@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:acdc="/appsCloudUIKitDCs"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="hfBundle" value="#{adfBundle['de.adfprojectsessions.hf.stammdaten.HFStammdatenBundle']}"/>
+    <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
+        <f:facet name="pageContents">
+            <af:panelGroupLayout id="pgl1" layout="vertical" halign="center" valign="top">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.CREATE_KATEGORIE}" cancelButtonVisible="true"
+                                   cancelButtonImmediate="true"
+                                   cancelActionListener="#{viewScope.KategorienBean.handleCreateCancel}"
+                                   cancelAction="#{viewScope.KategorienBean.onCreateCancel}"
+                                   saveAndCloseButtonVisible="true"
+                                   saveAndCloseAction="#{viewScope.KategorienBean.onSaveAndClose}"
+                                   saveAndCloseActionListener="#{viewScope.KategorienBean.handleSaveAndClose}"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.IntKey.inputValue}" label="#{bindings.IntKey.hints.label}"
+                                  required="#{bindings.IntKey.hints.mandatory}"
+                                  columns="#{bindings.IntKey.hints.displayWidth}"
+                                  maximumLength="#{bindings.IntKey.hints.precision}"
+                                  shortDesc="#{bindings.IntKey.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.IntKey.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IntKey.format}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.HfUserIk.inputValue}" label="#{bindings.HfUserIk.label}"
+                                        required="#{bindings.HfUserIk.hints.mandatory}"
+                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.HfUserIk.items}" id="si1"/>
+                        <f:validator binding="#{bindings.HfUserIk.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.CatName.inputValue}" label="#{bindings.CatName.hints.label}"
+                                  required="#{bindings.CatName.hints.mandatory}"
+                                  columns="#{bindings.CatName.hints.displayWidth}"
+                                  maximumLength="#{bindings.CatName.hints.precision}"
+                                  shortDesc="#{bindings.CatName.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.CatName.validator}"/>
+                    </af:inputText>
+                    <af:panelLabelAndMessage label="#{bindings.ParentHfCatIk.hints.label}" id="plam1">
+                        <af:outputText value="#{bindings.ParentHfCatIk.inputValue}"
+                                       shortDesc="#{bindings.ParentHfCatIk.hints.tooltip}" id="ot1">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.ParentHfCatIk.format}"/>
+                        </af:outputText>
+                    </af:panelLabelAndMessage>
+                    <af:inputText value="#{bindings.CatDesc.inputValue}" label="#{bindings.CatDesc.hints.label}"
+                                  required="#{bindings.CatDesc.hints.mandatory}"
+                                  columns="#{bindings.CatDesc.hints.displayWidth}"
+                                  maximumLength="#{bindings.CatDesc.hints.precision}"
+                                  shortDesc="#{bindings.CatDesc.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.CatDesc.validator}"/>
+                    </af:inputText>
+                    <af:panelLabelAndMessage label="#{bindings.IntSeq.hints.label}" id="plam2">
+                        <af:outputText value="#{bindings.IntSeq.inputValue}"
+                                       shortDesc="#{bindings.IntSeq.hints.tooltip}" id="ot2">
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IntSeq.format}"/>
+                        </af:outputText>
+                    </af:panelLabelAndMessage>
+                    <af:panelLabelAndMessage label="#{bindings.LastChange.hints.label}" id="plam3">
+                        <af:outputText value="#{bindings.LastChange.inputValue}"
+                                       shortDesc="#{bindings.LastChange.hints.tooltip}" id="ot3">
+                            <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
+                        </af:outputText>
+                    </af:panelLabelAndMessage>
+                </af:panelFormLayout>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="footerStart"/>
+        <f:facet name="footer"/>
+        <f:facet name="footerEnd"/>
+        <f:facet name="startPanel"/>
+        <f:facet name="endPanel"/>
+        <f:facet name="headerStart"/>
+        <f:facet name="header"/>
+        <f:facet name="headerEnd"/>
+    </af:pageTemplate>
+</ui:composition>

@@ -245,10 +245,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -294,6 +290,10 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -383,10 +383,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -432,6 +428,10 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -542,16 +542,6 @@
             <value n="version" v="11"/>
          </hash>
          <hash>
-            <value n="libraries" v="ADF Faces Components"/>
-            <value n="name" v="appsCloudUIKitDCs"/>
-            <value n="prefix" v="acdc"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
-            <value n="taglibURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsclouduikitdcs.taglib.xml"/>
-            <value n="URI" v="/appsCloudUIKitDCs"/>
-            <value n="version" v="2.0"/>
-         </hash>
-         <hash>
             <hash n="baseLibrary">
                <value n="name" v="ADF Data Visualization"/>
                <value n="version" v="1.1"/>
@@ -561,21 +551,20 @@
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
          </hash>
-      </list>
-   </hash>
-   <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
-      <list n="tag-libraries">
          <hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="libraries" v="ADF Library"/>
+            <value n="libraries" v="ADF Faces Components"/>
             <value n="name" v="appsCloudUIKitDCs"/>
             <value n="prefix" v="acdc"/>
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
+            <value n="taglibURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsclouduikitdcs.taglib.xml"/>
             <value n="URI" v="/appsCloudUIKitDCs"/>
-            <value n="version" v="1.0"/>
+            <value n="version" v="2.0"/>
          </hash>
+      </list>
+   </hash>
+   <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">
+      <list n="tag-libraries">
          <hash>
             <hash n="baseLibrary">
                <value n="name" v="JSF Core"/>
@@ -610,15 +599,15 @@
             <value n="version" v="11"/>
          </hash>
          <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="ADF Data Visualization"/>
-               <value n="version" v="1.1"/>
-            </hash>
             <value n="jspVersion" v="2.1"/>
-            <value n="name" v="ADF Data Visualization"/>
-            <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.tld"/>
-            <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
-            <value n="version" v="1.1"/>
+            <value n="libraries" v="ADF Library"/>
+            <value n="name" v="appsCloudUIKitDCs"/>
+            <value n="prefix" v="acdc"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
+            <value n="URI" v="/appsCloudUIKitDCs"/>
+            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>
