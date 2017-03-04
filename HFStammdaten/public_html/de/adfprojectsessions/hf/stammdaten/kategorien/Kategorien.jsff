@@ -26,8 +26,7 @@
                                               actionListener="#{viewScope.KategorienBean.handleCreateKategorie}"
                                               action="create"/>
                         </af:toolbar>
-                        <acdc:CardViewListViewDC id="cvlvdc1"
-                                                 binding="#{viewScope.KategorienBean.cardViewListView}">
+                        <acdc:CardViewListViewDC id="cvlvdc1" binding="#{viewScope.KategorienBean.cardViewListView}">
                             <f:facet name="cardView">
                                 <af:iterator id="i1" value="#{bindings.HfCatView.collectionModel}" var="row"
                                              varStatus="status" rows="0">
@@ -42,7 +41,7 @@
                                                     <f:facet name="start"/>
                                                     <f:facet name="end">
                                                         <af:panelGroupLayout id="pgl7" layout="vertical">
-                                                            <af:spacer height="55" id="s9"/>
+                                                            <af:spacer height="5" id="s9"/>
                                                         </af:panelGroupLayout>
                                                     </f:facet>
                                                     <f:facet name="top">
@@ -69,12 +68,15 @@
                                     <af:listItem id="li1">
                                         <af:panelGridLayout id="pgl4">
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                                <af:gridCell marginStart="5px" width="50px" id="gc1">
-                                                    <af:outputFormatted value="#{item.bindings.IntKey.inputValue}"
-                                                                        id="of1">
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.HfCatView.hints.IntKey.format}"/>
-                                                    </af:outputFormatted>
+                                                <af:gridCell marginStart="5px" width="100px" id="gc1">
+                                                    <af:panelLabelAndMessage label="#{item.bindings.IntKey.hints.label}"
+                                                                             id="plam1">
+                                                        <af:outputFormatted value="#{item.bindings.IntKey.inputValue}"
+                                                                            id="of1">
+                                                            <af:convertNumber groupingUsed="false"
+                                                                              pattern="#{bindings.HfCatView.hints.IntKey.format}"/>
+                                                        </af:outputFormatted>
+                                                    </af:panelLabelAndMessage>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="20%" id="gc2">
                                                     <af:outputFormatted value="#{item.bindings.CatName.inputValue}"
