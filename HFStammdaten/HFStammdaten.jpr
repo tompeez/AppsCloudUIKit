@@ -302,6 +302,7 @@
             <hash>
                <list n="classPath">
                   <url path="../libs/adflibUIKitCommon.jar" jar-entry=""/>
+                  <url path="../libs/adflibDemoData.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
