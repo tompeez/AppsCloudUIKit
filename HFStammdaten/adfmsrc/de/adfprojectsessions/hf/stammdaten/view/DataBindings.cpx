@@ -6,16 +6,16 @@
           usageId="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"/>
     <page path="/WEB-INF/de/adfprojectsessions/hf/stammdaten/kategorie/kategorien-btf.xml#kategorien-btf@CreateWithParameters"
           usageId="de_adfprojectsessions_hf_stammdaten_view_kategorien_btf_kategorien_btf_CreateWithParametersPageDef"/>
-    <page path="/de/adfprojectsessions/hf/stammdaten/kategorien/CreateKategorie.jsff"
-          usageId="de_adfprojectsessions_hf_stammdaten_view_CreateKategoriePageDef"/>
+    <page path="/de/adfprojectsessions/hf/stammdaten/kategorien/CreateEditKategorie.jsff"
+          usageId="de_adfprojectsessions_hf_stammdaten_view_CreateEditKategoriePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"
           path="de.adfprojectsessions.hf.stammdaten.kategorien.KategorienPageDef"/>
     <page id="de_adfprojectsessions_hf_stammdaten_view_kategorien_btf_kategorien_btf_CreateWithParametersPageDef"
           path="de.adfprojectsessions.hf.stammdaten.kategorie.kategorien_btf_kategorien_btf_CreateWithParametersPageDef"/>
-    <page id="de_adfprojectsessions_hf_stammdaten_view_CreateKategoriePageDef"
-          path="de.adfprojectsessions.hf.stammdaten.kategorien.CreateKategoriePageDef"/>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_CreateEditKategoriePageDef"
+          path="de.adfprojectsessions.hf.stammdaten.kategorien.CreateEditKategoriePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"

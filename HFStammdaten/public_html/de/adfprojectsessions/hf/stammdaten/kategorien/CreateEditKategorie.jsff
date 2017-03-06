@@ -7,7 +7,7 @@
         <f:facet name="pageContents">
             <af:panelGroupLayout id="pgl1" layout="vertical" halign="center" valign="top">
                 <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.CREATE_KATEGORIE}" cancelButtonVisible="true"
-                                   cancelButtonImmediate="true"
+                                   cancelButtonImmediate="false"
                                    cancelActionListener="#{viewScope.KategorienBean.handleCreateCancel}"
                                    cancelAction="#{viewScope.KategorienBean.onCreateCancel}"
                                    saveAndCloseButtonVisible="true"

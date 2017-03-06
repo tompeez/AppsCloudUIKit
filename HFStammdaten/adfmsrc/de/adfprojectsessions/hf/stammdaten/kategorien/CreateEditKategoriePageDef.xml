@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="CreateKategoriePageDef"
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="CreateEditKategoriePageDef"
                 Package="de.adfprojectsessions.hf.stammdaten.kategorien">
   <parameters/>
   <executables>

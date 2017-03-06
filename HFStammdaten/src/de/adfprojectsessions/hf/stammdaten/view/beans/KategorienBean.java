@@ -29,7 +29,9 @@ public class KategorienBean {
 
     String nameSearch;
     private ComponentReference cardViewListView;
-    private UtilsBean _utils = new UtilsBean();    
+    private UtilsBean _utils = new UtilsBean();
+    // current select kategorie. If null none is selected
+    Long _selectedKategorie = null;
 
     public void setNameSearch(String nameSearch) {
         this.nameSearch = nameSearch;
@@ -50,7 +52,7 @@ public class KategorienBean {
         }
         ADFContext adfCtx = ADFContext.getCurrent();
         // Get the scope variables
-        Long userId = (Long)_utils.getSessionScope().get("loggedInUserId");
+        Long userId = (Long) _utils.getSessionScope().get("loggedInUserId");
         // if there are parameters to set...
         Map paramsMap = method.getParamsMap();
         paramsMap.put("searchTerm", this.getNameSearch());
@@ -71,6 +73,7 @@ public class KategorienBean {
     }
 
     public void handleCreateKategorie(ActionEvent actionEvent) {
+        //Filmstrip abschalten
         _switchInlineMode("ON");
     }
 
@@ -78,13 +81,54 @@ public class KategorienBean {
         // Add event code here...
     }
 
+    public void setSelectedKategorie(Long _selectedKategorie) {
+        this._selectedKategorie = _selectedKategorie;
+    }
+
+    public Long getSelectedKategorie() {
+        return _selectedKategorie;
+    }
+
     public String handleCustomTitleAction() {
-        // Add event code here...
-        return null;
+        String ret = null;
+        //only navigate if a current row is set
+        if (getSelectedKategorie() != null) {
+            ret = "edit";
+            //Filmstrip abschalten
+            _switchInlineMode("ON");
+        }
+
+        return ret;
     }
 
     public void handleEditKategorie(ActionEvent actionEvent) {
-        _switchInlineMode("ON");
+        // beim click wurde ein Clien Attribute ID mit dem Key der geclickten Überschrift zur componente hinzugefügt
+        Map<String, Object> attributes = actionEvent.getComponent().getAttributes();
+        Long katId = (Long) attributes.get("ID");
+        // diesen Wert erst mal lokal speichern
+        setSelectedKategorie(katId);
+        _logger.info("Selected Kategorie:" + katId);
+
+        // jetzt mit diesem Key dir Current Row setzten
+        OperationBinding method = getOperationFromCurrentBindings("setCurrentRowWithKeyValue");
+        if (method == null) {
+            _utils.showMessage(ERROR, "Methode setCurrentRowWithKeyValue nicht gefunden!");
+            //da die currentrow nicht geetzt werden konnte, den key wieder löschen
+            setSelectedKategorie(null);
+            return;
+        }
+        Map map = method.getParamsMap();
+        map.put("rowKey", katId);
+        method.execute();
+        //check for errors
+        List<Exception> errors = method.getErrors();
+        if (!errors.isEmpty()) {
+            _utils.showMessage(ERROR, "Methode setCurrentRowWithKeyValue fehlgeschlagen!");
+            errors.get(0).printStackTrace();
+            //da die currentrow nicht geetzt werden konnte, den key wieder löschen
+            setSelectedKategorie(null);
+            return;
+        }
     }
 
     public void setCardViewListView(CardViewListViewDCComponent cardViewListView) {
@@ -109,6 +153,7 @@ public class KategorienBean {
     }
 
     public void handleCreateCancel(ActionEvent actionEvent) {
+        //Filmstrip anschalten
         _switchInlineMode("OFF");
 
         OperationBinding method = getOperationFromCurrentBindings("Rollback");
@@ -146,6 +191,7 @@ public class KategorienBean {
                 errors.get(0).printStackTrace();
             }
         }
+        //Filmstrip anschalten
         _switchInlineMode("OFF");
         return;
     }

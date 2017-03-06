@@ -30,5 +30,9 @@
       <NamedData NDName="searchTerm" NDType="java.lang.String"/>
       <NamedData NDName="userId" NDType="java.lang.Long"/>
     </methodAction>
+    <action IterBinding="HfCatViewIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{viewScope.KategorienBean.selectedKategorie}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

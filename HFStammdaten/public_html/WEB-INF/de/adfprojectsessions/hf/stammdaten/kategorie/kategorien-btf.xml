@@ -13,10 +13,9 @@
     <view id="Kategorien">
       <page>/de/adfprojectsessions/hf/stammdaten/kategorien/Kategorien.jsff</page>
     </view>
-    <view id="CreateKategorie">
-      <page>/de/adfprojectsessions/hf/stammdaten/kategorien/CreateKategorie.jsff</page>
+    <view id="CreateEditKategorie">
+      <page>/de/adfprojectsessions/hf/stammdaten/kategorien/CreateEditKategorie.jsff</page>
     </view>
-    <view id="EditKategorie"></view>
     <method-call id="CreateWithParameters">
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
@@ -31,20 +30,13 @@
       </control-flow-case>
       <control-flow-case id="__3">
         <from-outcome>edit</from-outcome>
-        <to-activity-id>EditKategorie</to-activity-id>
+        <to-activity-id>CreateEditKategorie</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">
-      <from-activity-id>CreateKategorie</from-activity-id>
+      <from-activity-id>CreateEditKategorie</from-activity-id>
       <control-flow-case id="__5">
         <from-outcome>doneCreate</from-outcome>
-        <to-activity-id>Kategorien</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__6">
-      <from-activity-id>EditKategorie</from-activity-id>
-      <control-flow-case id="__7">
-        <from-outcome>doneEdit</from-outcome>
         <to-activity-id>Kategorien</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
@@ -52,7 +44,7 @@
       <from-activity-id>CreateWithParameters</from-activity-id>
       <control-flow-case id="__10">
         <from-outcome>goEntryForm</from-outcome>
-        <to-activity-id>CreateKategorie</to-activity-id>
+        <to-activity-id>CreateEditKategorie</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

@@ -192,7 +192,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                         <af:outputText id="dc_ot2" value="#{attrs.title}"
                                        shortDesc="#{attrs.title}"
                                        styleClass="major-text nowrap"/>
-                        <af:clientAttribute name="ID" value="#{row.id}"/>
+                        <af:clientAttribute name="ID" value="#{row.intKey}"/>
                       </af:commandLink>
                       <af:outputText id="dc_ot1" value="#{attrs.title}"
                                      rendered="#{not attrs.titleClickable}"
@@ -232,7 +232,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
               </af:panelGroupLayout>
             </af:panelGroupLayout>
           </af:panelBox>
-          <af:clientAttribute name="ID" value="#{row.id}"/>
+          <af:clientAttribute name="ID" value="#{row.intKey}"/>
         </af:commandLink>
         <af:commandLink id="bacl" partialSubmit="true"
                         disabled="#{not attrs.selectionMode}"
@@ -259,7 +259,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                         <af:outputText value="#{attrs.title}" id="dc_ot5"
                                        styleClass="major-text nowrap"
                                        shortDesc="#{attrs.title}"/>
-                        <af:clientAttribute name="ID" value="#{row.id}"/>
+                        <af:clientAttribute name="ID" value="#{row.intKey}"/>
                       </af:commandLink>
                       <af:outputText value="#{attrs.title}" id="dc_ot4"
                                      rendered="#{not attrs.titleClickable}"
@@ -296,7 +296,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
               </af:panelGroupLayout>
             </af:panelGroupLayout>
           </af:panelBox>
-          <af:clientAttribute name="ID" value="#{row.id}"/>
+          <af:clientAttribute name="ID" value="#{row.intKey}"/>
         </af:commandLink>
       </af:deck>
     </af:panelGroupLayout>

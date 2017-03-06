@@ -31,25 +31,22 @@
                                 <af:iterator id="i1" value="#{bindings.HfCatView.collectionModel}" var="row"
                                              varStatus="status" rows="0">
                                     <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
-                                        <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="true"
+                                        <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
                                                      cardSelectActionListener="#{viewScope.KategorienBean.handleKategorieSelection}"
                                                      title="#{row.CatName}"
                                                      titleAction="#{viewScope.KategorienBean.handleCustomTitleAction}"
-                                                     titleActionListener="#{viewScope.KategorienBean.handleEditKategorie}">
+                                                     titleActionListener="#{viewScope.KategorienBean.handleEditKategorie}"
+                                                     height="200" width="275" titleClickable="true">
                                             <f:facet name="frontContents">
-                                                <af:panelStretchLayout id="psl1">
+                                                <af:panelStretchLayout id="psl1" dimensionsFrom="children"
+                                                                       startWidth="0px" endWidth="0px" topHeight="0px"
+                                                                       bottomHeight="0px">
                                                     <f:facet name="start"/>
-                                                    <f:facet name="end">
-                                                        <af:panelGroupLayout id="pgl7" layout="vertical">
-                                                            <af:spacer height="5" id="s9"/>
-                                                        </af:panelGroupLayout>
-                                                    </f:facet>
-                                                    <f:facet name="top">
-                                                        <af:spacer width="10" height="5" id="s4"/>
-                                                    </f:facet>
+                                                    <f:facet name="end"/>
+                                                    <f:facet name="top"/>
                                                     <f:facet name="bottom"/>
                                                     <f:facet name="center">
-                                                        <af:panelGroupLayout id="pgl6" layout="vertical">
+                                                        <af:panelGroupLayout id="pgl6" layout="vertical" >
                                                             <af:outputText value="#{row.intKey}" id="ot1"/>
                                                             <af:outputText value="#{row.catDesc}" id="ot3"/>
                                                             <af:outputText value="#{row.lastChange}" id="ot4"/>
