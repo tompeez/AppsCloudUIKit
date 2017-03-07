@@ -16,26 +16,26 @@
                     <af:panelGroupLayout id="pgl3">
                         <af:toolbar id="t1" flex="1" stretchId="toolbarExpander">
                             <af:inputText label="#{hfBundle.FIND}" id="it1" columns="25" placeholder="Name contains ..."
-                                          usage="search" value="#{viewScope.KategorienBean.nameSearch}"
+                                          usage="search" value="#{pageFlowScope.KategorienBean.nameSearch}"
                                           autoSubmit="true"/>
                             <af:commandButton id="cb1" icon="/images/func_search_16_ena.png" partialSubmit="true"
-                                              actionListener="#{viewScope.KategorienBean.handleNameSearch}"/>
+                                              actionListener="#{pageFlowScope.KategorienBean.handleNameSearch}"/>
                             <af:spacer width="15" id="s3"/>
                             <af:spacer id="toolbarExpander" clientComponent="true"/>
                             <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.CREATE_KATEGORIE}"
-                                              actionListener="#{viewScope.KategorienBean.handleCreateKategorie}"
+                                              actionListener="#{pageFlowScope.KategorienBean.handleCreateKategorie}"
                                               action="create"/>
                         </af:toolbar>
-                        <acdc:CardViewListViewDC id="cvlvdc1" binding="#{viewScope.KategorienBean.cardViewListView}">
+                        <acdc:CardViewListViewDC id="cvlvdc1" binding="#{pageFlowScope.KategorienBean.cardViewListView}">
                             <f:facet name="cardView">
                                 <af:iterator id="i1" value="#{bindings.HfCatView.collectionModel}" var="row"
                                              varStatus="status" rows="0">
                                     <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
                                         <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
-                                                     cardSelectActionListener="#{viewScope.KategorienBean.handleKategorieSelection}"
+                                                     cardSelectActionListener="#{pageFlowScope.KategorienBean.handleKategorieSelection}"
                                                      title="#{row.CatName}"
-                                                     titleAction="#{viewScope.KategorienBean.handleCustomTitleAction}"
-                                                     titleActionListener="#{viewScope.KategorienBean.handleEditKategorie}"
+                                                     titleAction="#{pageFlowScope.KategorienBean.handleCustomTitleAction}"
+                                                     titleActionListener="#{pageFlowScope.KategorienBean.handleEditKategorie}"
                                                      height="200" width="275" titleClickable="true">
                                             <f:facet name="frontContents">
                                                 <af:panelStretchLayout id="psl1" dimensionsFrom="children"
@@ -62,7 +62,7 @@
                                 <af:listView value="#{bindings.HfCatView.collectionModel}" var="item"
                                              emptyText="#{hfBundle.NO_KATEGORIES_FOUND}"
                                              fetchSize="#{bindings.HfCatView.rangeSize}" id="lv1" selection="single"
-                                             selectionListener="#{viewScope.KategorienBean.handleKategorieSelection}">
+                                             selectionListener="#{pageFlowScope.KategorienBean.handleKategorieSelection}">
                                     <af:listItem id="li1">
                                         <af:panelGridLayout id="pgl4">
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">

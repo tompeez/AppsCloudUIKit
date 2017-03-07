@@ -8,7 +8,7 @@
     <managed-bean id="__8">
       <managed-bean-name>KategorienBean</managed-bean-name>
       <managed-bean-class>de.adfprojectsessions.hf.stammdaten.view.beans.KategorienBean</managed-bean-class>
-      <managed-bean-scope>view</managed-bean-scope>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
     </managed-bean>
     <view id="Kategorien">
       <page>/de/adfprojectsessions/hf/stammdaten/kategorien/Kategorien.jsff</page>

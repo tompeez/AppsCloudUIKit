@@ -27,7 +27,7 @@
     </methodAction>
     <action IterBinding="HfCatViewIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
             Action="setCurrentRowWithKeyValue">
-      <NamedData NDName="rowKey" NDValue="#{viewScope.KategorienBean.selectedKategorie}" NDType="java.lang.String"/>
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.KategorienBean.selectedKategorie}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

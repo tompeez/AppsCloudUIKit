@@ -8,11 +8,11 @@
             <af:panelGroupLayout id="pgl1" layout="vertical" halign="center" valign="top">
                 <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.CREATE_KATEGORIE}" cancelButtonVisible="true"
                                    cancelButtonImmediate="false"
-                                   cancelActionListener="#{viewScope.KategorienBean.handleCreateCancel}"
-                                   cancelAction="#{viewScope.KategorienBean.onCreateCancel}"
+                                   cancelActionListener="#{pageFlowScope.KategorienBean.handleCreateCancel}"
+                                   cancelAction="#{pageFlowScope.KategorienBean.onCreateCancel}"
                                    saveAndCloseButtonVisible="true"
-                                   saveAndCloseAction="#{viewScope.KategorienBean.onSaveAndClose}"
-                                   saveAndCloseActionListener="#{viewScope.KategorienBean.handleSaveAndClose}"/>
+                                   saveAndCloseAction="#{pageFlowScope.KategorienBean.onSaveAndClose}"
+                                   saveAndCloseActionListener="#{pageFlowScope.KategorienBean.handleSaveAndClose}"/>
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:panelFormLayout id="pfl1">
                     <af:panelLabelAndMessage label="#{bindings.IntKey.hints.label}" id="plam1">
