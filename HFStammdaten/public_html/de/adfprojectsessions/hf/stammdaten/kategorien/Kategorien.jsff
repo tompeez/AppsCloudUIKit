@@ -61,33 +61,39 @@
                             <f:facet name="listView">
                                 <af:listView value="#{bindings.HfCatView.collectionModel}" var="item"
                                              emptyText="#{hfBundle.NO_KATEGORIES_FOUND}"
-                                             fetchSize="#{bindings.HfCatView.rangeSize}" id="lv1">
+                                             fetchSize="#{bindings.HfCatView.rangeSize}" id="lv1" selection="single"
+                                             selectionListener="#{viewScope.KategorienBean.handleKategorieSelection}">
                                     <af:listItem id="li1">
                                         <af:panelGridLayout id="pgl4">
                                             <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
-                                                <af:gridCell marginStart="5px" width="100px" id="gc1">
-                                                    <af:panelLabelAndMessage label="#{item.bindings.IntKey.hints.label}"
-                                                                             id="plam1">
-                                                        <af:outputFormatted value="#{item.bindings.IntKey.inputValue}"
+                                                <af:gridCell marginStart="5px" width="50px" id="gc1">
+                                                        <af:outputFormatted value="#{item.IntKey}"
                                                                             id="of1">
                                                             <af:convertNumber groupingUsed="false"
                                                                               pattern="#{bindings.HfCatView.hints.IntKey.format}"/>
                                                         </af:outputFormatted>
-                                                    </af:panelLabelAndMessage>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="20%" id="gc2">
-                                                    <af:outputFormatted value="#{item.bindings.CatName.inputValue}"
-                                                                        id="of2"/>
+                                                    <af:panelLabelAndMessage label="#{item.bindings.CatName.hints.label}"
+                                                                             id="plam1">
+                                                        <af:outputText value="#{item.CatName}"
+                                                                       shortDesc="#{item.bindings.CatName.hints.tooltip}"
+                                                                       id="ot2"/>
+                                                    </af:panelLabelAndMessage>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="60%" id="gc3">
                                                     <af:outputFormatted value="#{item.bindings.CatDesc.inputValue}"
                                                                         id="of3"/>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="20%" marginEnd="5px" id="gc4">
-                                                    <af:outputFormatted value="#{item.bindings.LastChange.inputValue}"
-                                                                        id="of4">
-                                                        <af:convertDateTime pattern="#{bindings.HfCatView.hints.LastChange.format}"/>
-                                                    </af:outputFormatted>
+                                                    <af:panelLabelAndMessage label="#{item.bindings.LastChange.hints.label}"
+                                                                             id="plam2">
+                                                        <af:outputText value="#{item.LastChange}"
+                                                                       shortDesc="#{item.bindings.LastChange.hints.tooltip}"
+                                                                       id="ot5">
+                                                            <af:convertDateTime pattern="#{item.bindings.LastChange.format}"/>
+                                                        </af:outputText>
+                                                    </af:panelLabelAndMessage>
                                                 </af:gridCell>
                                             </af:gridRow>
                                         </af:panelGridLayout>

@@ -19,11 +19,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="HfCatViewIterator" id="CatDesc">
-      <AttrNames>
-        <Item Value="CatDesc"/>
-      </AttrNames>
-    </attributeValues>
     <methodAction id="searchDescriptionByUserId" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="searchDescriptionByUserId" IsViewObjectMethod="true" DataControl="HFAppModuleDataControl"
                   InstanceName="data.HFAppModuleDataControl.HfCatView">

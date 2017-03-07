@@ -21,6 +21,10 @@ import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Key;
+
+import org.apache.myfaces.trinidad.event.SelectionEvent;
+import org.apache.myfaces.trinidad.model.RowKeySet;
 import org.apache.myfaces.trinidad.util.ComponentReference;
 
 public class KategorienBean {
@@ -229,4 +233,16 @@ public class KategorienBean {
         ActionEvent actionEvent = new ActionEvent(actionTrigger);
         actionEvent.queue();
     } //_switchInlineMode
+
+    public void handleKategorieSelection(SelectionEvent selectionEvent) {
+        RowKeySet addedSet = selectionEvent.getAddedSet();
+        if (addedSet.getSize() > 0) {
+            Object[] array = addedSet.toArray();
+            List l = (List) array[0];
+            Key key = (Key) l.get(0);
+            Long id = (Long) key.getAttribute(0);
+            //Record the selection
+            _logger.info("Selected row: " + id);
+        }
+    }
 }
