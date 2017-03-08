@@ -17,19 +17,33 @@ public class CardViewListViewDC extends RichDeclarativeComponent {
 
     private String _viewMode;
 
+
+    /**
+     * set viewMode
+     * @param s mode to set [cardView|listView]
+     */
     public void setViewMode(String s) {
         _viewMode = s;
+        // check if we use an external stateBean to hold hte current viewMode
         Boolean b = (Boolean) this.getAttribute("useStateBean");
         CardViewListViewStateBean state = (CardViewListViewStateBean) this.getAttribute("stateBean");
         if (b.equals(Boolean.TRUE)) {
+            // store viewMode in external bean
             state.setViewMode(_viewMode);
         }
     }
 
+    /**
+     * get current viewMode
+     * @return current viewMode
+     */
     public String getViewMode() {
+        // check if we use an external stateBean to hold hte current viewMode
         Boolean b = (Boolean) this.getAttribute("useStateBean");
         CardViewListViewStateBean state = (CardViewListViewStateBean) this.getAttribute("stateBean");
         if (b.equals(Boolean.TRUE)) {
+            //read viewMode from external bean: If might be null if no viewMode is explicit set in the bean. In this case
+            // the defaultView is used
             _viewMode = state.getViewMode();
         }
 

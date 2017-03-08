@@ -34,7 +34,6 @@
                                              varStatus="status" rows="0">
                                     <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
                                         <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
-                                                     cardSelectActionListener="#{pageFlowScope.KategorienBean.handleKategorieSelection}"
                                                      title="#{row.CatName}"
                                                      titleAction="#{pageFlowScope.KategorienBean.handleCustomTitleAction}"
                                                      titleActionListener="#{pageFlowScope.KategorienBean.handleEditKategorie}"

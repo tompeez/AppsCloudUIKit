@@ -32,37 +32,47 @@ public class KategorienBean {
     private static ADFLogger _logger = ADFLogger.createADFLogger(KategorienBean.class);
     private static final String ERROR = "ERROR";
 
-    String nameSearch;
-    String currectViewMode;
+    // search term
+    private String nameSearch;
 
+    // reference to the CardViewListViewDC component
     private ComponentReference cardViewListView;
+    // utility bean
     private UtilsBean _utils = new UtilsBean();
+    // state of hte CardViewListViewDC component
     private CardViewListViewStateBean currentViewState;
     // current select kategorie. If null none is selected
-    Long _selectedKategorie = null;
+    private Long _selectedKategorie = null;
 
-    public void setCurrectViewMode(String currectViewMode) {
-        this.currectViewMode = currectViewMode;
+    /**
+     * C'tor
+     */
+    public KategorienBean() {
+        currentViewState = new CardViewListViewStateBean();
     }
 
-    public String getCurrectViewMode() {
-        return currectViewMode;
-    }
-    
+    /**
+     * Setter.
+     * @param nameSearch
+     */
     public void setNameSearch(String nameSearch) {
         this.nameSearch = nameSearch;
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public String getNameSearch() {
         return nameSearch;
     }
 
-    public KategorienBean() {
-        currentViewState = new CardViewListViewStateBean();       
-    }
 
+    /** 
+     * handle search event.
+     * @param actionEvent event which triggered the search
+     */
     public void handleNameSearch(ActionEvent actionEvent) {
-        CardViewListViewDCComponent comp = getCardViewListView();
         OperationBinding method = getOperationFromCurrentBindings("searchDescriptionByUserId");
         if (method == null) {
             _utils.showMessage(ERROR, "Suchmethode nicht gefunden!");
@@ -82,31 +92,53 @@ public class KategorienBean {
             _utils.showMessage(ERROR, "Suche fehlgeschlagen!");
             errors.get(0).printStackTrace();
         }
-        // PPR refresh a jsf component
+
+        // PPR refresh a jsf component: we need to do this in java as we can't ppr a declarative comonent
+        CardViewListViewDCComponent comp = getCardViewListView();
         AdfFacesContext.getCurrentInstance().addPartialTarget(comp);
     }
 
+    /*
     public void cancelSelectionMode(ActionEvent actionEvent) {
         // Add event code here...
     }
+*/
 
+    /**
+     * Handle create kategorie event.
+     * @param actionEvent which triggered the create event
+     */
     public void handleCreateKategorie(ActionEvent actionEvent) {
         //Filmstrip abschalten
         _switchInlineMode("ON");
     }
 
+    /*
     public void handleKategorieSelection(ActionEvent actionEvent) {
         // Add event code here...
     }
+*/
 
+    /**
+     * Setter.
+     * @param _selectedKategorie
+     */
     public void setSelectedKategorie(Long _selectedKategorie) {
         this._selectedKategorie = _selectedKategorie;
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public Long getSelectedKategorie() {
         return _selectedKategorie;
     }
 
+    /**
+     * Action for click in the card title
+     * @return next navigation target
+     */
     public String handleCustomTitleAction() {
         String ret = null;
         //only navigate if a current row is set
@@ -119,6 +151,11 @@ public class KategorienBean {
         return ret;
     }
 
+    /**
+     * Prepare current selected kategorie for edit.
+     * The current selected key of hte kategorie is red from a clientattribute named 'ID'
+     * @param actionEvent event which triggers the action
+     */
     public void handleEditKategorie(ActionEvent actionEvent) {
         // beim click wurde ein Clien Attribute ID mit dem Key der geclickten Überschrift zur componente hinzugefügt
         Map<String, Object> attributes = actionEvent.getComponent().getAttributes();
@@ -126,6 +163,11 @@ public class KategorienBean {
         // diesen Wert erst mal lokal speichern
         setSelectedKategorie(katId);
         _logger.info("Selected Kategorie:" + katId);
+
+        if (katId == null) {
+            _utils.showMessage(ERROR, "ID of selcted row not found!");
+            return;
+        }
 
         // jetzt mit diesem Key dir Current Row setzten
         OperationBinding method = getOperationFromCurrentBindings("setCurrentRowWithKeyValue");
@@ -135,9 +177,11 @@ public class KategorienBean {
             setSelectedKategorie(null);
             return;
         }
+        // set method parameter
         Map map = method.getParamsMap();
         map.put("rowKey", katId);
         method.execute();
+        
         //check for errors
         List<Exception> errors = method.getErrors();
         if (!errors.isEmpty()) {
@@ -149,6 +193,10 @@ public class KategorienBean {
         }
     }
 
+    /**
+     * Setter.
+     * @param cardViewListView
+     */
     public void setCardViewListView(CardViewListViewDCComponent cardViewListView) {
         if (cardViewListView != null) {
             this.cardViewListView = ComponentReference.newUIComponentReference(cardViewListView);
@@ -158,6 +206,10 @@ public class KategorienBean {
 
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public CardViewListViewDCComponent getCardViewListView() {
         if (this.cardViewListView != null) {
             return (CardViewListViewDCComponent) cardViewListView.getComponent();
@@ -166,11 +218,19 @@ public class KategorienBean {
         return null;
     }
 
+    /**
+     * Action after click on Cancel.
+     * @return next navigation target
+     */
     public String onCreateCancel() {
         String ret = "doneCreate";
         return ret;
     }
 
+    /**
+     * Handle cancel of Create new Card row event.
+     * @param actionEvent event which triggered the cancel event 
+     */
     public void handleCreateCancel(ActionEvent actionEvent) {
         //Filmstrip anschalten
         _switchInlineMode("OFF");
@@ -191,11 +251,19 @@ public class KategorienBean {
         return;
     }
 
+    /**
+     * Action  on click on save and close.
+     * @return next navigation target
+     */
     public String onSaveAndClose() {
         String ret = "doneCreate";
         return ret;
     }
 
+    /**
+     * Handle save and close event.
+     * @param actionEvent which triggered the save event
+     */
     public void handleSaveAndClose(ActionEvent actionEvent) {
         OperationBinding method = getOperationFromCurrentBindings("Commit");
         if (method == null) {
@@ -215,6 +283,11 @@ public class KategorienBean {
         return;
     }
 
+    /**
+     * Helper mehtod to get an operation bindung from the current bindings.
+     * @param methodName name of the method
+     * @return OperationBinding of hte method or null if hte method is not found
+     */
     private OperationBinding getOperationFromCurrentBindings(String methodName) {
         // GET A METHOD FROM PAGEDEF AND EXECUTE IT
         // get the binding container
@@ -224,6 +297,11 @@ public class KategorienBean {
         return method;
     }
 
+    /**
+     * Helper method to gen an attribute binding fro nthe current bindings.
+     * @param attibuteName name of hte attribute 
+     * @return AttributeBinding of hte attribute or null if hte attribute is not found
+     */
     private AttributeBinding getAttributeFromCurrntBinding(String attibuteName) {
         // get the binding container
         BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
@@ -232,6 +310,10 @@ public class KategorienBean {
         return attr;
     }
 
+    /**
+     * Helper method to switch hte filmstrip on an off
+     * @param mode mode to set [ON|OFF]
+     */
     private void _switchInlineMode(String mode) {
         SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
         if (mode.equals("ON")) {
@@ -249,6 +331,10 @@ public class KategorienBean {
         actionEvent.queue();
     } //_switchInlineMode
 
+    /**
+     * Handler selection event of a list entry.
+     * @param selectionEvent which triggered the selection
+     */
     public void handleKategorieSelection(SelectionEvent selectionEvent) {
         RowKeySet addedSet = selectionEvent.getAddedSet();
         if (addedSet.getSize() > 0) {
@@ -261,10 +347,18 @@ public class KategorienBean {
         }
     }
 
+    /** 
+     * Setter.
+     * @param currentViewState
+     */
     public void setCurrentViewState(CardViewListViewStateBean currentViewState) {
         this.currentViewState = currentViewState;
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public CardViewListViewStateBean getCurrentViewState() {
         return currentViewState;
     }
