@@ -6,9 +6,9 @@
          value="#{adfBundle['oracle.apps.uikit.DemoMasterBundle']}"/>          
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="#{demomasterBundle.ANMELDUNG}" id="d1">
+        <af:document title="#{demomasterBundle.ANMELDUNG}" id="d1" initialFocusId="pt1:it1">
             <af:messages id="m1"/>
-            <af:form id="f1">
+            <af:form id="f1" defaultCommand="pt1:b1">
                 <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/SimpleUIShell.jspx" id="pt1">
                     <f:facet name="globalNavigator"/>
                     <f:facet name="globalHeaderMiddle"/>
@@ -23,7 +23,8 @@
                                 <af:panelFormLayout id="pfl1">
                                     <f:facet name="footer"/>
                                     <af:outputText value="#{demomasterBundle.ANMELDETEXT}" id="ot1"/>
-                                    <af:inputText label="Name" id="it1" value="#{sessionScope.loggedInUserName}"/>
+                                    <af:inputText label="Name" id="it1" value="#{sessionScope.loggedInUserName}"
+                                                  clientComponent="true"/>
                                     <af:inputText label="Passwort" id="it2"
                                                   value="#{bindings.userPassword1.inputValue}" secret="true"/>
                                     <af:button text="Anmelden" id="b1"

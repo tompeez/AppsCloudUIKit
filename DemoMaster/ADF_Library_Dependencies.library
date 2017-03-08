@@ -3,6 +3,7 @@
    <classPath>
       <entries>
          <Item protocol="jar" path="file:/dev/null/!/"/>
+         <Item path="../libs/adflibHFModel.jar" jar-entry=""/>
       </entries>
    </classPath>
    <docPath/>

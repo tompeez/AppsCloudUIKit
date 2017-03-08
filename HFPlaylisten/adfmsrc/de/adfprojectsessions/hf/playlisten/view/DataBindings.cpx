@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="de.adfprojectsessions.hf.playlisten.view" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/Playlisten.jsff"
+          usageId="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"
+          path="de.adfprojectsessions.hf.playlisten.PlaylistenPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="HFAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

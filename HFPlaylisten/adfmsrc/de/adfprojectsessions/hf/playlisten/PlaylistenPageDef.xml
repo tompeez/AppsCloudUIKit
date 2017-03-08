@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="PlaylistenPageDef"
+                Package="de.adfprojectsessions.hf.playlisten">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="HfPlaylistViewIterator" Binds="HfPlaylistView" DataControl="HFAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView" Name="HfPlaylistView0">
+        <AttrNames>
+          <Item Value="IntKey"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="Description"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="ShareFlag"/>
+          <Item Value="LastChange"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
