@@ -57,6 +57,25 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
             cardView
           </default-value>
         </attribute>
+        <attribute>
+          <attribute-name>
+            stateBean
+          </attribute-name>
+          <attribute-class>
+            oracle.apps.uikit.common.bean.CardViewListViewStateBean
+          </attribute-class>
+        </attribute>
+        <attribute>
+          <attribute-name>
+            useStateBean
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            #{false}
+          </default-value>
+        </attribute>
         <component-extension>
           <component-tag-namespace>oracle.apps.uikit.common.declarativeComponents</component-tag-namespace>
           <component-taglib-uri>/appsCloudUIKitDCs</component-taglib-uri>

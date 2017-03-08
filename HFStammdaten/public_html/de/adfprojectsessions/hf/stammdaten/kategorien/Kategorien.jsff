@@ -26,7 +26,9 @@
                                               actionListener="#{pageFlowScope.KategorienBean.handleCreateKategorie}"
                                               action="create"/>
                         </af:toolbar>
-                        <acdc:CardViewListViewDC id="cvlvdc1" binding="#{pageFlowScope.KategorienBean.cardViewListView}">
+                        <acdc:CardViewListViewDC id="cvlvdc1" binding="#{pageFlowScope.KategorienBean.cardViewListView}"
+                                                 useStateBean="true"
+                                                 stateBean="#{pageFlowScope.KategorienBean.currentViewState}">
                             <f:facet name="cardView">
                                 <af:iterator id="i1" value="#{bindings.HfCatView.collectionModel}" var="row"
                                              varStatus="status" rows="0">
@@ -80,6 +82,11 @@
                                                                        shortDesc="#{item.bindings.CatName.hints.tooltip}"
                                                                        id="ot2"/>
                                                     </af:panelLabelAndMessage>
+                                                    <af:link text="#{item.CatName}" id="l1"
+                                                             actionListener="#{pageFlowScope.KategorienBean.handleEditKategorie}"
+                                                             action="#{pageFlowScope.KategorienBean.handleCustomTitleAction}">
+                                                        <af:clientAttribute name="ID" value="#{item.IntKey}"/>
+                                                    </af:link>
                                                 </af:gridCell>
                                                 <af:gridCell marginStart="5px" width="60%" id="gc3">
                                                     <af:outputFormatted value="#{item.bindings.CatDesc.inputValue}"

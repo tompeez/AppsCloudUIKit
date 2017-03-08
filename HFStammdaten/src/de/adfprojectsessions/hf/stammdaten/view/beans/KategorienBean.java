@@ -13,6 +13,7 @@ import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
+import oracle.apps.uikit.common.bean.CardViewListViewStateBean;
 import oracle.apps.uikit.common.bean.UtilsBean;
 import oracle.apps.uikit.common.declarativeComponents.CardViewListViewDCComponent;
 import oracle.apps.uikit.memoryCache.SessionState;
@@ -32,11 +33,22 @@ public class KategorienBean {
     private static final String ERROR = "ERROR";
 
     String nameSearch;
+    String currectViewMode;
+
     private ComponentReference cardViewListView;
     private UtilsBean _utils = new UtilsBean();
+    private CardViewListViewStateBean currentViewState;
     // current select kategorie. If null none is selected
     Long _selectedKategorie = null;
 
+    public void setCurrectViewMode(String currectViewMode) {
+        this.currectViewMode = currectViewMode;
+    }
+
+    public String getCurrectViewMode() {
+        return currectViewMode;
+    }
+    
     public void setNameSearch(String nameSearch) {
         this.nameSearch = nameSearch;
     }
@@ -46,9 +58,11 @@ public class KategorienBean {
     }
 
     public KategorienBean() {
+        currentViewState = new CardViewListViewStateBean();       
     }
 
     public void handleNameSearch(ActionEvent actionEvent) {
+        CardViewListViewDCComponent comp = getCardViewListView();
         OperationBinding method = getOperationFromCurrentBindings("searchDescriptionByUserId");
         if (method == null) {
             _utils.showMessage(ERROR, "Suchmethode nicht gefunden!");
@@ -69,7 +83,7 @@ public class KategorienBean {
             errors.get(0).printStackTrace();
         }
         // PPR refresh a jsf component
-        AdfFacesContext.getCurrentInstance().addPartialTarget(getCardViewListView());
+        AdfFacesContext.getCurrentInstance().addPartialTarget(comp);
     }
 
     public void cancelSelectionMode(ActionEvent actionEvent) {
@@ -141,6 +155,7 @@ public class KategorienBean {
         } else {
             this.cardViewListView = null;
         }
+
     }
 
     public CardViewListViewDCComponent getCardViewListView() {
@@ -244,5 +259,13 @@ public class KategorienBean {
             //Record the selection
             _logger.info("Selected row: " + id);
         }
+    }
+
+    public void setCurrentViewState(CardViewListViewStateBean currentViewState) {
+        this.currentViewState = currentViewState;
+    }
+
+    public CardViewListViewStateBean getCurrentViewState() {
+        return currentViewState;
     }
 }
