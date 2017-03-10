@@ -69,6 +69,9 @@
       <string v="oracle.toplink.workbench.addin/toplinkContentSet"/>
    </list>
    <value n="defaultPackage" v="de.adfprojectsessions.hf.stammdaten.view"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
+   </hash>
    <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
       <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
    </hash>
@@ -331,6 +334,7 @@
                <list n="classPath">
                   <url path="../libs/adflibDemoData.jar" jar-entry=""/>
                   <url path="../libs/adflibUIKitCommon.jar" jar-entry=""/>
+                  <url path="../libs/adflibHFModel.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

@@ -89,7 +89,10 @@
          <string v="${workspace.dir}"/>
       </list>
    </hash>
-   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration"/>
+   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
+      <value n="makeTarget" v="all"/>
+      <url n="projectBuildfile" path="HFModel_build.xml"/>
+   </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <list n="copyRes">
          <string v=".GIF"/>

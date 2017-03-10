@@ -14,20 +14,34 @@
   SelectAllAttributes="false"
   PageIterMode="Full">
   <ViewAccessor
-    Name="HfCatByUserViewObj_LOV"
-    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
+    Name="HfUserViewLookupLOV"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfUserView"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="HfCatByUserLookupView"
-    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="HfCatView1"
+    Name="HfCatViewLookupLOV"
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"
     RowLevelBinds="true"/>
   <ListBinding
+    Name="LOV_HfUserIk"
+    ListVOName="HfUserViewLookupLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HfUserIk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IntKey"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Longname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
     Name="LOV_HfCatIk"
-    ListVOName="HfCatView1"
+    ListVOName="HfCatViewLookupLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -85,7 +99,15 @@
     PrecisionRule="true"
     EntityAttrName="HfUserIk"
     EntityUsage="HfPlaylist"
-    AliasName="HF_USER_IK"/>
+    AliasName="HF_USER_IK"
+    LOVName="LOV_HfUserIk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"
