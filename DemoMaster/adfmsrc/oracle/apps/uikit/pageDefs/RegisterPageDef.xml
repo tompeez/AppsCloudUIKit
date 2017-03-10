@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="RegisterPageDef"
+                Package="oracle.apps.uikit.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.Integer" Name="registerUser_key" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="registerUser_username" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="registerUser_password" IsQueriable="false"/>
+      <variable Type="java.lang.Integer" Name="registerUser2_key" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="registerUser2_username" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="registerUser2_longname" IsQueriable="false"/>
+      <variable Type="java.lang.String" Name="registerUser2_password" IsQueriable="false"/>
+    </variableIterator>
+    <taskFlow id="registerUser1" taskFlowId="/WEB-INF/registerUser-btf.xml#registerUser" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="registerUser2" taskFlowId="/WEB-INF/registerUser-btf.xml#registerUser" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings>
+    <methodAction id="registerUser" RequiresUpdateModel="true" Action="invokeMethod" MethodName="registerUser"
+                  IsViewObjectMethod="false" DataControl="HFAppModuleDataControl"
+                  InstanceName="data.HFAppModuleDataControl.dataProvider">
+      <NamedData NDName="key" NDType="java.lang.Integer" NDValue="${bindings.registerUser_key}"/>
+      <NamedData NDName="username" NDType="java.lang.String" NDValue="${bindings.registerUser_username}"/>
+      <NamedData NDName="password" NDType="java.lang.String" NDValue="${bindings.registerUser_password}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="key">
+      <AttrNames>
+        <Item Value="registerUser_key"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="username">
+      <AttrNames>
+        <Item Value="registerUser_username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="password">
+      <AttrNames>
+        <Item Value="registerUser_password"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

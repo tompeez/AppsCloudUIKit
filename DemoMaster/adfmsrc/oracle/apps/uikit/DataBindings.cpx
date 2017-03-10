@@ -22,6 +22,8 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <page path="/Register.jspx" usageId="oracle_apps_uikit_RegisterPageDef"/>
     <page path="/oracle/apps/uikit/page/userRegistrationForm.jsff"
           usageId="oracle_apps_uikit_userRegistrationFormPageDef1"/>
+    <page path="/test.jsff" usageId="oracle_apps_uikit_testPageDef"/>
+    <page path="/oracle/apps/uikit/page/registerUser.jsff" usageId="oracle_apps_uikit_registerUserPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="oracle_apps_uikit_WelcomePageDef"
@@ -38,6 +40,8 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <page id="oracle_apps_uikit_RegisterPageDef" path="oracle.apps.uikit.pageDefs.RegisterPageDef"/>
     <page id="oracle_apps_uikit_userRegistrationFormPageDef1"
           path="oracle.apps.uikit.page.userRegistrationFormPageDef"/>
+    <page id="oracle_apps_uikit_testPageDef" path="oracle.apps.uikit.pageDefs.testPageDef"/>
+    <page id="oracle_apps_uikit_registerUserPageDef" path="oracle.apps.uikit.pageDefs.registerUserPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"

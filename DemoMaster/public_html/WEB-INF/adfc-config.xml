@@ -52,13 +52,6 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
       <fixed-outcome>login</fixed-outcome>
     </outcome>
   </method-call>
-  <task-flow-call id="registerUser">
-    <?audit suppress oracle.adfdt.controller.adfc.source.audit.PageFragmentSemanticsDoNotMatch2b?>
-    <task-flow-reference>
-      <document>/WEB-INF/registerUser-btf.xml</document>
-      <id>registerUser</id>
-    </task-flow-reference>
-  </task-flow-call>
   <view id="Register">
     <page>/Register.jspx</page>
   </view>

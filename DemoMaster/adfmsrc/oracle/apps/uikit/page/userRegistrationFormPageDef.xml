@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="userRegistrationFormPageDef"
+                Package="oracle.apps.uikit.page">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="registerUser_longname" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="registerUser" RequiresUpdateModel="true" Action="invokeMethod" MethodName="registerUser"
+                  IsViewObjectMethod="false" DataControl="HFAppModuleDataControl"
+                  InstanceName="data.HFAppModuleDataControl.dataProvider">
+      <NamedData NDName="key" NDType="java.lang.Integer"/>
+      <NamedData NDName="username" NDType="java.lang.String"/>
+      <NamedData NDName="longname" NDType="java.lang.String" NDValue="${bindings.registerUser_longname}"/>
+      <NamedData NDName="password" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="longname">
+      <AttrNames>
+        <Item Value="registerUser_longname"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

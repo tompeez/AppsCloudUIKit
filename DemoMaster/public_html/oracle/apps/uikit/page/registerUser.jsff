@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelFormLayout id="pfl1">
+    <af:inputText value="#{bindings.key.inputValue}" label="#{bindings.key.hints.label}"
+                  required="#{bindings.key.hints.mandatory}" columns="#{bindings.key.hints.displayWidth}"
+                  maximumLength="#{bindings.key.hints.precision}" shortDesc="#{bindings.key.hints.tooltip}" id="it1">
+      <f:validator binding="#{bindings.key.validator}"/>
+      <af:convertNumber groupingUsed="false" pattern="#{bindings.key.format}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.username.inputValue}" label="#{bindings.username.hints.label}"
+                  required="#{bindings.username.hints.mandatory}" columns="#{bindings.username.hints.displayWidth}"
+                  maximumLength="#{bindings.username.hints.precision}" shortDesc="#{bindings.username.hints.tooltip}"
+                  id="it2">
+      <f:validator binding="#{bindings.username.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.longname.inputValue}" label="#{bindings.longname.hints.label}"
+                  required="#{bindings.longname.hints.mandatory}" columns="#{bindings.longname.hints.displayWidth}"
+                  maximumLength="#{bindings.longname.hints.precision}" shortDesc="#{bindings.longname.hints.tooltip}"
+                  id="it3">
+      <f:validator binding="#{bindings.longname.validator}"/>
+    </af:inputText>
+    <af:inputText value="#{bindings.password.inputValue}" label="#{bindings.password.hints.label}"
+                  required="#{bindings.password.hints.mandatory}" columns="#{bindings.password.hints.displayWidth}"
+                  maximumLength="#{bindings.password.hints.precision}" shortDesc="#{bindings.password.hints.tooltip}"
+                  id="it4">
+      <f:validator binding="#{bindings.password.validator}"/>
+    </af:inputText>
+    <af:button actionListener="#{bindings.registerUser.execute}" text="registerUser"
+               disabled="#{!bindings.registerUser.enabled}" id="b1"/>
+  </af:panelFormLayout>
+</ui:composition>
