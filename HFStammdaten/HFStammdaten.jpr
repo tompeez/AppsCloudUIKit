@@ -88,11 +88,31 @@
          <string v="ADF_FACES"/>
          <string v="ADFc"/>
          <string v="ADFm"/>
+         <string v="Ant"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
          <string v="TRINIDAD"/>
          <string v="XML"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.ant.AntRunConfiguration">
+      <list n="propertyNames">
+         <string v="env.WORKSPACE"/>
+      </list>
+      <list n="propertyValues">
+         <string v="${workspace.dir}"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
+      <value n="makeTarget" v="all"/>
+      <url n="projectBuildfile" path="build.xml"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="compile"/>
+         <string v="copy"/>
+         <string v="deploy"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -152,6 +172,7 @@
       <value n="j2eeWebContextRoot" v="AppsCloudUIKit-HFStammdaten-context-root"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <value n="activeName" v="Task Flow Tester"/>
       <hash n="runConfigurationDefinitions">
          <hash n="Task Flow Tester">
             <value n="allowInput" v="true"/>
@@ -265,10 +286,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF EMG Task Flow Tester"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -416,10 +433,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF EMG Task Flow Tester"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
