@@ -97,6 +97,26 @@
          <string v="ADF_FACES"/>
       </list>
    </hash>
+   <hash n="oracle.jdeveloper.ant.AntRunConfiguration">
+      <list n="propertyNames">
+         <string v="env.WORKSPACE"/>
+      </list>
+      <list n="propertyValues">
+         <string v="${workspace.dir}"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
+      <value n="makeTarget" v="all"/>
+      <url n="projectBuildfile" path="UIKitCommon_build.xml"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="compile"/>
+         <string v="copy"/>
+         <string v="deploy"/>
+         <string v="info"/>
+      </list>
+   </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <value n="internalEncoding" v="UTF-8"/>
       <list n="Javac.commandline.optionlist">
