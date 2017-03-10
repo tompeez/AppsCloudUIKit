@@ -44,6 +44,9 @@
       Name="HfUserLoginCriteria"
       FullName="de.adfprojectsesions.hf.model.adfbc.views.HfUserView.HfUserLoginCriteria"/>
   </ViewUsage>
+  <ViewUsage
+    Name="HfCatByUserViewObj1"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"/>
   <ViewLinkUsage
     Name="HfPlaylistHfCatFk1Link1"
     ViewLinkObjectName="de.adfprojectsesions.hf.model.adfbc.views.viewlinks.HfPlaylistHfCatFk1Link"

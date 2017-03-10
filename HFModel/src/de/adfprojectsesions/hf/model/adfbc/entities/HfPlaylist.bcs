@@ -1,0 +1,23 @@
+//Groovy Scripts for de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist
+
+package de.adfprojectsesions.hf.model.adfbc.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+import oracle.jbo.server.SequenceImpl;
+import oracle.jbo.server.DBTransaction;
+import oracle.jbo.script.annotation.RefreshExpression;
+
+@TransientValueExpression(attributeName="IntKey")
+def IntKey_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("HF_PLAYLIST_PK_SEQ", adf.object.getDBTransaction())).getSequenceNumber()
+}
+
+
+@TransientValueExpression(attributeName="LastChange")
+def LastChange_ExpressionScript_Expression()
+{
+def now = new Date();
+def timestamp = now.toTimestamp()
+}
+

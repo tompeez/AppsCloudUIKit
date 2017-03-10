@@ -20,7 +20,12 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="HF_PLAYLIST"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="trusted"
+      CodeSourceName="HfPlaylistRow"/>
+  </Attribute>
   <Attribute
     Name="PlaylistName"
     IsNotNull="true"
@@ -74,14 +79,20 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_PLAYLIST"/>
+    TableName="HF_PLAYLIST"
+    DefaultValue="0"/>
   <Attribute
     Name="LastChange"
     ColumnName="LAST_CHANGE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="HF_PLAYLIST"/>
+    TableName="HF_PLAYLIST">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="trusted"
+      CodeSourceName="HfPlaylistRow"/>
+  </Attribute>
   <Attribute
     Name="ShareFlag"
     Precision="1"
@@ -89,7 +100,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="HF_PLAYLIST">
+    TableName="HF_PLAYLIST"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>

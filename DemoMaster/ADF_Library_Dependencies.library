@@ -6,8 +6,12 @@
          <Item path="../libs/adflibHFModel.jar" jar-entry=""/>
       </entries>
    </classPath>
-   <docPath/>
+   <docPath>
+      <entries class="[Ljava.net.URL;"/>
+   </docPath>
    <locked>true</locked>
    <name>ADF Library Dependencies</name>
-   <sourcePath/>
+   <sourcePath>
+      <entries class="[Ljava.net.URL;"/>
+   </sourcePath>
 </JLibraryNode>

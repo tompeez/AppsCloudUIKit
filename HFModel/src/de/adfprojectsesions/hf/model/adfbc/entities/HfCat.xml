@@ -24,6 +24,7 @@
     IsUpdateable="while_insert">
     <TransientExpression
       Name="ExpressionScript"
+      trustMode="trusted"
       CodeSourceName="HfCatRow"/>
     <Properties>
       <SchemaBasedProperties>
@@ -142,6 +143,7 @@
     TableName="HF_CAT">
     <TransientExpression
       Name="ExpressionScript"
+      trustMode="trusted"
       CodeSourceName="HfCatRow"/>
     <RecalcCondition
       Name="RecalcExpressionScript"

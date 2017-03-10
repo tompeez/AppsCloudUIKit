@@ -13,6 +13,40 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <ViewAccessor
+    Name="HfCatByUserViewObj_LOV"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="HfCatByUserLookupView"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="HfCatView1"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_HfCatIk"
+    ListVOName="HfCatView1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HfCatIk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="HfUserIk"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IntKey"/>
+      <Item Value="HfUserIk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="HfPlaylist"
     Entity="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist"/>
@@ -36,7 +70,15 @@
     PrecisionRule="true"
     EntityAttrName="HfCatIk"
     EntityUsage="HfPlaylist"
-    AliasName="HF_CAT_IK"/>
+    AliasName="HF_CAT_IK"
+    LOVName="LOV_HfCatIk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="HfUserIk"
     IsNotNull="true"
