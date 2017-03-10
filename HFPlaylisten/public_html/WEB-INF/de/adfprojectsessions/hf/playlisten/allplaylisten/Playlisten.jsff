@@ -23,7 +23,7 @@
                             <af:spacer width="15" id="s3"/>
                             <af:spacer id="toolbarExpander" clientComponent="true"/>
                             <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.CREATE_PLAYLIST}"
-                                              actionListener="#{pageFlowScope.AllPlaylistenBean.handleCreateKategorie}"
+                                              actionListener="#{pageFlowScope.AllPlaylistenBean.handleCreatePlayliste}"
                                               action="create"/>
                         </af:toolbar>
                         <acdc:CardViewListViewDC id="cvlvdc1"
@@ -37,7 +37,7 @@
                                         <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
                                                      title="#{row.PlaylistName}"
                                                      titleAction="#{pageFlowScope.AllPlaylistenBean.handleCustomTitleAction}"
-                                                     titleActionListener="#{pageFlowScope.AllPlaylistenBean.handleEditPlaylist}"
+                                                     titleActionListener="#{pageFlowScope.AllPlaylistenBean.handleEditPlayliste}"
                                                      height="200" width="275" titleClickable="true">
                                             <f:facet name="frontContents">
                                                 <af:panelStretchLayout id="psl1" dimensionsFrom="children"
@@ -51,6 +51,14 @@
                                                         <af:panelGroupLayout id="pgl6" layout="vertical" >
                                                             <af:outputText value="#{row.intKey}" id="ot1"/>
                                                             <af:outputText value="#{row.description}" id="ot3"/>
+                                                            <af:selectOneRadio value="#{row.ShareFlag}"
+                                                                               label="Sichtbar"
+                                                                               shortDesc="#{bindings.ShareFlag.hints.tooltip}"
+                                                                               id="sor1" readOnly="true">
+                                                                <f:selectItems value="#{bindings.ShareFlag.items}"
+                                                                               id="si1"/>
+                                                                <f:validator binding="#{bindings.ShareFlag.validator}"/>
+                                                            </af:selectOneRadio>
                                                             <af:outputText value="#{row.lastChange}" id="ot4"/>
                                                         </af:panelGroupLayout>
                                                     </f:facet>

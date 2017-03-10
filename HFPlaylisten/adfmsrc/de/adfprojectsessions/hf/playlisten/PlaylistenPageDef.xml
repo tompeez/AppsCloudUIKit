@@ -19,5 +19,27 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="HfPlaylistViewIterator" id="setCurrentRowWithKeyValue"
+            InstanceName="HFAppModuleDataControl.HfPlaylistView" DataControl="HFAppModuleDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.AllPlaylistenBean.selectedKategorie}"
+                 NDType="java.lang.String"/>
+    </action>
+    <methodAction id="searchDescriptionByUserId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchDescriptionByUserId" IsViewObjectMethod="true" DataControl="HFAppModuleDataControl"
+                  InstanceName="data.HFAppModuleDataControl.HfPlaylistView">
+      <NamedData NDName="searchTerm" NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDType="java.lang.Long"/>
+    </methodAction>
+    <list IterBinding="HfPlaylistViewIterator" id="ShareFlag" DTSupportsMRU="false" SelectItemValueMode="ListObject"
+          StaticList="true">
+      <AttrNames>
+        <Item Value="ShareFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </list>
   </bindings>
 </pageDefinition>

@@ -13,7 +13,40 @@
     <view id="Playlisten">
       <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/Playlisten.jsff</page>
     </view>
-    <view id="CreateEditPlayliste"></view>
+    <view id="CreateEditPlayliste">
+      <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/CreateEditPlayliste.jsff</page>
+    </view>
+    <method-call id="CreateWithParameters">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>goEntryForm</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>Playlisten</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>create</from-outcome>
+        <to-activity-id>CreateWithParameters</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>CreateEditPlayliste</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>CreateWithParameters</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>goEntryForm</from-outcome>
+        <to-activity-id>CreateEditPlayliste</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>CreateEditPlayliste</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>doneCreateEdit</from-outcome>
+        <to-activity-id>Playlisten</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

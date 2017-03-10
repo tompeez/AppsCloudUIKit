@@ -4,10 +4,18 @@
   <pageMap>
     <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/Playlisten.jsff"
           usageId="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml#allplaylisten-btf@CreateWithParameters"
+          usageId="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/CreateEditPlayliste.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_CreateEditPlaylistePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"
           path="de.adfprojectsessions.hf.playlisten.PlaylistenPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"
+          path="de.adfprojectsessions.hf.playlisten.allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_CreateEditPlaylistePageDef"
+          path="de.adfprojectsessions.hf.playlisten.allplaylisten.CreateEditPlaylistePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
