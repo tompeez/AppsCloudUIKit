@@ -75,7 +75,6 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFbc"/>
-         <string v="Ant"/>
          <string v="Java"/>
          <string v="XML"/>
       </list>
@@ -92,6 +91,14 @@
    <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
       <value n="makeTarget" v="all"/>
       <url n="projectBuildfile" path="HFModel_build.xml"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="compile"/>
+         <string v="copy"/>
+         <string v="deploy"/>
+         <string v="info"/>
+      </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <list n="copyRes">

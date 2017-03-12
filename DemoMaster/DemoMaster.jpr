@@ -78,14 +78,7 @@
    </list>
    <value n="defaultPackage" v="oracle.apps.uikit"/>
    <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
-      <hash n="adfmContentSet">
-         <list n="pattern-filters">
-            <string v="+**"/>
-         </list>
-         <list n="url-path">
-            <url path="adfmsrc/"/>
-         </list>
-      </hash>
+      <value n="hasDataControls" v="true"/>
    </hash>
    <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
       <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
@@ -104,7 +97,6 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFm"/>
-         <string v="Ant"/>
          <string v="HTML"/>
          <string v="JAVASCRIPT"/>
          <string v="Java"/>
@@ -127,7 +119,14 @@
    <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
       <value n="makeTarget" v="all"/>
       <url n="projectBuildfile" path="DemoMaster_build.xml"/>
-      <list n="targetList"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="compile"/>
+         <string v="copy"/>
+         <string v="deploy"/>
+         <string v="info"/>
+      </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <value n="internalEncoding" v="UTF-8"/>
