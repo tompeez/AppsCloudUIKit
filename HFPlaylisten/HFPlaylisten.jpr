@@ -88,6 +88,7 @@
          <string v="ADF_FACES"/>
          <string v="ADFc"/>
          <string v="ADFm"/>
+         <string v="Ant"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>

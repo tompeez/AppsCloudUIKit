@@ -100,7 +100,7 @@ public class SessionState {
         children = new ArrayList<Node>();
         children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         children.add(new Node(idx++, "Alle Listen", "cluster", "WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml", "allplaylisten-btf"));
-        children.add(new Node(idx++, "Geteilte Listen", "peopleconnect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Geteilte Listen", "peopleconnect", "WEB-INF/de/adfprojectsessions/hf/playlisten/sharedplaylisten-btf.xml", "sharedplaylisten-btf"));
         children.add(new Node(idx++, "Nach Kategorien", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
 //        children.add(new Node(idx++, "Opportunities", "briefcasecash", "WEB-INF/oracle/apps/uikit/crm/opportunities/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
 //        children.add(new Node(idx++, "Forecasts", "crystalball", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
