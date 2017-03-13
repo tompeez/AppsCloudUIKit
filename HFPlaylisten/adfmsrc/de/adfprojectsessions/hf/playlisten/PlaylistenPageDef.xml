@@ -51,5 +51,18 @@
         <Item Value="LastChange"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView1">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView" Name="HfPlaylistView10">
+        <AttrNames>
+          <Item Value="IntKey"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="Description"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="HfUserIk"/>
+          <Item Value="ShareFlag"/>
+          <Item Value="LastChange"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -84,7 +84,86 @@
                                     </af:panelGroupLayout>
                                 </af:iterator>
                             </f:facet>
-                            <f:facet name="listView"></f:facet>
+                            <f:facet name="listView">
+                                <af:table value="#{bindings.HfPlaylistView1.collectionModel}" var="row"
+                                          rows="#{bindings.HfPlaylistView1.rangeSize}"
+                                          emptyText="#{bindings.HfPlaylistView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.HfPlaylistView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.HfPlaylistView1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.HfPlaylistView1.rangeSize}"
+                                          id="t2" styleClass="AFStretchWidth">
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.IntKey.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.IntKey.label}" id="c1">
+                                        <af:outputText value="#{row.IntKey}"
+                                                       shortDesc="#{bindings.HfPlaylistView1.hints.IntKey.tooltip}"
+                                                       id="ot4">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.HfPlaylistView1.hints.IntKey.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.PlaylistName.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.PlaylistName.label}"
+                                               id="c2">
+                                        <af:outputText value="#{row.PlaylistName}"
+                                                       shortDesc="#{bindings.HfPlaylistView1.hints.PlaylistName.tooltip}"
+                                                       id="ot5"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.Description.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.Description.label}" id="c3">
+                                        <af:outputText value="#{row.Description}"
+                                                       shortDesc="#{bindings.HfPlaylistView1.hints.Description.tooltip}"
+                                                       id="ot6"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.HfCatIk.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.HfCatIk.label}" id="c4">
+                                        <af:selectOneChoice value="#{row.bindings.HfCatIk.inputValue}"
+                                                            label="#{row.bindings.HfCatIk.label}"
+                                                            required="#{bindings.HfPlaylistView1.hints.HfCatIk.mandatory}"
+                                                            shortDesc="#{bindings.HfPlaylistView1.hints.HfCatIk.tooltip}"
+                                                            readOnly="true" id="soc2">
+                                            <f:selectItems value="#{row.bindings.HfCatIk.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.HfCatIk.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.HfUserIk.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.HfUserIk.label}" id="c5">
+                                        <af:selectOneChoice value="#{row.bindings.HfUserIk.inputValue}"
+                                                            label="#{row.bindings.HfUserIk.label}"
+                                                            required="#{bindings.HfPlaylistView1.hints.HfUserIk.mandatory}"
+                                                            shortDesc="#{bindings.HfPlaylistView1.hints.HfUserIk.tooltip}"
+                                                            readOnly="true" id="soc3">
+                                            <f:selectItems value="#{row.bindings.HfUserIk.items}" id="si5"/>
+                                            <f:validator binding="#{row.bindings.HfUserIk.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.ShareFlag.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.ShareFlag.label}" id="c6">
+                                                            <af:selectOneRadio label="#{row.bindings.ShareFlag.label}"
+                                                            shortDesc="#{bindings.HfPlaylistView1.hints.ShareFlag.tooltip}"
+                                                                               id="sor2" value="#{row.bindings.ShareFlag.inputValue}"
+                                                                               layout="horizontal" disabled="true">
+                                                                <af:selectItem label="Ja" value="Y" id="si6"/>
+                                                                <af:selectItem label="Nein" value="N" id="si7"/>
+                                                            </af:selectOneRadio>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfPlaylistView1.hints.LastChange.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfPlaylistView1.hints.LastChange.label}" id="c7">
+                                        <af:outputText value="#{row.LastChange}"
+                                                       shortDesc="#{bindings.HfPlaylistView1.hints.LastChange.tooltip}"
+                                                       id="ot7">
+                                            <af:convertDateTime pattern="#{bindings.HfPlaylistView1.hints.LastChange.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </f:facet>
                             <f:facet name="filterPanel"/>
                             <f:facet name="toolbarPanel"/>
                         </acdc:CardViewListViewDC>
