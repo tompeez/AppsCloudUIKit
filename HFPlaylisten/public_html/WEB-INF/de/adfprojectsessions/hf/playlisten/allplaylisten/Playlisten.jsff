@@ -95,7 +95,7 @@
                                           id="t2" styleClass="AFStretchWidth">
                                     <af:column sortProperty="#{bindings.HfPlaylistView1.hints.IntKey.name}"
                                                sortable="true"
-                                               headerText="#{bindings.HfPlaylistView1.hints.IntKey.label}" id="c1">
+                                               headerText="#{bindingsplay.HfPlaylistView1.hints.IntKey.label}" id="c1">
                                         <af:outputText value="#{row.IntKey}"
                                                        shortDesc="#{bindings.HfPlaylistView1.hints.IntKey.tooltip}"
                                                        id="ot4">
@@ -106,10 +106,15 @@
                                     <af:column sortProperty="#{bindings.HfPlaylistView1.hints.PlaylistName.name}"
                                                sortable="true"
                                                headerText="#{bindings.HfPlaylistView1.hints.PlaylistName.label}"
-                                               id="c2">
+                                               id="c2">                                
                                         <af:outputText value="#{row.PlaylistName}"
                                                        shortDesc="#{bindings.HfPlaylistView1.hints.PlaylistName.tooltip}"
                                                        id="ot5"/>
+                                        <af:link text="#{row.PlaylistName}" id="l1"
+                                                 actionListener="#{pageFlowScope.AllPlaylistenBean.handleEditPlayliste}"
+                                                 action="#{pageFlowScope.AllPlaylistenBean.handleCustomTitleAction}">
+                                                        <af:clientAttribute name="ID" value="#{row.IntKey}"/>
+                                        </af:link>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.HfPlaylistView1.hints.Description.name}"
                                                sortable="true"
