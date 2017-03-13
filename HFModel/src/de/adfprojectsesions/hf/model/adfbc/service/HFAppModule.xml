@@ -51,8 +51,8 @@
     Name="HfPlaylistCardView"
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistCardView"/>
   <ViewUsage
-    Name="HFSharedPlaylistView"
-    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HFSharedPlaylistView"/>
+    Name="HfSharedPlaylistView"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView"/>
   <ViewLinkUsage
     Name="HfPlaylistHfCatFk1Link1"
     ViewLinkObjectName="de.adfprojectsesions.hf.model.adfbc.views.viewlinks.HfPlaylistHfCatFk1Link"

@@ -1,6 +1,6 @@
 package de.adfprojectsesions.hf.model.adfbc.views;
 
-import de.adfprojectsesions.hf.model.adfbc.views.common.HFSharedPlaylistView;
+import de.adfprojectsesions.hf.model.adfbc.views.common.HfSharedPlaylistView;
 
 import oracle.adf.share.logging.ADFLogger;
 
@@ -12,13 +12,13 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class HFSharedPlaylistViewImpl extends ViewObjectImpl implements HFSharedPlaylistView {
-    private static ADFLogger _logger = ADFLogger.createADFLogger(HFSharedPlaylistViewImpl.class);
+public class HfSharedPlaylistViewImpl extends ViewObjectImpl implements HfSharedPlaylistView {
+    private static ADFLogger _logger = ADFLogger.createADFLogger(HfSharedPlaylistViewImpl.class);
     
     /**
      * This is the default constructor (do not remove).
      */
-    public HFSharedPlaylistViewImpl() {
+    public HfSharedPlaylistViewImpl() {
     }
 
     /**

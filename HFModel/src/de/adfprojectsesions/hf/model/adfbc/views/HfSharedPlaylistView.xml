@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="HFSharedPlaylistView"
+  Name="HfSharedPlaylistView"
   Version="12.2.1.0.31"
   InheritPersonalization="merge"
   SelectListFlags="1"
@@ -13,8 +13,8 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  ComponentClass="de.adfprojectsesions.hf.model.adfbc.views.HFSharedPlaylistViewImpl"
-  ComponentInterface="de.adfprojectsesions.hf.model.adfbc.views.common.HFSharedPlaylistView"
+  ComponentClass="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistViewImpl"
+  ComponentInterface="de.adfprojectsesions.hf.model.adfbc.views.common.HfSharedPlaylistView"
   ClientProxyName="de.adfprojectsesions.hf.model.adfbc.views.client.HFSharedPlaylistViewClient">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
@@ -22,7 +22,7 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="de.adfprojectsesions.hf.model.adfbc.views.HFSharedPlaylistView_LABEL"/>
+        ResId="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <Variable
@@ -86,7 +86,7 @@
     AliasName="SHARE_FLAG"/>
   <ViewCriteria
     Name="SharedPlaylistByNameOrDescriptionVC"
-    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HFSharedPlaylistView"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView"
     Conjunction="AND">
     <Properties Name="_Props">
       <CustomProperties>
@@ -115,7 +115,7 @@
         ViewAttribute="Description">
         <ViewCriteria
           Name="HFSharedPlaylistViewCriteria_HFSharedPlaylistViewCriteria_row_0_Description_itemHolder"
-          ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HFSharedPlaylistView"
+          ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView"
           Conjunction="OR">
           <ViewCriteriaRow
             Name="HFSharedPlaylistViewCriteria_HFSharedPlaylistViewCriteria_row_0_Description_itemHolder_row_0"
@@ -164,7 +164,7 @@
     Name="DeclarativeWhereClause">
     <ViewCriteria
       Name="HFSharedPlaylistViewWhereCriteria"
-      ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HFSharedPlaylistView"
+      ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView"
       Conjunction="AND"
       Mode="3">
       <ViewCriteriaRow
