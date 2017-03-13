@@ -37,7 +37,8 @@
                     </af:selectOneChoice>
                     <af:selectOneChoice value="#{bindings.HfUserIk.inputValue}" label="#{bindings.HfUserIk.label}"
                                         required="#{bindings.HfUserIk.hints.mandatory}"
-                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" readOnly="true" id="soc2">
+                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" id="soc2"
+                                        disabled="true">
                         <f:selectItems value="#{bindings.HfUserIk.items}" id="si2"/>
                         <f:validator binding="#{bindings.HfUserIk.validator}"/>
                     </af:selectOneChoice>

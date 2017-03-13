@@ -48,18 +48,34 @@
                                                     <f:facet name="top"/>
                                                     <f:facet name="bottom"/>
                                                     <f:facet name="center">
-                                                        <af:panelGroupLayout id="pgl6" layout="vertical" >
-                                                            <af:outputText value="#{row.intKey}" id="ot1"/>
-                                                            <af:outputText value="#{row.description}" id="ot3"/>
-                                                            <af:selectOneRadio value="#{row.ShareFlag}"
-                                                                               label="Sichtbar"
-                                                                               shortDesc="#{bindings.ShareFlag.hints.tooltip}"
-                                                                               id="sor1" readOnly="true">
-                                                                <f:selectItems value="#{bindings.ShareFlag.items}"
-                                                                               id="si1"/>
-                                                                <f:validator binding="#{bindings.ShareFlag.validator}"/>
+                                                        <af:panelGroupLayout id="pgl6" layout="vertical">
+                                                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                                <af:outputText value="NR. #{row.intKey}:" id="ot1"
+                                                                               inlineStyle="font-weight:bold;"/>
+                                                                <af:spacer width="10" height="10" id="s4"/>
+                                                                <af:outputText value="#{row.description}" id="ot3"/>
+                                                            </af:panelGroupLayout>
+                                                            <af:selectOneChoice value="#{row.HfUserIk}"
+                                                                                label="#{bindings.HfUserIk.label}"
+                                                                                id="soc1" disabled="true">
+                                                                <f:selectItems value="#{bindings.HfUserIk.items}"
+                                                                               id="si3"/>
+                                                                <f:validator binding="#{bindings.HfUserIk.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:selectOneRadio label="#{bindings.ShareFlag.label}"
+                                                                               id="sor1" value="#{row.ShareFlag}"
+                                                                               layout="horizontal" disabled="true">
+                                                                <af:selectItem label="Ja" value="Y" id="si1"/>
+                                                                <af:selectItem label="Nein" value="N" id="si4"/>
                                                             </af:selectOneRadio>
-                                                            <af:outputText value="#{row.lastChange}" id="ot4"/>
+                                                            <af:panelLabelAndMessage label="#{bindings.LastChange.hints.label}"
+                                                                                     id="plam1">
+                                                                <af:outputText value="#{row.LastChange}"
+                                                                               shortDesc="#{bindings.LastChange.hints.tooltip}"
+                                                                               id="ot2">
+                                                                    <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
+                                                                </af:outputText>
+                                                            </af:panelLabelAndMessage>
                                                         </af:panelGroupLayout>
                                                     </f:facet>
                                                 </af:panelStretchLayout>
@@ -68,9 +84,7 @@
                                     </af:panelGroupLayout>
                                 </af:iterator>
                             </f:facet>
-                            <f:facet name="listView">
-
-                            </f:facet>
+                            <f:facet name="listView"></f:facet>
                             <f:facet name="filterPanel"/>
                             <f:facet name="toolbarPanel"/>
                         </acdc:CardViewListViewDC>
