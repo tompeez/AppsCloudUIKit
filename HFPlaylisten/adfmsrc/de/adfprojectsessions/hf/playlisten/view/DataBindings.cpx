@@ -8,6 +8,10 @@
           usageId="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"/>
     <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/CreateEditPlayliste.jsff"
           usageId="de_adfprojectsessions_hf_playlisten_view_CreateEditPlaylistePageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/sharedplaylisten/SharedPlaylisten.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_SharedPlaylistenPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml#allplaylisten-btf@searchDescriptionByUserId"
+          usageId="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"
@@ -16,6 +20,10 @@
           path="de.adfprojectsessions.hf.playlisten.allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"/>
     <page id="de_adfprojectsessions_hf_playlisten_view_CreateEditPlaylistePageDef"
           path="de.adfprojectsessions.hf.playlisten.allplaylisten.CreateEditPlaylistePageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_SharedPlaylistenPageDef"
+          path="de.adfprojectsessions.hf.playlisten.sharedplaylisten.SharedPlaylistenPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"
+          path="de.adfprojectsessions.hf.playlisten.allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"

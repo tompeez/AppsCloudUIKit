@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="SharedPlaylistenPageDef"
+                Package="de.adfprojectsessions.hf.playlisten.sharedplaylisten">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HfSharedPlaylistView" RangeSize="25" DataControl="HFAppModuleDataControl"
+              id="HfSharedPlaylistViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="HfSharedPlaylistViewIterator" id="HfSharedPlaylistView">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView"
+                      Name="HfSharedPlaylistView0">
+        <AttrNames>
+          <Item Value="Description"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="HfUserIk"/>
+          <Item Value="IntKey"/>
+          <Item Value="IntSeq"/>
+          <Item Value="LastChange"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="ShareFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="HfSharedPlaylistViewIterator" id="HfUserIk">
+      <AttrNames>
+        <Item Value="HfUserIk"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfSharedPlaylistViewIterator" id="LastChange">
+      <AttrNames>
+        <Item Value="LastChange"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="HfSharedPlaylistViewIterator" id="ShareFlag" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject">
+      <AttrNames>
+        <Item Value="ShareFlag"/>
+      </AttrNames>
+    </list>
+    <methodAction id="searchDescriptionByUserId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchDescriptionByUserId" IsViewObjectMethod="true" DataControl="HFAppModuleDataControl"
+                  InstanceName="data.HFAppModuleDataControl.HfSharedPlaylistView">
+      <NamedData NDName="searchTerm" NDType="java.lang.String"/>
+    </methodAction>
+    <list IterBinding="HfSharedPlaylistViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

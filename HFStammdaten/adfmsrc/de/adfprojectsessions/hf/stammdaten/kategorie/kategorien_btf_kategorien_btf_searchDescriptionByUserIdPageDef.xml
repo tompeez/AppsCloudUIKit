@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="kategorien_btf_kategorien_btf_searchDescriptionByUserIdPageDef"
+                Package="de.adfprojectsessions.hf.stammdaten.kategorie" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="searchDescriptionByUserId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchDescriptionByUserId" IsViewObjectMethod="true" DataControl="HFAppModuleDataControl"
+                  InstanceName="data.HFAppModuleDataControl.HfCatView">
+      <NamedData NDName="searchTerm" NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{sessionScope.loggedInUserId}" NDType="java.lang.Long"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

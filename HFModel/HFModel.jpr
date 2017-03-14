@@ -72,9 +72,13 @@
    <value n="jbo.JpxName" v="de.adfprojectsesions.hf.model.HFModel"/>
    <value n="jbo.NoAttrEnumClasses" v="true"/>
    <value n="JboProject" v="true"/>
+   <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
+      <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFbc"/>
+         <string v="ADFm"/>
          <string v="Ant"/>
          <string v="Java"/>
          <string v="XML"/>
@@ -222,6 +226,10 @@
             <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Common Web Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -258,6 +266,10 @@
          </hash>
          <hash>
             <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

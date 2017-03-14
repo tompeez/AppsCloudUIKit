@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <task-flow-definition id="allplaylisten-btf">
-    <default-activity>Playlisten</default-activity>
+    <default-activity>searchDescriptionByUserId</default-activity>
     <data-control-scope>
       <shared/>
     </data-control-scope>
@@ -20,6 +20,12 @@
       <method>#{bindings.CreateWithParams.execute}</method>
       <outcome>
         <fixed-outcome>goEntryForm</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="searchDescriptionByUserId">
+      <method>#{bindings.searchDescriptionByUserId.execute}</method>
+      <outcome>
+        <fixed-outcome>anzeigen</fixed-outcome>
       </outcome>
     </method-call>
     <control-flow-rule id="__2">
@@ -44,6 +50,13 @@
       <from-activity-id>CreateEditPlayliste</from-activity-id>
       <control-flow-case id="__7">
         <from-outcome>doneCreateEdit</from-outcome>
+        <to-activity-id>Playlisten</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>searchDescriptionByUserId</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>anzeigen</from-outcome>
         <to-activity-id>Playlisten</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

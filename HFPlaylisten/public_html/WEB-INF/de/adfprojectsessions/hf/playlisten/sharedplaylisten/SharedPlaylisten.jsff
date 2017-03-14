@@ -10,6 +10,171 @@
                     <f:facet name="customToolbar"/>
                     <f:facet name="pageContext"/>
                 </acdc:PageHeaderDC>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:panelGroupLayout id="pgl3">
+                        <af:toolbar id="t1" flex="1" stretchId="toolbarExpander">
+                            <af:inputText label="#{hfBundle.FIND}" id="it1" columns="25" placeholder="Name contains ..."
+                                          usage="search" value="#{pageFlowScope.SharedPlaylistenBean.nameSearch}"
+                                          autoSubmit="true"/>
+                            <af:commandButton id="cb1" icon="/images/func_search_16_ena.png" partialSubmit="true"
+                                              actionListener="#{pageFlowScope.SharedPlaylistenBean.handleNameSearch}"/>
+                            <af:spacer width="15" id="s3"/>
+                            <af:spacer id="toolbarExpander" clientComponent="true"/>
+                            <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.CREATE_PLAYLIST}"
+                                              actionListener="#{pageFlowScope.SharedPlaylistenBean.handleCreatePlayliste}"
+                                              action="create"/>
+                        </af:toolbar>
+                        <acdc:CardViewListViewDC id="cvlvdc1"
+                                                 binding="#{pageFlowScope.SharedPlaylistenBean.cardViewListView}"
+                                                 useStateBean="true"
+                                                 stateBean="#{pageFlowScope.SharedPlaylistenBean.currentViewState}">
+                            <f:facet name="cardView">
+                                <af:iterator id="i1" value="#{bindings.HfSharedPlaylistView.collectionModel}" var="row"
+                                             varStatus="status" rows="0">
+                                    <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
+                                        <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
+                                                     title="#{row.PlaylistName}"
+                                                     titleAction="#{pageFlowScope.SharedPlaylistenBean.handleCustomTitleAction}"
+                                                     titleActionListener="#{pageFlowScope.SharedPlaylistenBean.handleEditPlayliste}"
+                                                     height="200" width="275" titleClickable="true">
+                                            <f:facet name="frontContents">
+                                                <af:panelStretchLayout id="psl1" dimensionsFrom="children"
+                                                                       startWidth="0px" endWidth="0px" topHeight="0px"
+                                                                       bottomHeight="0px">
+                                                    <f:facet name="start"/>
+                                                    <f:facet name="end"/>
+                                                    <f:facet name="top"/>
+                                                    <f:facet name="bottom"/>
+                                                    <f:facet name="center">
+                                                        <af:panelGroupLayout id="pgl6" layout="vertical">
+                                                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                                <af:outputText value="NR. #{row.intKey}:" id="ot1"
+                                                                               inlineStyle="font-weight:bold;"/>
+                                                                <af:spacer width="10" height="10" id="s4"/>
+                                                                <af:outputText value="#{row.description}" id="ot3"/>
+                                                            </af:panelGroupLayout>
+                                                            <af:selectOneChoice value="#{row.HfUserIk}"
+                                                                                label="#{bindings.HfUserIk1.label}"
+                                                                                shortDesc="#{bindings.HfUserIk1.hints.tooltip}"
+                                                                                id="soc4" disabled="true">
+                                                                <f:selectItems value="#{bindings.HfUserIk1.items}"
+                                                                               id="si8"/>
+                                                                <f:validator binding="#{bindings.HfUserIk1.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:selectOneRadio label="#{bindings.ShareFlag.label}"
+                                                                               id="sor1" value="#{row.ShareFlag}"
+                                                                               layout="horizontal" disabled="true">
+                                                                <af:selectItem label="Ja" value="Y" id="si1"/>
+                                                                <af:selectItem label="Nein" value="N" id="si4"/>
+                                                            </af:selectOneRadio>
+                                                            <af:panelLabelAndMessage label="#{bindings.LastChange.hints.label}"
+                                                                                     id="plam1">
+                                                                <af:outputText value="#{row.LastChange}"
+                                                                               shortDesc="#{bindings.LastChange.hints.tooltip}"
+                                                                               id="ot2">
+                                                                    <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
+                                                                </af:outputText>
+                                                            </af:panelLabelAndMessage>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
+                                                </af:panelStretchLayout>
+                                            </f:facet>
+                                        </acdc:CardDC>
+                                    </af:panelGroupLayout>
+                                </af:iterator>
+                            </f:facet>
+                            <f:facet name="listView">
+                                <af:table value="#{bindings.HfSharedPlaylistView.collectionModel}" var="row"
+                                          rows="#{bindings.HfSharedPlaylistView.rangeSize}"
+                                          emptyText="#{bindings.HfSharedPlaylistView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.HfSharedPlaylistView.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.HfSharedPlaylistView.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.HfSharedPlaylistView.rangeSize}"
+                                          id="t2" styleClass="AFStretchWidth">
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.IntKey.name}"
+                                               sortable="true"
+                                               headerText="#{bindingsplay.HfSharedPlaylistView.hints.IntKey.label}" id="c1">
+                                        <af:outputText value="#{row.IntKey}"
+                                                       shortDesc="#{bindings.HfSharedPlaylistView.hints.IntKey.tooltip}"
+                                                       id="ot4">
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.HfSharedPlaylistView.hints.IntKey.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.PlaylistName.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfSharedPlaylistView.hints.PlaylistName.label}"
+                                               id="c2">
+                                        <af:outputText value="#{row.PlaylistName}"
+                                                       shortDesc="#{bindings.HfSharedPlaylistView.hints.PlaylistName.tooltip}"
+                                                       id="ot5"/>
+                                        <af:link text="#{row.PlaylistName}" id="l1"
+                                                 actionListener="#{pageFlowScope.SharedPlaylistenBean.handleEditPlayliste}"
+                                                 action="#{pageFlowScope.SharedPlaylistenBean.handleCustomTitleAction}">
+                                            <af:clientAttribute name="ID" value="#{row.IntKey}"/>
+                                        </af:link>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.Description.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfSharedPlaylistView.hints.Description.label}" id="c3">
+                                        <af:outputText value="#{row.Description}"
+                                                       shortDesc="#{bindings.HfSharedPlaylistView.hints.Description.tooltip}"
+                                                       id="ot6"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.HfCatIk.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfSharedPlaylistView.hints.HfCatIk.label}" id="c4">
+                                        <af:selectOneChoice value="#{row.bindings.HfCatIk.inputValue}"
+                                                            label="#{row.bindings.HfCatIk.label}"
+                                                            required="#{bindings.HfSharedPlaylistView.hints.HfCatIk.mandatory}"
+                                                            shortDesc="#{bindings.HfSharedPlaylistView.hints.HfCatIk.tooltip}"
+                                                            readOnly="true" id="soc2">
+                                            <f:selectItems value="#{row.bindings.HfCatIk.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.HfCatIk.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.HfUserIk.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfSharedPlaylistView.hints.HfUserIk.label}" id="c5">
+                                        <af:selectOneChoice value="#{row.bindings.HfUserIk.inputValue}"
+                                                            label="#{row.bindings.HfUserIk.label}"
+                                                            required="#{bindings.HfSharedPlaylistView.hints.HfUserIk.mandatory}"
+                                                            shortDesc="#{bindings.HfSharedPlaylistView.hints.HfUserIk.tooltip}"
+                                                            readOnly="true" id="soc3">
+                                            <f:selectItems value="#{row.bindings.HfUserIk.items}" id="si5"/>
+                                            <f:validator binding="#{row.bindings.HfUserIk.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.ShareFlag.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfSharedPlaylistView.hints.ShareFlag.label}" id="c6">
+                                        <af:selectOneRadio label="#{row.bindings.ShareFlag.label}"
+                                                           shortDesc="#{bindings.HfSharedPlaylistView.hints.ShareFlag.tooltip}"
+                                                           id="sor2" value="#{row.bindings.ShareFlag.inputValue}"
+                                                           layout="horizontal" disabled="true">
+                                            <af:selectItem label="Ja" value="Y" id="si6"/>
+                                            <af:selectItem label="Nein" value="N" id="si7"/>
+                                        </af:selectOneRadio>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.LastChange.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.HfSharedPlaylistView.hints.LastChange.label}" id="c7">
+                                        <af:outputText value="#{row.LastChange}"
+                                                       shortDesc="#{bindings.HfSharedPlaylistView.hints.LastChange.tooltip}"
+                                                       id="ot7">
+                                            <af:convertDateTime pattern="#{bindings.HfSharedPlaylistView.hints.LastChange.format}"/>
+                                        </af:outputText>
+                                    </af:column>
+                                </af:table>
+                            </f:facet>
+                            <f:facet name="filterPanel"/>
+                            <f:facet name="toolbarPanel"/>
+                        </acdc:CardViewListViewDC>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
             </af:panelGroupLayout>
         </f:facet>
         <f:facet name="footerStart"/>
