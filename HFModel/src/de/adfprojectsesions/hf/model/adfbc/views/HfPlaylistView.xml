@@ -35,6 +35,18 @@
     Name="HfCatViewLookupLOV"
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="HfCatByUserView"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bindUser">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[HfUserIk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_HfUserIk"
     ListVOName="HfUserViewLookupLOV"
@@ -55,7 +67,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_HfCatIk"
-    ListVOName="HfCatViewLookupLOV"
+    ListVOName="HfCatByUserView"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -63,12 +75,8 @@
       <Item Value="HfCatIk"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="HfUserIk"/>
-    </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="IntKey"/>
-      <Item Value="HfUserIk"/>
+      <Item Value="IntSeq"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CatName"/>
