@@ -334,4 +334,8 @@ public class AllPlaylistenBean {
     public Long getSelectedPlayliste() {
         return _selectedPlayliste;
     }
+
+    public void handleDeletePlaylist(ActionEvent actionEvent) {
+        // Add event code here...
+    }
 }

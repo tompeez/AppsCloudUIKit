@@ -146,6 +146,10 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.LastChange_LABEL"/>
+        <FMT_FORMAT
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.LastChange_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.LastChange_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -163,10 +167,10 @@
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="check_box"/>
         <LABEL
           ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.ShareFlag_LABEL"/>
+        <CONTROLTYPE
+          Value="check_box"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

@@ -32,11 +32,7 @@
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfUserView"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="HfCatViewLookupLOV"
-    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatView"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="HfCatByUserView"
+    Name="HfCatByUserViewLOV"
     ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
     RowLevelBinds="true">
     <ParameterMap>
@@ -66,8 +62,8 @@
     <DisplayCriteria/>
   </ListBinding>
   <ListBinding
-    Name="LOV_HfCatIk"
-    ListVOName="HfCatByUserView"
+    Name="LOV_HfCatByUserIk"
+    ListVOName="HfCatByUserViewLOV"
     ListRangeSize="-1"
     NullValueFlag="none"
     MRUCount="0">
@@ -76,7 +72,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="IntSeq"/>
+      <Item Value="IntKey"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CatName"/>
@@ -107,7 +103,7 @@
     EntityAttrName="HfCatIk"
     EntityUsage="HfPlaylist"
     AliasName="HF_CAT_IK"
-    LOVName="LOV_HfCatIk">
+    LOVName="LOV_HfCatByUserIk">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -158,16 +154,7 @@
     PrecisionRule="true"
     EntityAttrName="LastChange"
     EntityUsage="HfPlaylist"
-    AliasName="LAST_CHANGE">
-    <Properties>
-      <SchemaBasedProperties>
-        <FMT_FORMAT
-          ResId="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView.LastChange_FMT_FORMAT"/>
-        <FMT_FORMATTER
-          ResId="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView.LastChange_FMT_FORMATTER"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="LAST_CHANGE"/>
   <ViewAttribute
     Name="ShareFlag"
     PrecisionRule="true"

@@ -22,9 +22,6 @@
                                               actionListener="#{pageFlowScope.SharedPlaylistenBean.handleNameSearch}"/>
                             <af:spacer width="15" id="s3"/>
                             <af:spacer id="toolbarExpander" clientComponent="true"/>
-                            <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.CREATE_PLAYLIST}"
-                                              actionListener="#{pageFlowScope.SharedPlaylistenBean.handleCreatePlayliste}"
-                                              action="create"/>
                         </af:toolbar>
                         <acdc:CardViewListViewDC id="cvlvdc1"
                                                  binding="#{pageFlowScope.SharedPlaylistenBean.cardViewListView}"
@@ -36,12 +33,10 @@
                                     <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
                                         <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
                                                      title="#{row.PlaylistName}"
-                                                     titleAction="#{pageFlowScope.SharedPlaylistenBean.handleCustomTitleAction}"
-                                                     titleActionListener="#{pageFlowScope.SharedPlaylistenBean.handleEditPlayliste}"
-                                                     height="200" width="275" titleClickable="true">
+                                                     height="200" width="275" titleClickable="false">
                                             <f:facet name="frontContents">
                                                 <af:panelStretchLayout id="psl1" dimensionsFrom="children"
-                                                                       startWidth="0px" endWidth="0px" topHeight="0px"
+                                                                       startWidth="0px" endWidth="20px" topHeight="0px"
                                                                        bottomHeight="0px">
                                                     <f:facet name="start"/>
                                                     <f:facet name="end"/>
@@ -111,11 +106,6 @@
                                         <af:outputText value="#{row.PlaylistName}"
                                                        shortDesc="#{bindings.HfSharedPlaylistView.hints.PlaylistName.tooltip}"
                                                        id="ot5"/>
-                                        <af:link text="#{row.PlaylistName}" id="l1"
-                                                 actionListener="#{pageFlowScope.SharedPlaylistenBean.handleEditPlayliste}"
-                                                 action="#{pageFlowScope.SharedPlaylistenBean.handleCustomTitleAction}">
-                                            <af:clientAttribute name="ID" value="#{row.IntKey}"/>
-                                        </af:link>
                                     </af:column>
                                     <af:column sortProperty="#{bindings.HfSharedPlaylistView.hints.Description.name}"
                                                sortable="true"

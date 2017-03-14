@@ -56,7 +56,7 @@ public class HfSharedPlaylistViewImpl extends AdfProjectSessionsBaseViewImpl imp
 
     @Override
     public void executeQuery() {
-        dumpQueryAndParameters();
+        dumpQueryAndParameters(_logger);
         super.executeQuery();
     }
 }

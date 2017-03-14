@@ -7,6 +7,9 @@
     <iterator Binds="HfPlaylistView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfPlaylistViewIterator"/>
   </executables>
   <bindings>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="HFAppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
     <attributeValues IterBinding="HfPlaylistViewIterator" id="IntKey">
       <AttrNames>
         <Item Value="IntKey"/>
@@ -17,20 +20,24 @@
         <Item Value="PlaylistName"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfCatIk" id="HfCatIk"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="HfPlaylistViewIterator" id="Description">
       <AttrNames>
         <Item Value="Description"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="HfPlaylistViewIterator" id="ShareFlag">
+    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfCatByUserIk" id="HfCatIk"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <button IterBinding="HfPlaylistViewIterator" id="ShareFlag" DTSupportsMRU="false" StaticList="true">
       <AttrNames>
         <Item Value="ShareFlag"/>
       </AttrNames>
-    </attributeValues>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </button>
     <attributeValues IterBinding="HfPlaylistViewIterator" id="IntSeq">
       <AttrNames>
         <Item Value="IntSeq"/>
@@ -41,8 +48,5 @@
         <Item Value="LastChange"/>
       </AttrNames>
     </attributeValues>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
-            DataControl="HFAppModuleDataControl"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

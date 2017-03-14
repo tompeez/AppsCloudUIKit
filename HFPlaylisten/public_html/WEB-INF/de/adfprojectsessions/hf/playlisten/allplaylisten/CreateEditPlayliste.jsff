@@ -29,6 +29,13 @@
                                   shortDesc="#{bindings.PlaylistName.hints.tooltip}" id="it1">
                         <f:validator binding="#{bindings.PlaylistName.validator}"/>
                     </af:inputText>
+                    <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                                  required="#{bindings.Description.hints.mandatory}"
+                                  columns="#{bindings.Description.hints.displayWidth}"
+                                  maximumLength="#{bindings.Description.hints.precision}"
+                                  shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.Description.validator}"/>
+                    </af:inputText>
                     <af:selectOneChoice value="#{bindings.HfCatIk.inputValue}" label="#{bindings.HfCatIk.label}"
                                         required="#{bindings.HfCatIk.hints.mandatory}"
                                         shortDesc="#{bindings.HfCatIk.hints.tooltip}" id="soc1">
@@ -37,22 +44,14 @@
                     </af:selectOneChoice>
                     <af:selectOneChoice value="#{bindings.HfUserIk.inputValue}" label="#{bindings.HfUserIk.label}"
                                         required="#{bindings.HfUserIk.hints.mandatory}"
-                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" id="soc2"
-                                        disabled="true">
+                                        shortDesc="#{bindings.HfUserIk.hints.tooltip}" id="soc2" disabled="true">
                         <f:selectItems value="#{bindings.HfUserIk.items}" id="si2"/>
                         <f:validator binding="#{bindings.HfUserIk.validator}"/>
                     </af:selectOneChoice>
-                    <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
-                                  required="#{bindings.Description.hints.mandatory}"
-                                  columns="#{bindings.Description.hints.displayWidth}"
-                                  maximumLength="#{bindings.Description.hints.precision}"
-                                  shortDesc="#{bindings.Description.hints.tooltip}" id="it2">
-                        <f:validator binding="#{bindings.Description.validator}"/>
-                    </af:inputText>
                     <af:selectOneRadio label="#{bindings.ShareFlag.label}" id="sor1" value="#{bindings.ShareFlag.inputValue}"
                                        layout="horizontal">
-                        <af:selectItem label="Ja" value="Y" id="si3"/>
-                        <af:selectItem label="Nein" value="N" id="si4"/>
+                        <af:selectItem label="Ja" value="true" id="si3"/>
+                        <af:selectItem label="Nein" value="false" id="si4"/>
                     </af:selectOneRadio>
                     <af:panelLabelAndMessage label="#{bindings.IntSeq.hints.label}" id="plam2">
                         <af:outputText value="#{bindings.IntSeq.inputValue}"

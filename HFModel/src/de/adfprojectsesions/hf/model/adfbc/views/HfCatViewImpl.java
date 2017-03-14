@@ -75,7 +75,7 @@ public class HfCatViewImpl extends AdfProjectSessionsBaseViewImpl implements HfC
 
     @Override
     public void executeQuery() {
-        dumpQueryAndParameters();
+        dumpQueryAndParameters(_logger);
         super.executeQuery();
     }
 }

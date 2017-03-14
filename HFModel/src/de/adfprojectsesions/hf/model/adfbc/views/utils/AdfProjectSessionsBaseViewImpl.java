@@ -17,8 +17,12 @@ public class AdfProjectSessionsBaseViewImpl extends ViewObjectImpl {
     public AdfProjectSessionsBaseViewImpl() {
         super();
     }
+
+    protected void dumpQueryAndParameters(){
+        this.dumpQueryAndParameters(_logger);
+    }
     
-    protected void dumpQueryAndParameters()
+    protected void dumpQueryAndParameters(ADFLogger logger)
     {
         // get the query in it's current state
         String lQuery = getQuery();
@@ -27,15 +31,15 @@ public class AdfProjectSessionsBaseViewImpl extends ViewObjectImpl {
         Variable[] lVariables = lEnsureVariableManager.getVariables();
         int lCount = lEnsureVariableManager.getVariableCount();
         // Dump query
-        _logger.info("---query--- " + lQuery);
+        logger.info("---query--- " + lQuery);
         // if variables found dump them
         if (lCount > 0)
         {
-            _logger.info("---Variables:");
+            logger.info("---Variables:");
             for (int ii = 0; ii < lCount; ii++)
             {
                 Object lObject = lEnsureVariableManager.getVariableValue(lVariables[ii]);
-                _logger.info("  --- Name: " + lVariables[ii].getName() + " Value: " +
+                logger.info("  --- Name: " + lVariables[ii].getName() + " Value: " +
                                    (lObject != null ?  lObject.toString() : "null"));
             }
         }

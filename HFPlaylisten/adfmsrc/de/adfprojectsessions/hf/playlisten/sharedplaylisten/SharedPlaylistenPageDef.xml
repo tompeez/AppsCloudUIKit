@@ -28,11 +28,6 @@
         <Item Value="HfUserIk"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="HfSharedPlaylistViewIterator" id="LastChange">
-      <AttrNames>
-        <Item Value="LastChange"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="HfSharedPlaylistViewIterator" id="ShareFlag" DTSupportsMRU="false"
           SelectItemValueMode="ListObject">
       <AttrNames>
@@ -46,5 +41,10 @@
     </methodAction>
     <list IterBinding="HfSharedPlaylistViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="HfSharedPlaylistViewIterator" id="LastChange">
+      <AttrNames>
+        <Item Value="LastChange"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
