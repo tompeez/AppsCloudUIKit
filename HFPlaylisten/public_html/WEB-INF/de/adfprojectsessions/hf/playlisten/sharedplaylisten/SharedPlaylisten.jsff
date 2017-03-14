@@ -1,8 +1,17 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:acdc="/appsCloudUIKitDCs"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="hfBundle" value="#{adfBundle['de.adfprojectsessions.hf.playlisten.HFPlaylistenBundle']}"/>
     <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
-        <f:facet name="pageContents"/>
+        <f:facet name="pageContents">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.SHAREDPLAYLISTEN}">
+                    <f:facet name="customToolbar"/>
+                    <f:facet name="pageContext"/>
+                </acdc:PageHeaderDC>
+            </af:panelGroupLayout>
+        </f:facet>
         <f:facet name="footerStart"/>
         <f:facet name="footer"/>
         <f:facet name="footerEnd"/>
