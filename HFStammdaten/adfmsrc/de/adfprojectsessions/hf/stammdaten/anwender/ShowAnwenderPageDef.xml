@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="ShowAnwenderPageDef"
+                Package="de.adfprojectsessions.hf.stammdaten.anwender">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="HfUserView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfUserViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="HfUserViewIterator" id="IntKey">
+      <AttrNames>
+        <Item Value="IntKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="Username">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="Longname">
+      <AttrNames>
+        <Item Value="Longname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="IntSeq">
+      <AttrNames>
+        <Item Value="IntSeq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="LastChange">
+      <AttrNames>
+        <Item Value="LastChange"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

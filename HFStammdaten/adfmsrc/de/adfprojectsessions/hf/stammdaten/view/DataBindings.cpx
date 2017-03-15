@@ -10,6 +10,12 @@
           usageId="de_adfprojectsessions_hf_stammdaten_view_CreateEditKategoriePageDef"/>
     <page path="/WEB-INF/de/adfprojectsessions/hf/stammdaten/kategorie/kategorien-btf.xml#kategorien-btf@searchDescriptionByUserId"
           usageId="de_adfprojectsessions_hf_stammdaten_view_kategorien_btf_kategorien_btf_searchDescriptionByUserIdPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/stammdaten/anwender/anwender-btf.xml#anwender-btf@SetCurrentRowWithKeyValue"
+          usageId="de_adfprojectsessions_hf_stammdaten_view_anwender_btf_anwender_btf_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/de/adfprojectsessions/hf/stammdaten/anwender/EditAnwender.jsff"
+          usageId="de_adfprojectsessions_hf_stammdaten_view_EditAnwenderPageDef"/>
+    <page path="/de/adfprojectsessions/hf/stammdaten/anwender/ShowAnwender.jsff"
+          usageId="de_adfprojectsessions_hf_stammdaten_view_ShowAnwenderPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="de_adfprojectsessions_hf_stammdaten_view_KategorienPageDef"
@@ -20,6 +26,12 @@
           path="de.adfprojectsessions.hf.stammdaten.kategorien.CreateEditKategoriePageDef"/>
     <page id="de_adfprojectsessions_hf_stammdaten_view_kategorien_btf_kategorien_btf_searchDescriptionByUserIdPageDef"
           path="de.adfprojectsessions.hf.stammdaten.kategorie.kategorien_btf_kategorien_btf_searchDescriptionByUserIdPageDef"/>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_anwender_btf_anwender_btf_SetCurrentRowWithKeyValuePageDef"
+          path="de.adfprojectsessions.hf.stammdaten.anwender.anwender_btf_anwender_btf_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_EditAnwenderPageDef"
+          path="de.adfprojectsessions.hf.stammdaten.anwender.EditAnwenderPageDef"/>
+    <page id="de_adfprojectsessions_hf_stammdaten_view_ShowAnwenderPageDef"
+          path="de.adfprojectsessions.hf.stammdaten.anwender.ShowAnwenderPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"

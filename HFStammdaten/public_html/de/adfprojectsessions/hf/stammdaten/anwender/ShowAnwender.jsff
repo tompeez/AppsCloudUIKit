@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:acdc="/appsCloudUIKitDCs"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="hfBundle" value="#{adfBundle['de.adfprojectsessions.hf.stammdaten.HFStammdatenBundle']}"/>
+    <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
+        <f:facet name="pageContents">
+            <af:panelGroupLayout id="pgl1" layout="vertical" halign="center" valign="top">
+                <acdc:PageHeaderDC id="phdc1"
+                                   pageTitle="#{hfBundle.SHOW_ANWENDER}" cancelButtonImmediate="false"/>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.IntKey.inputValue}" label="#{bindings.IntKey.hints.label}"
+                                  required="#{bindings.IntKey.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.IntKey.hints.displayWidth}"
+                                  maximumLength="#{bindings.IntKey.hints.precision}"
+                                  shortDesc="#{bindings.IntKey.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.IntKey.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IntKey.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Username.inputValue}" label="#{bindings.Username.hints.label}"
+                                  required="#{bindings.Username.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.Username.hints.displayWidth}"
+                                  maximumLength="#{bindings.Username.hints.precision}"
+                                  shortDesc="#{bindings.Username.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.Username.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Password.inputValue}" label="#{bindings.Password.hints.label}"
+                                  required="#{bindings.Password.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.Password.hints.displayWidth}"
+                                  maximumLength="#{bindings.Password.hints.precision}"
+                                  shortDesc="#{bindings.Password.hints.tooltip}" id="it3" secret="true">
+                        <f:validator binding="#{bindings.Password.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Longname.inputValue}" label="#{bindings.Longname.hints.label}"
+                                  required="#{bindings.Longname.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.Longname.hints.displayWidth}"
+                                  maximumLength="#{bindings.Longname.hints.precision}"
+                                  shortDesc="#{bindings.Longname.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.Longname.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.IntSeq.inputValue}" label="#{bindings.IntSeq.hints.label}"
+                                  required="#{bindings.IntSeq.hints.mandatory}" readOnly="true"
+                                  columns="#{bindings.IntSeq.hints.displayWidth}"
+                                  maximumLength="#{bindings.IntSeq.hints.precision}"
+                                  shortDesc="#{bindings.IntSeq.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.IntSeq.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IntSeq.format}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.LastChange.inputValue}" readOnly="true"
+                                  label="#{bindings.LastChange.hints.label}"
+                                  required="#{bindings.LastChange.hints.mandatory}"
+                                  columns="#{bindings.LastChange.hints.displayWidth}"
+                                  shortDesc="#{bindings.LastChange.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.LastChange.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
+                    </af:inputDate>
+                    <f:facet name="footer">
+                        <af:button id="b1" text="#{hfBundle.EDIT}"
+                                   actionListener="#{pageFlowScope.AnwenderBean.handleEditAnwender}" action="edit"/>
+                    </f:facet>
+                </af:panelFormLayout>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="footerStart"/>
+        <f:facet name="footer"/>
+        <f:facet name="footerEnd"/>
+        <f:facet name="startPanel"/>
+        <f:facet name="endPanel"/>
+        <f:facet name="headerStart"/>
+        <f:facet name="header"/>
+        <f:facet name="headerEnd"/>
+    </af:pageTemplate>
+</ui:composition>

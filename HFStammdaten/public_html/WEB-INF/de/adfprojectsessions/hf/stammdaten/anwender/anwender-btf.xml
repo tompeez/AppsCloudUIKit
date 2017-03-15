@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="anwender-btf">
+    <default-activity>SetCurrentRowWithKeyValue</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__3">
+      <managed-bean-name>AnwenderBean</managed-bean-name>
+      <managed-bean-class>de.adfprojectsessions.hf.stammdaten.view.beans.AnwenderBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>anzeigen</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="EditAnwender">
+      <page>/de/adfprojectsessions/hf/stammdaten/anwender/EditAnwender.jsff</page>
+    </view>
+    <view id="ShowAnwender">
+      <page>/de/adfprojectsessions/hf/stammdaten/anwender/ShowAnwender.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>anzeigen</from-outcome>
+        <to-activity-id>ShowAnwender</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>EditAnwender</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>commit</from-outcome>
+        <to-activity-id>SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>ShowAnwender</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>edit</from-outcome>
+        <to-activity-id>EditAnwender</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
