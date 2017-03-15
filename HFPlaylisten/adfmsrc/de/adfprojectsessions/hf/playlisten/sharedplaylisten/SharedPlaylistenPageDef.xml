@@ -46,5 +46,21 @@
         <Item Value="LastChange"/>
       </AttrNames>
     </attributeValues>
+    <list Uses="LOV_HfCatIk" StaticList="false" IterBinding="HfSharedPlaylistViewIterator" id="HfCatIk"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="HfSharedPlaylistViewIterator" id="HfSharedPlaylistView1">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfSharedPlaylistView"
+                      Name="HfSharedPlaylistView10">
+        <AttrNames>
+          <Item Value="IntKey"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="Description"/>
+          <Item Value="HfUserIk"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="ShareFlag"/>
+          <Item Value="LastChange"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

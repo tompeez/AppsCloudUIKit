@@ -100,7 +100,7 @@
                                           rows="#{bindings.HfPlaylistView1.rangeSize}"
                                           emptyText="#{bindings.HfPlaylistView1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                           rowBandingInterval="0" fetchSize="#{bindings.HfPlaylistView1.rangeSize}"
-                                          id="t2" styleClass="AFStretchWidth">
+                                          id="t2" styleClass="AFStretchWidth" columnStretching="multiple">
                                     <af:column headerText="#{bindings.HfPlaylistView1.hints.IntKey.label}" id="c1">
                                         <af:outputText value="#{row2.IntKey}"
                                                        shortDesc="#{bindings.HfPlaylistView1.hints.IntKey.tooltip}"
