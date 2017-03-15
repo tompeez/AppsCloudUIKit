@@ -28,6 +28,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
     <param-name>org.apache.myfaces.trinidad.security.FRAME_BUSTING</param-name>
     <param-value>differentOrigin</param-value>
   </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_VIEW_MAPPINGS</param-name>
+    <param-value>*.jsf;*.xhtml</param-value>
+  </context-param>
   <filter>
     <filter-name>trinidad</filter-name>
     <filter-class>org.apache.myfaces.trinidad.webapp.TrinidadFilter</filter-class>
@@ -35,6 +39,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <filter>
     <filter-name>ServletADFFilter</filter-name>
     <filter-class>oracle.adf.share.http.ServletADFFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>ADFLibraryFilter</filter-name>
+    <filter-class>oracle.adf.library.webapp.LibraryFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>trinidad</filter-name>
@@ -45,6 +53,12 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <filter-mapping>
     <filter-name>ServletADFFilter</filter-name>
     <servlet-name>Faces Servlet</servlet-name>
+    <dispatcher>FORWARD</dispatcher>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>ADFLibraryFilter</filter-name>
+    <url-pattern>/*</url-pattern>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
@@ -75,6 +89,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <servlet>
     <servlet-name>GatewayServlet</servlet-name>
     <servlet-class>oracle.adfinternal.view.faces.bi.renderkit.graph.FlashBridgeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>adflibResources</servlet-name>
+    <servlet-class>oracle.adf.library.webapp.ResourceServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
@@ -107,6 +125,10 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
   <servlet-mapping>
     <servlet-name>GatewayServlet</servlet-name>
     <url-pattern>/flashbridge/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>adflibResources</servlet-name>
+    <url-pattern>/adflib/*</url-pattern>
   </servlet-mapping>
   <mime-mapping>
     <extension>swf</extension>

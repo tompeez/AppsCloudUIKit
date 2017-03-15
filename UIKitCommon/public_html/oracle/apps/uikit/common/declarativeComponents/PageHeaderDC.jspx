@@ -80,6 +80,20 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
             false
           </required>
         </attribute>
+                <attribute>
+          <attribute-name>
+            cancelButtonImmediate
+          </attribute-name>
+          <attribute-class>
+            java.lang.Boolean
+          </attribute-class>
+          <default-value>
+            true
+          </default-value>
+          <required>
+            false
+          </required>
+        </attribute>
         <attribute>
           <attribute-name>
             doneButtonVisible
@@ -204,7 +218,8 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                             partialSubmit="true"
                             rendered="#{attrs.cancelButtonVisible}"
                             action="#{comp.handleCancelAction}"
-                            actionListener="#{comp.handleCancelActionListener}"/>
+                            actionListener="#{comp.handleCancelActionListener}" 
+                            immediate="#{attrs.cancelButtonImmediate}"/>
           <af:commandButton text="#{uikitcommonBundle.DONE}" id="dc_cb1"
                             partialSubmit="true"
                             rendered="#{attrs.doneButtonVisible}"

@@ -12,7 +12,73 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  ComponentClass="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistViewImpl"
+  ComponentInterface="de.adfprojectsesions.hf.model.adfbc.views.common.HfPlaylistView"
+  ClientProxyName="de.adfprojectsesions.hf.model.adfbc.views.client.HfPlaylistViewClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Coll|VarAccess"/>
+  </DesignTime>
+  <Variable
+    Name="bindSearchTerm"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="bindUserId"
+    Kind="viewcriteria"
+    Type="java.lang.Long"/>
+  <ViewAccessor
+    Name="HfUserViewLookupLOV"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfUserView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="HfCatByUserViewLOV"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfCatByUserView"
+    RowLevelBinds="true">
+    <ParameterMap>
+      <PIMap Variable="bindUser">
+        <TransientExpression
+          trustMode="untrusted"
+          Name="ExpressionScript"><![CDATA[HfUserIk]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_HfUserIk"
+    ListVOName="HfUserViewLookupLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HfUserIk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IntKey"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Longname"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_HfCatByUserIk"
+    ListVOName="HfCatByUserViewLOV"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="HfCatIk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IntKey"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CatName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="HfPlaylist"
     Entity="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist"/>
@@ -36,20 +102,47 @@
     PrecisionRule="true"
     EntityAttrName="HfCatIk"
     EntityUsage="HfPlaylist"
-    AliasName="HF_CAT_IK"/>
+    AliasName="HF_CAT_IK"
+    LOVName="LOV_HfCatByUserIk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="HfUserIk"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="HfUserIk"
     EntityUsage="HfPlaylist"
-    AliasName="HF_USER_IK"/>
+    AliasName="HF_USER_IK"
+    LOVName="LOV_HfUserIk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Description"
     PrecisionRule="true"
     EntityAttrName="Description"
     EntityUsage="HfPlaylist"
-    AliasName="DESCRIPTION"/>
+    AliasName="DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="70"/>
+        <DISPLAYHEIGHT
+          Value="3"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IntSeq"
     PrecisionRule="true"
@@ -68,6 +161,65 @@
     EntityAttrName="ShareFlag"
     EntityUsage="HfPlaylist"
     AliasName="SHARE_FLAG"/>
+  <ViewCriteria
+    Name="PlaylistByNameOrDescriptionVC"
+    ViewObjectName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="false"/>
+        <Property
+          Name="showInList"
+          Value="false"/>
+        <Property
+          Name="displayOperators"
+          Value="Never"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="HfPlaylistViewCriteria_row_0"
+      UpperColumns="1"
+      Conjunction="AND">
+      <ViewCriteriaItem
+        Name="PlaylistName"
+        ViewAttribute="PlaylistName"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":bindSearchTerm"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="HfPlaylistViewCriteria_HfPlaylistViewCriteria_row_0_Description"
+        ViewAttribute="Description"
+        Operator="CONTAINS"
+        Conjunction="OR"
+        Value=":bindSearchTerm"
+        Required="Optional"
+        IsBindVarValue="true"/>
+    </ViewCriteriaRow>
+    <ViewCriteriaRow
+      Name="PlaylistByNameOrDescriptionVC_row_1"
+      Conjunction="AND"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="HfUserIk"
+        ViewAttribute="HfUserIk"
+        Operator="="
+        Conjunction="AND"
+        Value=":bindUserId"
+        ValidateBindVars="true"
+        IsBindVarValue="true"
+        Required="Required"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="HfPlaylistPosView"
     ViewLink="de.adfprojectsesions.hf.model.adfbc.views.viewlinks.HfPlaylistPosFk1Link"
@@ -78,4 +230,24 @@
     ViewLink="de.adfprojectsesions.hf.model.adfbc.views.viewlinks.HfPlaylistRatFk1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ClientInterface
+    Name="__clientInterface">
+    <Method
+      Name="searchDescriptionByUserId"
+      MethodName="searchDescriptionByUserId">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="searchTerm"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.Long"/>
+    </Method>
+  </ClientInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.adfprojectsesions.hf.model.HFModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

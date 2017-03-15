@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="HF_PLAYLIST"
   AliasName="HfPlaylist"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="IntKey"
     IsNotNull="true"
@@ -20,7 +21,19 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="HF_PLAYLIST"
-    PrimaryKey="true"/>
+    PrimaryKey="true">
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="HfPlaylistRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.IntKey_LABEL"/>
+        <TOOLTIP
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.IntKey_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="PlaylistName"
     IsNotNull="true"
@@ -33,6 +46,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.PlaylistName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="HfCatIk"
@@ -43,7 +64,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_PLAYLIST"/>
+    TableName="HF_PLAYLIST">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfCatIk_LABEL"/>
+        <TOOLTIP
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfCatIk_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="HfUserIk"
     IsNotNull="true"
@@ -53,7 +83,16 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_PLAYLIST"/>
+    TableName="HF_PLAYLIST">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfUserIk_LABEL"/>
+        <TOOLTIP
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfUserIk_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="Description"
     Precision="2000"
@@ -65,6 +104,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="2000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.Description_LABEL"/>
+        <TOOLTIP
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.Description_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IntSeq"
@@ -74,14 +121,38 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_PLAYLIST"/>
+    TableName="HF_PLAYLIST"
+    DefaultValue="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.IntSeq_LABEL"/>
+        <TOOLTIP
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.IntSeq_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="LastChange"
     ColumnName="LAST_CHANGE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="HF_PLAYLIST"/>
+    TableName="HF_PLAYLIST">
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="HfPlaylistRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.LastChange_LABEL"/>
+        <FMT_FORMAT
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.LastChange_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.LastChange_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="ShareFlag"
     Precision="1"
@@ -89,10 +160,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="HF_PLAYLIST">
+    TableName="HF_PLAYLIST"
+    DefaultValue="N">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.ShareFlag_LABEL"/>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <AccessorAttribute
     Name="HfCat"
@@ -154,4 +234,8 @@
       <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylist.HfUserIk"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.adfprojectsesions.hf.model.HFModelBundle"/>
+  </ResourceBundle>
 </Entity>

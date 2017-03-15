@@ -29,3 +29,4 @@ hs_err_pid*
 **/temp/**
 /.data/
 **/.cache.ser
+**/libs/o*.xml

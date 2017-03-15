@@ -1,11 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="demomasterBundle"
+         value="#{adfBundle['oracle.apps.uikit.DemoMasterBundle']}"/>          
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="Login" id="d1">
+        <af:document title="#{demomasterBundle.ANMELDUNG}" id="d1" initialFocusId="pt1:it1">
             <af:messages id="m1"/>
-            <af:form id="f1">
+            <af:form id="f1" defaultCommand="pt1:b1">
                 <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/SimpleUIShell.jspx" id="pt1">
                     <f:facet name="globalNavigator"/>
                     <f:facet name="globalHeaderMiddle"/>
@@ -19,8 +22,9 @@
                             <f:facet name="center">
                                 <af:panelFormLayout id="pfl1">
                                     <f:facet name="footer"/>
-                                    <af:outputText value="Bitte melden Sie sich an" id="ot1"/>
-                                    <af:inputText label="Name" id="it1" value="#{sessionScope.loggedInUserName}"/>
+                                    <af:outputText value="#{demomasterBundle.ANMELDETEXT}" id="ot1"/>
+                                    <af:inputText label="Name" id="it1" value="#{sessionScope.loggedInUserName}"
+                                                  clientComponent="true"/>
                                     <af:inputText label="Passwort" id="it2"
                                                   value="#{bindings.userPassword1.inputValue}" secret="true"/>
                                     <af:button text="Anmelden" id="b1"

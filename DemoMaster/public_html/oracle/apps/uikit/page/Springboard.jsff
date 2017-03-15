@@ -52,7 +52,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                   <af:setActionListener from="#{nodeRowVarStatus.index}"
                                         to="#{viewScope.nodeRowVarStatusIndex}"/>
                 </af:commandLink>
-                <af:image source="/images/qual_panelpointerwhite_76.png"
+                <af:image source="/adf/images/qual_panelpointerwhite_76.png"
                           id="i1" styleClass="cluster-pointer"
                           rendered="#{nodeColVar.group and nodeColVar.showChildren}"/>
               </af:panelGroupLayout>

@@ -72,14 +72,39 @@
    <value n="jbo.JpxName" v="de.adfprojectsesions.hf.model.HFModel"/>
    <value n="jbo.NoAttrEnumClasses" v="true"/>
    <value n="JboProject" v="true"/>
+   <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
+      <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
+   </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ADFbc"/>
+         <string v="ADFm"/>
+         <string v="Ant"/>
          <string v="Java"/>
          <string v="XML"/>
       </list>
    </hash>
    <value n="oracle.jbo.SavedPreferences" v="true"/>
+   <hash n="oracle.jdeveloper.ant.AntRunConfiguration">
+      <list n="propertyNames">
+         <string v="env.WORKSPACE"/>
+      </list>
+      <list n="propertyValues">
+         <string v="${workspace.dir}"/>
+      </list>
+   </hash>
+   <hash n="oracle.jdeveloper.compiler.ant.AntConfiguration">
+      <value n="makeTarget" v="all"/>
+      <url n="projectBuildfile" path="HFModel_build.xml"/>
+      <list n="targetList">
+         <string v="all"/>
+         <string v="clean"/>
+         <string v="compile"/>
+         <string v="copy"/>
+         <string v="deploy"/>
+         <string v="info"/>
+      </list>
+   </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
       <list n="copyRes">
          <string v=".GIF"/>
@@ -112,8 +137,8 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="AppsCloudUIKit_HFModel">
-            <value n="adflib-connectionDetails" v="true"/>
+         <hash n="adflibHFModel">
+            <value n="adflib-connectionDetails" v="false"/>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
                <value n="hasManifest" v="true"/>
@@ -147,55 +172,16 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/AppsCloudUIKit_HFModel.jar"/>
-            <hash n="LibraryDependencies"/>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="AppsCloudUIKit_HFModel"/>
-         </hash>
-         <hash n="AppsCloudUIKit_HFModel_adflib">
-            <value n="adflib-connectionDetails" v="true"/>
-            <value n="adflib-nonReusablesError" v="false"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
+            <url n="jarURL" path="../libs/adflibHFModel.jar"/>
+            <hash n="LibraryDependencies">
+               <list n="dependencyList"/>
             </hash>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules">
-                           <hash>
-                              <value n="pattern" v="WEB-INF/classes/**"/>
-                              <value n="type" v="1"/>
-                           </hash>
-                           <hash>
-                              <value n="pattern" v="**"/>
-                              <value n="type" v="0"/>
-                           </hash>
-                        </list>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="deploy/AppsCloudUIKit_HFModel_adflib.jar"/>
-            <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="AppsCloudUIKit_HFModel_adflib"/>
+            <value n="profileName" v="adflibHFModel"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="AppsCloudUIKit_HFModel_adflib"/>
-         <string v="AppsCloudUIKit_HFModel"/>
+         <string v="adflibHFModel"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -232,6 +218,18 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Web Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -260,6 +258,18 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Resource Bundle Support"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

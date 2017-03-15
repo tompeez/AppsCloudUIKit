@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="PlaylistenPageDef"
+                Package="de.adfprojectsessions.hf.playlisten">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="HfPlaylistViewIterator" Binds="HfPlaylistView" DataControl="HFAppModuleDataControl" RangeSize="25"/>
+    <iterator Binds="HfPlaylistCardView" RangeSize="10" DataControl="HFAppModuleDataControl"
+              id="HfPlaylistCardViewIterator"/>
+    <iterator Binds="HfSharedPlaylistView" RangeSize="25" DataControl="HFAppModuleDataControl"
+              id="HfSharedPlaylistViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView" Name="HfPlaylistView0">
+        <AttrNames>
+          <Item Value="IntKey"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="Description"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="ShareFlag"/>
+          <Item Value="LastChange"/>
+          <Item Value="HfUserIk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="HfPlaylistViewIterator" id="setCurrentRowWithKeyValue"
+            InstanceName="HFAppModuleDataControl.HfPlaylistView" DataControl="HFAppModuleDataControl"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.AllPlaylistenBean.selectedKategorie}"
+                 NDType="java.lang.String"/>
+    </action>
+    <methodAction id="searchDescriptionByUserId" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="searchDescriptionByUserId" IsViewObjectMethod="true" DataControl="HFAppModuleDataControl"
+                  InstanceName="data.HFAppModuleDataControl.HfPlaylistView">
+      <NamedData NDName="searchTerm" NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDType="java.lang.Long"/>
+    </methodAction>
+    <list IterBinding="HfPlaylistViewIterator" id="ShareFlag" DTSupportsMRU="false" SelectItemValueMode="ListObject"
+          StaticList="true">
+      <AttrNames>
+        <Item Value="ShareFlag"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="Y"/>
+        <Item Value="N"/>
+      </ValueList>
+    </list>
+    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="HfPlaylistViewIterator" id="LastChange">
+      <AttrNames>
+        <Item Value="LastChange"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView1">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView" Name="HfPlaylistView10">
+        <AttrNames>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="HfSharedPlaylistViewIterator" StaticList="false" Uses="LOV_HfCatIk" id="HfCatIk"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

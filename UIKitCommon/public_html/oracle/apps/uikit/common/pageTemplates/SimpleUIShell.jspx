@@ -108,6 +108,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                         <af:setActionListener from="#{'home'}"
                                               to="#{sessionScope.navigateTo}"/>
                       </af:commandImageLink>
+                      <!--
                       <af:commandImageLink id="pt_cil10"
                                            icon="/images/ugh_search_ena.png"
                                            disabledIcon="/images/ugh_search_dis.png"
@@ -142,6 +143,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                                            disabledIcon="/images/ugh_accessibility_dis.png"
                                            hoverIcon="/images/ugh_accessibility_ovr.png"
                                            depressedIcon="/images/ugh_accessibility_dwn.png"/>
+                                           -->
                       <af:commandImageLink
                                            id="pt_cil4"
                                            shortDesc="#{uikitcommonBundle.SHOW_HELP}"
@@ -172,7 +174,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                                            id="pt_cil9"
                                            styleClass="bold AFBrandingLinkColor"
                                            text="#{sessionScope.loggedInUserName}"
-                                           shortDesc="#{uikitcommonBundle.LISA_JONES}"
+                                           shortDesc="#{sessionScope.loggedInUserName}"
                                            icon="/images/ugh_menuarrow_ena.png"
                                            disabledIcon="/images/ugh_menuarrow_dis.png"
                                            hoverIcon="/images/ugh_menuarrow_ovr.png"
@@ -212,9 +214,11 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                               <af:outputText value="#{uikitcommonBundle.PERSONALIZATION}" id="pt_ot1"
                                              styleClass="bold"/>
                               <af:commandLink text="#{uikitcommonBundle.SET_PREFERENCES}" id="pt_cl3"/>
-                              <af:commandLink text="#{uikitcommonBundle.EDIT_CURRENT_PAGE}" id="pt_cl4"/>
+<!--                              <af:commandLink text="#{uikitcommonBundle.EDIT_CURRENT_PAGE}" id="pt_cl4"/>
                               <af:commandLink text="#{uikitcommonBundle.RESET_PAGE_CONTENT}" id="pt_cl2"/>
+                              -->
                             </af:panelGroupLayout>
+                            <!--
                             <af:panelGroupLayout id="pt_pgl11"
                                                  layout="vertical">
                               <f:facet name="separator">
@@ -228,6 +232,7 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                               <af:commandLink text="#{uikitcommonBundle.MANAGE_SANDBOXES}" id="pt_cl9"/>
                               <af:commandLink text="#{uikitcommonBundle.SETUP_AND_MAINTENANCE}" id="pt_cl5"/>
                             </af:panelGroupLayout>
+                            -->
                             <af:panelGroupLayout id="pt_pgl12"
                                                  layout="vertical">
                               <f:facet name="separator">
@@ -237,12 +242,13 @@ Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
                                              styleClass="bold"/>
                               <af:commandLink text="#{uikitcommonBundle.APPLICATIONS_HELP}"
                                               id="pt_cl11"/>
-                              <af:commandLink text="#{uikitcommonBundle.DIAGNOSTICS_RUN}"
+<!--                              <af:commandLink text="#{uikitcommonBundle.DIAGNOSTICS_RUN}"
                                               id="pt_cl13"/>
                               <af:commandLink text="#{uikitcommonBundle.SUPPORTABILITY_CHECK}"
                                               id="pt_cl14"/>
                               <af:commandLink text="#{uikitcommonBundle.TROUBLESHOOTING_OPTIONS}"
                                               id="pt_cl12"/>
+                                              -->
                             </af:panelGroupLayout>
                             <af:panelGroupLayout id="pt_pgl9"
                                                  layout="vertical">

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sharedplaylisten-btf">
+    <default-activity>SharedPlaylisten</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>SharedPlaylistenBean</managed-bean-name>
+      <managed-bean-class>de.adfprojectsessions.hf.playlisten.view.beans.AllPlaylistenBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="SharedPlaylisten">
+      <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/sharedplaylisten/SharedPlaylisten.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

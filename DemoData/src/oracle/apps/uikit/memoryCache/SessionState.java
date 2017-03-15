@@ -48,38 +48,42 @@ public class SessionState {
 
     public SessionState(){
         super();
-        //ADFContext.getCurrent().getSessionScope().put("loggedInUserName", "");
         ADFContext.getCurrent().getSessionScope().put("loggedInUserJob", "Fan");
         setWelcomePopupActive(true);
         setWelcomeMode("springboard"); //Show icon grid by default
         setShowChildren(false); //Do not open any functional groups by default
+        //build navigation tree
         if (_nodeList == null)
             _buildNodeList();
+        
         setFilmStripShowStrip(""); //Show film strip by default
         setFilmStripShowHandle(true);
         setFilmStripMode("strip"); //Default mode is strip
+        
+        //build inflolets for the flip of hte welcome page
         if (_infoletsList == null)
             _buildInfoletsList();
-        //CRM Contacts
-        if (_contactsList == null)
-            _buildContactsList();
-        if (_filteredContactsList == null)
-            _filteredContactsList = new ArrayList<Person>();
-        if (_mapContactsList == null)
-            _mapContactsList = new ArrayList<Person>();
-        //CRM Opportunities
-        if (_opportunitiesList == null)
-            _buildOpportunitiesList();
-        if (_filteredOpportunitiesList == null)
-            _filteredOpportunitiesList = new ArrayList<Opportunity>();
-        //ERP Financial Reports
-        if (_financialReportsList == null)
-            _buildFinancialReportsList();
-        if (_filteredFinancialReportsList == null)
-            _filteredFinancialReportsList = new ArrayList<FinancialReport>();
-        //HCM Performance & My Team
-        if (_myTeamList == null)
-            _buildMyTeamList();
+        
+//        //CRM Contacts
+//        if (_contactsList == null)
+//            _buildContactsList();
+//        if (_filteredContactsList == null)
+//            _filteredContactsList = new ArrayList<Person>();
+//        if (_mapContactsList == null)
+//            _mapContactsList = new ArrayList<Person>();
+//        //CRM Opportunities
+//        if (_opportunitiesList == null)
+//            _buildOpportunitiesList();
+//        if (_filteredOpportunitiesList == null)
+//            _filteredOpportunitiesList = new ArrayList<Opportunity>();
+//        //ERP Financial Reports
+//        if (_financialReportsList == null)
+//            _buildFinancialReportsList();
+//        if (_filteredFinancialReportsList == null)
+//            _filteredFinancialReportsList = new ArrayList<FinancialReport>();
+//        //HCM Performance & My Team
+//        if (_myTeamList == null)
+//            _buildMyTeamList();
     }//constructor
 
     private void _buildNodeList(){
@@ -92,46 +96,47 @@ public class SessionState {
         //unique id, name, base icon, task flow id, task flow name
         //
         //Build the Sales group and children
-        newNode = new Node(idx++, "Sales", "cluster", "", "");
+        newNode = new Node(idx++, "Playlisten", "cluster", "", "");
         children = new ArrayList<Node>();
         children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Leads", "contactbowl", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Campaigns", "envelopechart", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Opportunities", "briefcasecash", "WEB-INF/oracle/apps/uikit/crm/opportunities/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
-        children.add(new Node(idx++, "Forecasts", "crystalball", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Accounts", "buildings", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Contacts", "contacts", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsFlow.xml", "ContactsFlow"));
-        children.add(new Node(idx++, "Activities", "calendarclipboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Light Box", "lightbulbbox", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Service Feedback", "envelope", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Alle Listen", "cluster", "WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml", "allplaylisten-btf"));
+        children.add(new Node(idx++, "Geteilte Listen", "peopleconnect", "WEB-INF/de/adfprojectsessions/hf/playlisten/sharedplaylisten-btf.xml", "sharedplaylisten-btf"));
+        children.add(new Node(idx++, "Nach Kategorien", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Opportunities", "briefcasecash", "WEB-INF/oracle/apps/uikit/crm/opportunities/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
+//        children.add(new Node(idx++, "Forecasts", "crystalball", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Accounts", "buildings", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Contacts", "contacts", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsFlow.xml", "ContactsFlow"));
+//        children.add(new Node(idx++, "Activities", "calendarclipboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Light Box", "lightbulbbox", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Service Feedback", "envelope", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
         //Build the My Team group and children
-        newNode = new Node(idx++, "My Team", "cluster", "", "");
+        newNode = new Node(idx++, "Stammdaten", "formwrench", "", "");
         children = new ArrayList<Node>();
-        children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "New Person", "personnew", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "My Team", "group", "WEB-INF/oracle/apps/uikit/hcm/myTeam/flow/MyTeamFlow.xml", "MyTeamFlow"));
-        children.add(new Node(idx++, "Manage Users", "personselect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Team Talent", "persongrid", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Team Goals", "persontarget", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Team Performance", "persongraph", "WEB-INF/oracle/apps/uikit/hcm/performance/flow/PerformanceFlow.xml", "PerformanceFlow"));
+//        children.add(new Node(idx++, "Dashboard", "dashboard", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Kategorien", "directory", "WEB-INF/de/adfprojectsessions/hf/stammdaten/kategorie/kategorien-btf.xml", "kategorien-btf"));
+        children.add(new Node(idx++, "Anwender", "personedit", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Manage Users", "personselect", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Team Talent", "persongrid", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Team Goals", "persontarget", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        children.add(new Node(idx++, "Team Performance", "persongraph", "WEB-INF/oracle/apps/uikit/hcm/performance/flow/PerformanceFlow.xml", "PerformanceFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
         //Build the Finance group and children
-        newNode = new Node(idx++, "General Accounting", "cluster", "", "");
+        newNode = new Node(idx++, "Einstellungen", "configure", "", "");
         children = new ArrayList<Node>();
-        children.add(new Node(idx++, "Journals", "ledger", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Period Close", "ledgerclock", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
-        children.add(new Node(idx++, "Financial Reports", "report", "WEB-INF/oracle/apps/uikit/fin/reports/flow/FinancialReportsFlow.xml", "FinancialReportsFlow"));
+        children.add(new Node(idx++, "Listen", "formwrench", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "Anzeige", "controls", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+        children.add(new Node(idx++, "weitere Einstellungen", "gears", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         newNode.setChildren(children);
         _nodeList.add(newNode);
         //Add Show My Contacts node
-        _nodeList.add(new Node(idx++, "Map My Contacts", "signpost", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsMapFlow.xml", "ContactsMapFlow"));
+//        _nodeList.add(new Node(idx++, "Map My Contacts", "signpost", "WEB-INF/oracle/apps/uikit/crm/contacts/flow/ContactsMapFlow.xml", "ContactsMapFlow"));
         //Add Directory node
-        _nodeList.add(new Node(idx++, "Directory", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        _nodeList.add(new Node(idx++, "Directory", "directory", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
         //Add Cloud Plug node
-        _nodeList.add(new Node(idx++, "PaaS Cloud", "cloudplug", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
+//        _nodeList.add(new Node(idx++, "PaaS Cloud", "cloudplug", "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
     }//_buildNodeList
 
     private void _buildInfoletsList(){
@@ -139,16 +144,16 @@ public class SessionState {
         _infoletsList = new ArrayList<Infolet>();
         //id, rendered, contentTFId, contentTFName
         _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/LeadsFlow.xml", "LeadsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/DealRegistrationFlow.xml", "DealRegistrationFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/MaintenanceSRsFlow.xml", "MaintenanceSRsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/YTDEarningsFlow.xml", "YTDEarningsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/WellnessFlow.xml", "WellnessFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/APReconciliationFlow.xml", "APReconciliationFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/ARReconciliationFlow.xml", "ARReconciliationFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/PeriodCloseFlow.xml", "PeriodCloseFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/RequisitionsFlow.xml", "RequisitionsFlow"));
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/MyTeamsGoalsFlow.xml", "MyTeamsGoalsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/DealRegistrationFlow.xml", "DealRegistrationFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/MaintenanceSRsFlow.xml", "MaintenanceSRsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/YTDEarningsFlow.xml", "YTDEarningsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/WellnessFlow.xml", "WellnessFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/APReconciliationFlow.xml", "APReconciliationFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/ARReconciliationFlow.xml", "ARReconciliationFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/fin/infolets/flow/PeriodCloseFlow.xml", "PeriodCloseFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/RequisitionsFlow.xml", "RequisitionsFlow"));
+//        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/hcm/infolets/flow/MyTeamsGoalsFlow.xml", "MyTeamsGoalsFlow"));
     }//_buildInfoletsList
 
     private void _buildContactsList(){

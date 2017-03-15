@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="de.adfprojectsessions.hf.playlisten.view" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/Playlisten.jsff"
+          usageId="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml#allplaylisten-btf@CreateWithParameters"
+          usageId="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten/CreateEditPlayliste.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_CreateEditPlaylistePageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/sharedplaylisten/SharedPlaylisten.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_SharedPlaylistenPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml#allplaylisten-btf@searchDescriptionByUserId"
+          usageId="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"
+          path="de.adfprojectsessions.hf.playlisten.PlaylistenPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"
+          path="de.adfprojectsessions.hf.playlisten.allplaylisten_btf_allplaylisten_btf_CreateWithParametersPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_CreateEditPlaylistePageDef"
+          path="de.adfprojectsessions.hf.playlisten.allplaylisten.CreateEditPlaylistePageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_SharedPlaylistenPageDef"
+          path="de.adfprojectsessions.hf.playlisten.sharedplaylisten.SharedPlaylistenPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"
+          path="de.adfprojectsessions.hf.playlisten.allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="HFAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

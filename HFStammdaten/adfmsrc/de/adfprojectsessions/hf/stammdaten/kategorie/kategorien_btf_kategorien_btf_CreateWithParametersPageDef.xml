@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="kategorien_btf_kategorien_btf_CreateWithParametersPageDef"
+                Package="de.adfprojectsessions.hf.stammdaten.kategorie" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="HfCatView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfCatViewIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="HfCatViewIterator" id="CreateWithParams" RequiresUpdateModel="true" Action="createWithParams">
+      <NamedData NDName="HfUserIk" NDValue="#{sessionScope.loggedInUserId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>
