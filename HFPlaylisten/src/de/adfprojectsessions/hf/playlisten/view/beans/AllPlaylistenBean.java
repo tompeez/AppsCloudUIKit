@@ -7,19 +7,17 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import oracle.adf.model.BindingContext;
 import oracle.adf.share.ADFContext;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.apps.uikit.common.bean.CardViewListViewStateBean;
+import oracle.apps.uikit.common.bean.UIUtilBean;
 import oracle.apps.uikit.common.bean.UtilsBean;
 import oracle.apps.uikit.common.declarativeComponents.CardViewListViewDCComponent;
 import oracle.apps.uikit.memoryCache.SessionState;
 
-import oracle.binding.AttributeBinding;
-import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.util.ComponentReference;
@@ -95,7 +93,7 @@ public class AllPlaylistenBean {
      * @param actionEvent event which triggered the search
      */
     public void handleNameSearch(ActionEvent actionEvent) {
-        OperationBinding method = getOperationFromCurrentBindings("searchDescriptionByUserId");
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("searchDescriptionByUserId");
         if (method == null) {
             _utils.showMessage(ERROR, "Suchmethode nicht gefunden!");
             return;
@@ -155,7 +153,7 @@ public class AllPlaylistenBean {
         }
 
         // jetzt mit diesem Key dir Current Row setzten
-        OperationBinding method = getOperationFromCurrentBindings("setCurrentRowWithKeyValue");
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("setCurrentRowWithKeyValue");
         if (method == null) {
             _utils.showMessage(ERROR, "Methode setCurrentRowWithKeyValue nicht gefunden!");
             //da die currentrow nicht geetzt werden konnte, den key wieder löschen
@@ -213,7 +211,7 @@ public class AllPlaylistenBean {
         //Filmstrip anschalten
         _switchInlineMode("OFF");
 
-        OperationBinding method = getOperationFromCurrentBindings("Rollback");
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Rollback");
         if (method == null) {
             _utils.showMessage(ERROR, "Rollback nicht gefunden!");
         } else {
@@ -244,7 +242,7 @@ public class AllPlaylistenBean {
      * @param actionEvent which triggered the save event
      */
     public void handleSaveAndClose(ActionEvent actionEvent) {
-        OperationBinding method = getOperationFromCurrentBindings("Commit");
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Commit");
         if (method == null) {
             _utils.showMessage(ERROR, "Commit nicht gefunden!");
         } else {
@@ -292,32 +290,6 @@ public class AllPlaylistenBean {
         actionEvent.queue();
     } //_switchInlineMode
     
-    /**
-     * Helper mehtod to get an operation bindung from the current bindings.
-     * @param methodName name of the method
-     * @return OperationBinding of hte method or null if hte method is not found
-     */
-    private OperationBinding getOperationFromCurrentBindings(String methodName) {
-        // GET A METHOD FROM PAGEDEF AND EXECUTE IT
-        // get the binding container
-        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
-        // get an Action or MethodAction
-        OperationBinding method = bindings.getOperationBinding(methodName);
-        return method;
-    }
-
-    /**
-     * Helper method to gen an attribute binding fro nthe current bindings.
-     * @param attibuteName name of hte attribute 
-     * @return AttributeBinding of hte attribute or null if hte attribute is not found
-     */
-    private AttributeBinding getAttributeFromCurrntBinding(String attibuteName) {
-        // get the binding container
-        BindingContainer bindings = BindingContext.getCurrent().getCurrentBindingsEntry();
-        // get an ADF attributevalue from the ADF page definitions
-        AttributeBinding attr = (AttributeBinding) bindings.getControlBinding("attibuteName");
-        return attr;
-    }    
 
     /**
      * Setter.

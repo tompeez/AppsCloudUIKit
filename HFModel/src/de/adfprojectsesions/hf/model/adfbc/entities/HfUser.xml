@@ -25,8 +25,7 @@
     IsUpdateable="while_insert">
     <TransientExpression
       Name="ExpressionScript"
-      CodeSourceName="HfUserRow"
-      trustMode="trusted"/>
+      CodeSourceName="HfUserRow"/>
   </Attribute>
   <Attribute
     Name="Username"
@@ -40,6 +39,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <LABEL
+          ResId="LOGIN_NAME"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Password"
@@ -48,10 +55,19 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="HF_USER">
+    TableName="HF_USER"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <LABEL
+          ResId="PASSWORD"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Longname"
@@ -65,6 +81,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="255"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <LABEL
+          ResId="DISPLAY_NAME"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IntSeq"
@@ -90,8 +114,7 @@
     ChangeIndicator="true">
     <TransientExpression
       Name="ExpressionScript"
-      CodeSourceName="HfUserRow"
-      trustMode="trusted"/>
+      CodeSourceName="HfUserRow"/>
   </Attribute>
   <AccessorAttribute
     Name="HfPlaylist"
@@ -108,6 +131,18 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
+    Name="HfUserPasswordCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"PASSWORD" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HF_USER_PASSWORD_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfUser.Password"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="HfUserPk"
     PrimaryKey="true">
     <DesignTime>
@@ -117,4 +152,8 @@
       <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfUser.IntKey"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="de.adfprojectsesions.hf.model.HFModelBundle"/>
+  </ResourceBundle>
 </Entity>

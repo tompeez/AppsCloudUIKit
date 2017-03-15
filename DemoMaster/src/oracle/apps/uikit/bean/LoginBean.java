@@ -14,6 +14,8 @@ import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 
+import oracle.apps.uikit.common.bean.UIUtilBean;
+
 import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
@@ -27,6 +29,8 @@ public class LoginBean {
     private static final String MSG_ERROR = "Fehler";
     private static final String MSG_NAMEPWDWRONG =
         "Es konnte keine Anmeldung mit den von Ihnen angegebenen Werten gefunden werden";
+    private static final String PWD_NOT_MATCH = "Die Passwörter stimmen nicht überein!";
+    private static final String REGISTER_FAILED = "Der Datensatz konnte nciht gespeichert werden!";
 
     public LoginBean() {
         super();
@@ -40,9 +44,8 @@ public class LoginBean {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         UIComponent ui = (UIComponent) actionEvent.getSource();
 
-
         // get an ADF attributevalue from the ADF page definitions
-        AttributeBinding attr = (AttributeBinding) bindings.getControlBinding("userPassword1");
+        AttributeBinding attr = UIUtilBean.getAttributeFromCurrntBinding("userPassword1");
         String pwd = (String) attr.getInputValue();
         ADFContext adfCtx = ADFContext.getCurrent();
         // Get the scope variables
@@ -50,13 +53,10 @@ public class LoginBean {
         String user = (String) sessionParamsVar2.get("loggedInUserName");
 
         // get an Action or MethodAction
-        OperationBinding method = bindings.getOperationBinding("ExecuteWithParams");
-        if (method ==
-            null) {
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("ExecuteWithParams");
+        if (method == null) {
             // handle method not found error...
-            FacesMessage msg =
-      new FacesMessage(FacesMessage.SEVERITY_ERROR, MSG_ERROR, MSG_METHODNOTFOUND);
-            facesContext.addMessage(ui.getClientId(facesContext), msg);
+            UIUtilBean.reportMessageAsExceptiom(MSG_METHODNOTFOUND);
         }
         // if there are parameters to set...
         Map paramsMap = method.getParamsMap();
@@ -97,8 +97,39 @@ public class LoginBean {
         }
 
         // Keinen passenden Login gefunden -> Fehlermeldung anzeigen
-        FacesMessage msg =
-            new FacesMessage(FacesMessage.SEVERITY_ERROR, MSG_ERROR, MSG_NAMEPWDWRONG);
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, MSG_ERROR, MSG_NAMEPWDWRONG);
         facesContext.addMessage(ui.getClientId(facesContext), msg);
     }
+
+    public void handleRegisterUserSave(ActionEvent actionEvent) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+
+        AttributeBinding ab1 = UIUtilBean.getAttributeFromCurrntBinding("Password");
+        String pwd = (String) ab1.getInputValue();
+        AttributeBinding ab2 = UIUtilBean.getAttributeFromCurrntBinding("passwd21");
+        String pwd2 = (String) ab2.getInputValue();
+        if (!pwd.equals(pwd2)) {
+            // Keinen passenden Login gefunden -> Fehlermeldung anzeigen
+            UIUtilBean.reportMessageAsExceptiom(PWD_NOT_MATCH);
+            return;
+        }
+
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Commit");
+        if (method == null) {
+            // handle method not found error...
+            UIUtilBean.reportMessageAsExceptiom(MSG_METHODNOTFOUND);
+            return;
+        }
+
+        method.execute();
+        List<Exception> errors = (List<Exception>) method.getErrors();
+        if (!errors.isEmpty()) {
+            // handle errors here errors is a list of exceptions!
+            errors.get(0).printStackTrace();
+            UIUtilBean.reportMessageAsExceptiom(REGISTER_FAILED);
+            return;
+        }
+    }
+
+
 }

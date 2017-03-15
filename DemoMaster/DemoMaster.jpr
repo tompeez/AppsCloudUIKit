@@ -400,6 +400,14 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="ADF EMG Task Flow Tester"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Trinidad Runtime 11"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -427,14 +435,6 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
-         <hash>
-            <value n="id" v="ADF EMG Task Flow Tester"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Trinidad Runtime 11"/>
-            <value n="isJDK" v="false"/>
-         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -454,6 +454,7 @@
                   <url path="../libs/adflibDemoHCM.jar" jar-entry=""/>
                   <url path="../libs/adflibHFStammdaten.jar" jar-entry=""/>
                   <url path="../libs/adflibHFPlaylisten.jar" jar-entry=""/>
+                  <url path="../libs/adflibHFModel.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -570,6 +571,14 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="ADF EMG Task Flow Tester"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Trinidad Runtime 11"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -595,18 +604,6 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="ADF_Library_Dependencies.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="ADF EMG Task Flow Tester"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="Trinidad Runtime 11"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -721,6 +718,7 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="JSTL Core"/>
+            <value n="runInEditor" v="true"/>
             <value n="tldURL" v="@oracle.home@../wlserver/modules/org.glassfish.web.javax.servlet.jsp.jstl.jar!/META-INF/c.tld"/>
             <value n="URI" v="http://java.sun.com/jsp/jstl/core"/>
             <value n="version" v="1.2"/>

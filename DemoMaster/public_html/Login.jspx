@@ -32,7 +32,7 @@
                                     <af:panelGroupLayout id="pgl1">
                                         <af:outputText value="Sie haben noch keinen Account?" id="ot2"/>
                                         <af:spacer width="10" height="10" id="s1"/>
-                                        <af:link text="Registrieren" id="l1"/>
+                                        <af:link text="Registrieren" id="l1" action="register"/>
                                     </af:panelGroupLayout>
                                 </af:panelFormLayout>
                             </f:facet>

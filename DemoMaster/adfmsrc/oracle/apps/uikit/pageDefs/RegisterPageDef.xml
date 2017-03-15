@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="RegisterPageDef"
+                Package="oracle.apps.uikit.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables" RefreshCondition="#{true}">
+      <variable Name="passwd2" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="HfUserView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfUserViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="HfUserViewIterator" id="IntKey">
+      <AttrNames>
+        <Item Value="IntKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="Username">
+      <AttrNames>
+        <Item Value="Username"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="Longname">
+      <AttrNames>
+        <Item Value="Longname"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfUserViewIterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="HFAppModuleDataControl"/>
+    <attributeValues IterBinding="variables" id="passwd21">
+      <AttrNames>
+        <Item Value="passwd2"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
