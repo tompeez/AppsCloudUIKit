@@ -15,5 +15,15 @@
       </StringRefAddr>
     </RefAddresses>
   </Reference>
+  <Reference name="HfSpotify" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+    <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
+    <RefAddresses>
+      <XmlRefAddr addrType="HfSpotify">
+        <Contents>
+          <restconnection name="HfSpotify" url="https://api.spotify.com"/>
+        </Contents>
+      </XmlRefAddr>
+    </RefAddresses>
+  </Reference>
 </References>
 

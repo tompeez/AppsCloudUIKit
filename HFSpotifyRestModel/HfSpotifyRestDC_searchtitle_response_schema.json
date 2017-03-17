@@ -1,0 +1,213 @@
+{
+  "$schema" : "http://www.oracle.com/schema",
+  "id" : "http://www.oracle.com/schema",
+  "type" : "object",
+  "properties" : {
+    "tracks" : {
+      "type" : "object",
+      "properties" : {
+        "next" : {
+          "type" : "string"
+        },
+        "total" : {
+          "type" : "number"
+        },
+        "offset" : {
+          "type" : "number"
+        },
+        "previous" : {
+          "type" : "string"
+        },
+        "limit" : {
+          "type" : "number"
+        },
+        "href" : {
+          "type" : "string"
+        },
+        "items" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "disc_number" : {
+                "type" : "number"
+              },
+              "album" : {
+                "type" : "object",
+                "properties" : {
+                  "images" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "width" : {
+                          "type" : "number"
+                        },
+                        "url" : {
+                          "type" : "string"
+                        },
+                        "height" : {
+                          "type" : "number"
+                        }
+                      }
+                    },
+                    "required" : [ "width", "url", "height" ]
+                  },
+                  "artists" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "properties" : {
+                        "name" : {
+                          "type" : "string"
+                        },
+                        "href" : {
+                          "type" : "string"
+                        },
+                        "id" : {
+                          "type" : "string"
+                        },
+                        "type" : {
+                          "type" : "string"
+                        },
+                        "external_urls" : {
+                          "type" : "object",
+                          "properties" : {
+                            "spotify" : {
+                              "type" : "string"
+                            }
+                          }
+                        },
+                        "uri" : {
+                          "type" : "string"
+                        }
+                      }
+                    },
+                    "required" : [ "name", "href", "id", "type", "external_urls", "uri" ]
+                  },
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "available_markets" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "string"
+                    }
+                  },
+                  "album_type" : {
+                    "type" : "string"
+                  },
+                  "href" : {
+                    "type" : "string"
+                  },
+                  "id" : {
+                    "type" : "string"
+                  },
+                  "type" : {
+                    "type" : "string"
+                  },
+                  "external_urls" : {
+                    "type" : "object",
+                    "properties" : {
+                      "spotify" : {
+                        "type" : "string"
+                      }
+                    }
+                  },
+                  "uri" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "available_markets" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "string"
+                }
+              },
+              "type" : {
+                "type" : "string"
+              },
+              "external_ids" : {
+                "type" : "object",
+                "properties" : {
+                  "isrc" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "uri" : {
+                "type" : "string"
+              },
+              "duration_ms" : {
+                "type" : "number"
+              },
+              "explicit" : {
+                "type" : "boolean"
+              },
+              "artists" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "name" : {
+                      "type" : "string"
+                    },
+                    "href" : {
+                      "type" : "string"
+                    },
+                    "id" : {
+                      "type" : "string"
+                    },
+                    "type" : {
+                      "type" : "string"
+                    },
+                    "external_urls" : {
+                      "type" : "object",
+                      "properties" : {
+                        "spotify" : {
+                          "type" : "string"
+                        }
+                      }
+                    },
+                    "uri" : {
+                      "type" : "string"
+                    }
+                  }
+                },
+                "required" : [ "name", "href", "id", "type", "external_urls", "uri" ]
+              },
+              "preview_url" : {
+                "type" : "string"
+              },
+              "popularity" : {
+                "type" : "number"
+              },
+              "name" : {
+                "type" : "string"
+              },
+              "track_number" : {
+                "type" : "number"
+              },
+              "href" : {
+                "type" : "string"
+              },
+              "id" : {
+                "type" : "string"
+              },
+              "external_urls" : {
+                "type" : "object",
+                "properties" : {
+                  "spotify" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "required" : [ "disc_number", "album", "available_markets", "type", "external_ids", "uri", "duration_ms", "explicit", "artists", "preview_url", "popularity", "name", "track_number", "href", "id", "external_urls" ]
+        }
+      }
+    }
+  }
+}

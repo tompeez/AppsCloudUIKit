@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.0.31" id="DataControls"
+                    Package="de.adfprojectsessions.hf.model.rest">
+  <AdapterDataControl id="HfSpotifyRestDC" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.rest.RestURLDCDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC"
+                      BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <Definitions>
+        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/json" ConnectionName="HfSpotify"
+                    Source="/v1/search?q=##q##&amp;type=track" HttpMethod="GET" id="searchtitle" MethodRef="JSON"
+                    SchemaLocation="HfSpotifyRestDC_searchtitle_response_schema.json" ensureKeyAttribute="true"
+                    dcStructureVersion="2" RootElement="tracks">
+          <Parameters>
+            <Parameter Name="q" Value="yesterday"/>
+          </Parameters>
+        </Definition>
+      </Definitions>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>
