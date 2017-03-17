@@ -5,10 +5,6 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator id="HfPlaylistViewIterator" Binds="HfPlaylistView" DataControl="HFAppModuleDataControl" RangeSize="25"/>
-    <iterator Binds="HfPlaylistCardView" RangeSize="10" DataControl="HFAppModuleDataControl"
-              id="HfPlaylistCardViewIterator"/>
-    <iterator Binds="HfSharedPlaylistView" RangeSize="25" DataControl="HFAppModuleDataControl"
-              id="HfSharedPlaylistViewIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView">
@@ -56,10 +52,17 @@
     <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView1">
       <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView" Name="HfPlaylistView10">
         <AttrNames>
+          <Item Value="Description"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="HfUserIk"/>
+          <Item Value="IntKey"/>
+          <Item Value="LastChange"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="ShareFlag"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="HfSharedPlaylistViewIterator" StaticList="false" Uses="LOV_HfCatIk" id="HfCatIk"
+    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfCatByUserIk" id="HfCatIk"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

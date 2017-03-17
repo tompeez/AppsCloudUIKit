@@ -21,11 +21,12 @@
     ColumnType="NUMBER"
     TableName="HF_CAT"
     PrimaryKey="true"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <TransientExpression
       Name="ExpressionScript"
-      trustMode="trusted"
-      CodeSourceName="HfCatRow"/>
+      CodeSourceName="HfCatRow" trustMode="trusted"/>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -81,20 +82,11 @@
     Name="ParentHfCatIk"
     Precision="11"
     Scale="0"
-    ColumnName="PARENT_HF_CAT_IK_"
+    ColumnName="PARENT_HF_CAT_IK"
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_CAT">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="UEBERGEORDNETE_KATEGORIE"/>
-        <TOOLTIP
-          ResId="UEBERGEORDNETE_KATEGORIE"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
+    TableName="HF_CAT"><Properties><SchemaBasedProperties><LABEL ResId="UEBERGEORDNETE_KATEGORIE"/><TOOLTIP ResId="UEBERGEORDNETE_KATEGORIE"/></SchemaBasedProperties></Properties></Attribute>
   <Attribute
     Name="CatDesc"
     Precision="2000"
@@ -124,7 +116,9 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="HF_CAT"
-    DefaultValue="0">
+    DefaultValue="0"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -140,11 +134,12 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="HF_CAT">
+    TableName="HF_CAT"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <TransientExpression
       Name="ExpressionScript"
-      trustMode="trusted"
-      CodeSourceName="HfCatRow"/>
+      CodeSourceName="HfCatRow" trustMode="trusted"/>
     <RecalcCondition
       Name="RecalcExpressionScript"
       CodeSourceName="HfCatRow"/>

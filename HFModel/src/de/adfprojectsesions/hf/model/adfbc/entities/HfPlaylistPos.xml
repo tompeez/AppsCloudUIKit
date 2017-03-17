@@ -20,7 +20,9 @@
     Type="java.lang.Long"
     ColumnType="NUMBER"
     TableName="HF_PLAYLIST_POS"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="HfPlaylistIk"
     IsNotNull="true"
@@ -48,14 +50,18 @@
     SQLType="NUMERIC"
     Type="java.lang.Long"
     ColumnType="NUMBER"
-    TableName="HF_PLAYLIST_POS"/>
+    TableName="HF_PLAYLIST_POS"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="LastChange"
     ColumnName="LAST_CHANGE"
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="HF_PLAYLIST_POS"/>
+    TableName="HF_PLAYLIST_POS"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="TrackName"
     Precision="255"
