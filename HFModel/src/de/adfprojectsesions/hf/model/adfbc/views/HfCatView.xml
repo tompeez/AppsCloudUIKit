@@ -98,7 +98,7 @@
     PrecisionRule="true"
     EntityAttrName="ParentHfCatIk"
     EntityUsage="HfCat"
-    AliasName="PARENT_HF_CAT_IK_"/>
+    AliasName="PARENT_HF_CAT_IK"/>
   <ViewAttribute
     Name="CatDesc"
     PrecisionRule="true"

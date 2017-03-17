@@ -22,7 +22,9 @@
     ColumnType="NUMBER"
     TableName="HF_USER"
     PrimaryKey="true"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true">
     <TransientExpression
       Name="ExpressionScript"
       CodeSourceName="HfUserRow"/>
@@ -110,8 +112,7 @@
     ColumnType="DATE"
     TableName="HF_USER"
     RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"
-    ChangeIndicator="true">
+    RetrievedOnInsert="true">
     <TransientExpression
       Name="ExpressionScript"
       CodeSourceName="HfUserRow"/>
@@ -131,18 +132,6 @@
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
-    Name="HfUserPasswordCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"PASSWORD" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="HF_USER_PASSWORD_CHECK"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfUser.Password"/>
-    </AttrArray>
-  </Key>
-  <Key
     Name="HfUserPk"
     PrimaryKey="true">
     <DesignTime>
@@ -150,6 +139,16 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfUser.IntKey"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="HfUserUk1">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="HF_USER_UK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="de.adfprojectsesions.hf.model.adfbc.entities.HfUser.Username"/>
     </AttrArray>
   </Key>
   <ResourceBundle>
