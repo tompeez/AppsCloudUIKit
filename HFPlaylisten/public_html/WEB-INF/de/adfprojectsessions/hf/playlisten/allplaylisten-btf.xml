@@ -28,6 +28,16 @@
         <fixed-outcome>anzeigen</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-call id="playlistenbearbeiten-gtf">
+      <task-flow-reference>
+        <document>/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistenbearbeiten-gtf.xml</document>
+        <id>playlistenbearbeiten-gtf</id>
+      </task-flow-reference>
+      <input-parameter id="__12">
+        <name>playlistId</name>
+        <value>#{pageFlowScope.selectedPlaylist}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__2">
       <from-activity-id>Playlisten</from-activity-id>
       <control-flow-case id="__3">
@@ -37,6 +47,10 @@
       <control-flow-case id="__8">
         <from-outcome>edit</from-outcome>
         <to-activity-id>CreateEditPlayliste</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome>editTitel</from-outcome>
+        <to-activity-id>playlistenbearbeiten-gtf</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__4">

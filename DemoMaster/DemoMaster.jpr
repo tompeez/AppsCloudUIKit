@@ -455,6 +455,7 @@
                   <url path="../libs/adflibHFStammdaten.jar" jar-entry=""/>
                   <url path="../libs/adflibHFPlaylisten.jar" jar-entry=""/>
                   <url path="../libs/adflibHFModel.jar" jar-entry=""/>
+                  <url path="../libs/adflibHfSpotifyRestModel.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -604,6 +605,10 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="ADF_Library_Dependencies.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:acdc="/appsCloudUIKitDCs"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="hfBundle" value="#{adfBundle['de.adfprojectsessions.hf.playlisten.HFPlaylistenBundle']}"/>
+    <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
+        <f:facet name="pageContents">
+            <af:panelGroupLayout id="pgl1" layout="vertical">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.PLAYLISTEN}">
+                    <f:facet name="customToolbar"/>
+                    <f:facet name="pageContext"/>
+                </acdc:PageHeaderDC>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:panelGroupLayout id="pgl3">
+                        <af:toolbar id="t1" flex="1" stretchId="toolbarExpander">
+                            <af:inputText label="#{hfBundle.FIND}" id="it1" columns="25" placeholder="Name contains ..."
+                                          usage="search" value="#{pageFlowScope.PlaylisteBearbeitenBean.nameSearch}"
+                                          autoSubmit="true"/>
+                            <af:commandButton id="cb1" icon="/images/func_search_16_ena.png" partialSubmit="true"
+                                              actionListener="#{pageFlowScope.PlaylisteBearbeitenBean.handleNameSearch}"/>
+                            <af:spacer width="15" id="s3"/>
+                            <af:spacer id="toolbarExpander" clientComponent="true"/>
+                            <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.ADD_TRACKS}"
+                                              action="goTitel"/>
+                        </af:toolbar>
+                        <af:panelFormLayout id="pfl2">
+                            <af:inputText value="#{bindings.IntKey.inputValue}" label="#{bindings.IntKey.hints.label}"
+                                          required="#{bindings.IntKey.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.IntKey.hints.displayWidth}"
+                                          maximumLength="#{bindings.IntKey.hints.precision}"
+                                          shortDesc="#{bindings.IntKey.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.IntKey.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.IntKey.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.PlaylistName.inputValue}"
+                                          label="#{bindings.PlaylistName.hints.label}"
+                                          required="#{bindings.PlaylistName.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.PlaylistName.hints.displayWidth}"
+                                          maximumLength="#{bindings.PlaylistName.hints.precision}"
+                                          shortDesc="#{bindings.PlaylistName.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.PlaylistName.validator}"/>
+                            </af:inputText>
+                            <af:selectOneChoice value="#{bindings.HfCatIk.inputValue}" label="#{bindings.HfCatIk.label}"
+                                                required="#{bindings.HfCatIk.hints.mandatory}"
+                                                shortDesc="#{bindings.HfCatIk.hints.tooltip}" readOnly="true" id="soc4">
+                                <f:selectItems value="#{bindings.HfCatIk.items}" id="si1"/>
+                                <f:validator binding="#{bindings.HfCatIk.validator}"/>
+                            </af:selectOneChoice>
+                            <af:selectOneChoice value="#{bindings.HfUserIk.inputValue}"
+                                                label="#{bindings.HfUserIk.label}"
+                                                required="#{bindings.HfUserIk.hints.mandatory}"
+                                                shortDesc="#{bindings.HfUserIk.hints.tooltip}" readOnly="true"
+                                                id="soc6">
+                                <f:selectItems value="#{bindings.HfUserIk.items}" id="si4"/>
+                                <f:validator binding="#{bindings.HfUserIk.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputText value="#{bindings.Description.inputValue}"
+                                          label="#{bindings.Description.hints.label}"
+                                          required="#{bindings.Description.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.Description.hints.displayWidth}"
+                                          maximumLength="#{bindings.Description.hints.precision}"
+                                          shortDesc="#{bindings.Description.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.Description.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.IntSeq.inputValue}" label="#{bindings.IntSeq.hints.label}"
+                                          required="#{bindings.IntSeq.hints.mandatory}" readOnly="true"
+                                          columns="#{bindings.IntSeq.hints.displayWidth}"
+                                          maximumLength="#{bindings.IntSeq.hints.precision}"
+                                          shortDesc="#{bindings.IntSeq.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.IntSeq.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.IntSeq.format}"/>
+                            </af:inputText>
+                            <af:inputDate value="#{bindings.LastChange.inputValue}" readOnly="true"
+                                          label="#{bindings.LastChange.hints.label}"
+                                          required="#{bindings.LastChange.hints.mandatory}"
+                                          columns="#{bindings.LastChange.hints.displayWidth}"
+                                          shortDesc="#{bindings.LastChange.hints.tooltip}" id="id1">
+                                <f:validator binding="#{bindings.LastChange.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
+                            </af:inputDate>
+                            <af:selectBooleanCheckbox value="#{bindings.ShareFlag.inputValue}"
+                                                      label="#{bindings.ShareFlag.label}"
+                                                      shortDesc="#{bindings.ShareFlag.hints.tooltip}" readOnly="true"
+                                                      id="sbc1"/>
+                        </af:panelFormLayout>
+                        <acdc:CardViewListViewDC id="cvlvdc1"
+                                                 binding="#{pageFlowScope.PlaylisteBearbeitenBean.cardViewListView}"
+                                                 useStateBean="true"
+                                                 stateBean="#{pageFlowScope.PlaylisteBearbeitenBean.currentViewState}">
+                            <f:facet name="cardView">
+                                <af:iterator id="i1" value="#{bindings.HfPlaylistPosOfPlaylistView.collectionModel}"
+                                             var="row" varStatus="status" rows="0">
+                                    <af:panelGroupLayout id="pgl5" styleClass="fuse-card-display">
+                                        <acdc:CardDC id="cdc1" selected="#{row.selected}" selectionMode="false"
+                                                     title="#{row.trackName}" height="200" width="275"
+                                                     titleClickable="false">
+                                            <f:facet name="frontContents">
+                                                <af:panelStretchLayout id="psl1" dimensionsFrom="children"
+                                                                       startWidth="0px" endWidth="0px" topHeight="0px"
+                                                                       bottomHeight="0px">
+                                                    <f:facet name="start"/>
+                                                    <f:facet name="end"></f:facet>
+                                                    <f:facet name="top"/>
+                                                    <f:facet name="bottom"/>
+                                                    <f:facet name="center">
+                                                        <af:panelGroupLayout id="pgl6" layout="vertical">
+                                                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                                <af:outputText value="NR. #{row.intKey}:" id="ot1"
+                                                                               inlineStyle="font-weight:bold;"/>
+                                                                <af:spacer width="10" height="10" id="s4"/>
+                                                                <af:outputText value="#{row.album}" id="ot3"/>
+                                                            </af:panelGroupLayout>
+                                                            <af:panelLabelAndMessage label="#{bindings.LastChange.hints.label}"
+                                                                                     id="plam1">
+                                                                <af:outputText value="#{row.LastChange}"
+                                                                               shortDesc="#{bindings.LastChange.hints.tooltip}"
+                                                                               id="ot2">
+                                                                    <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
+                                                                </af:outputText>
+                                                            </af:panelLabelAndMessage>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
+                                                </af:panelStretchLayout>
+                                            </f:facet>
+                                        </acdc:CardDC>
+                                    </af:panelGroupLayout>
+                                </af:iterator>
+                            </f:facet>
+                            <f:facet name="listView">
+                            </f:facet>
+                            <f:facet name="filterPanel"/>
+                            <f:facet name="toolbarPanel"/>
+                        </acdc:CardViewListViewDC>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="footerStart"/>
+        <f:facet name="footer"/>
+        <f:facet name="footerEnd"/>
+        <f:facet name="startPanel"/>
+        <f:facet name="endPanel"/>
+        <f:facet name="headerStart"/>
+        <f:facet name="header"/>
+        <f:facet name="headerEnd"/>
+    </af:pageTemplate>
+</ui:composition>

@@ -12,6 +12,14 @@
           usageId="de_adfprojectsessions_hf_playlisten_view_SharedPlaylistenPageDef"/>
     <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/allplaylisten-btf.xml#allplaylisten-btf@searchDescriptionByUserId"
           usageId="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistenbearbeiten-gtf.xml#playlistenbearbeiten-gtf@SetCurrentRowWithKeyValue"
+          usageId="de_adfprojectsessions_hf_playlisten_view_playlistenbearbeiten_gtf_playlistenbearbeiten_gtf_SetCurrentRowWithKeyValuePageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/Playliste.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_PlaylistePageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/Titel.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_TitelPageDef"/>
+    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/titletest.jsff"
+          usageId="de_adfprojectsessions_hf_playlisten_view_titletestPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"
@@ -24,8 +32,17 @@
           path="de.adfprojectsessions.hf.playlisten.sharedplaylisten.SharedPlaylistenPageDef"/>
     <page id="de_adfprojectsessions_hf_playlisten_view_allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"
           path="de.adfprojectsessions.hf.playlisten.allplaylisten_btf_allplaylisten_btf_searchDescriptionByUserIdPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_playlistenbearbeiten_gtf_playlistenbearbeiten_gtf_SetCurrentRowWithKeyValuePageDef"
+          path="de.adfprojectsessions.hf.playlisten.playlistenbearbeiten_gtf_playlistenbearbeiten_gtf_SetCurrentRowWithKeyValuePageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_PlaylistePageDef"
+          path="de.adfprojectsessions.hf.playlisten.playlistebearbeiten.PlaylistePageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_TitelPageDef"
+          path="de.adfprojectsessions.hf.playlisten.playlistebearbeiten.TitelPageDef"/>
+    <page id="de_adfprojectsessions_hf_playlisten_view_titletestPageDef"
+          path="de.adfprojectsessions.hf.playlisten.playlistebearbeiten.titletestPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="HfSpotifyRestDC" path="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC"/>
     <BC4JDataControl id="HFAppModuleDataControl" Package="de.adfprojectsesions.hf.model.adfbc.service"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"

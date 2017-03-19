@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="PlaylistePageDef"
+                Package="de.adfprojectsessions.hf.playlisten.playlistebearbeiten">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator id="HfPlaylistPosOfPlaylistViewIterator" Binds="HfPlaylistPosOfPlaylistView"
+              DataControl="HFAppModuleDataControl" RangeSize="25"/>
+    <iterator id="HfPlaylistViewIterator" Binds="HfPlaylistView" DataControl="HFAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="HfPlaylistPosOfPlaylistViewIterator" id="HfPlaylistPosOfPlaylistView">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistPosView"
+                      Name="HfPlaylistPosOfPlaylistView0">
+        <AttrNames>
+          <Item Value="IntKey"/>
+          <Item Value="Album"/>
+          <Item Value="AlbumId"/>
+          <Item Value="Artist"/>
+          <Item Value="ArtistId"/>
+          <Item Value="Genre"/>
+          <Item Value="HfPlaylistIk"/>
+          <Item Value="ImageUrl"/>
+          <Item Value="IntSeq"/>
+          <Item Value="LastChange"/>
+          <Item Value="OrderNum"/>
+          <Item Value="TrackId"/>
+          <Item Value="TrackName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="HfPlaylistViewIterator" id="HfPlaylistView">
+      <nodeDefinition DefName="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistView" Name="HfPlaylistView0">
+        <AttrNames>
+          <Item Value="IntKey"/>
+          <Item Value="Description"/>
+          <Item Value="HfCatIk"/>
+          <Item Value="HfUserIk"/>
+          <Item Value="IntSeq"/>
+          <Item Value="LastChange"/>
+          <Item Value="PlaylistName"/>
+          <Item Value="ShareFlag"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="HfPlaylistViewIterator" id="IntKey">
+      <AttrNames>
+        <Item Value="IntKey"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfPlaylistViewIterator" id="PlaylistName">
+      <AttrNames>
+        <Item Value="PlaylistName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfCatByUserIk" id="HfCatIk"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="HfPlaylistViewIterator" StaticList="false" Uses="LOV_HfUserIk" id="HfUserIk"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="HfPlaylistViewIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfPlaylistViewIterator" id="IntSeq">
+      <AttrNames>
+        <Item Value="IntSeq"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="HfPlaylistViewIterator" id="LastChange">
+      <AttrNames>
+        <Item Value="LastChange"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="HfPlaylistViewIterator" id="ShareFlag" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="ShareFlag"/>
+      </AttrNames>
+    </button>
+  </bindings>
+</pageDefinition>

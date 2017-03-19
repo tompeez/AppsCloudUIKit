@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="playlistenbearbeiten_gtf_playlistenbearbeiten_gtf_SetCurrentRowWithKeyValuePageDef"
+                Package="de.adfprojectsessions.hf.playlisten" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="HfPlaylistView" RangeSize="25" DataControl="HFAppModuleDataControl" id="HfPlaylistViewIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="HfPlaylistViewIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.playlistId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

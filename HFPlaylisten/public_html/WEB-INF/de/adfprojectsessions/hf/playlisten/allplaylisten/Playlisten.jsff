@@ -87,6 +87,12 @@
                                                                     <af:convertDateTime pattern="#{bindings.LastChange.format}"/>
                                                                 </af:outputText>
                                                             </af:panelLabelAndMessage>
+                                                            <af:button text="#{hfBundle.SHOW_TITEL}" id="b2"
+                                                                       action="editTitel">
+                                                                <af:setPropertyListener from="#{row.intKey}"
+                                                                                        to="#{pageFlowScope.selectedPlaylist}"
+                                                                                        type="action"/>
+                                                            </af:button>
                                                         </af:panelGroupLayout>
                                                     </f:facet>
                                                 </af:panelStretchLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="playlistenbearbeiten-gtf">
+    <default-activity>SetCurrentRowWithKeyValue</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>playlistId</name>
+      <value>#{pageFlowScope.playlistId}</value>
+      <class>java.lang.Long</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__4">
+      <managed-bean-name>PlaylisteBearbeitenBean</managed-bean-name>
+      <managed-bean-class>de.adfprojectsessions.hf.playlisten.playlistebearbeiten.PlaylisteBearbeitenBean</managed-bean-class>
+      <managed-bean-scope>pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler>handleExceptiononsearch</exception-handler>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome>
+        <fixed-outcome>showPlayliste</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="Playliste">
+      <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/Playliste.jsff</page>
+    </view>
+    <view id="Titel">
+      <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/Titel.jsff</page>
+    </view>
+    <view id="titletest">
+      <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/titletest.jsff</page>
+    </view>
+    <method-call id="handleExceptiononsearch">
+      <method>#{pageFlowScope.PlaylisteBearbeitenBean.handleExceptionOnSearch}</method>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>showPlayliste</from-outcome>
+        <to-activity-id>Playliste</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>Playliste</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>goTitel</from-outcome>
+        <to-activity-id>titletest</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>titletest</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>backPlaylist</from-outcome>
+        <to-activity-id>Playliste</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>handleExceptiononsearch</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>showtitle</from-outcome>
+        <to-activity-id>titletest</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

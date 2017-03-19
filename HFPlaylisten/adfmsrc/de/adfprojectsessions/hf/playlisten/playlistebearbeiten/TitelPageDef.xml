@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="TitelPageDef"
+                Package="de.adfprojectsessions.hf.playlisten.playlistebearbeiten">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="searchtitle_q" IsQueriable="false"/>
+    </variableIterator>
+    <methodIterator Binds="searchtitle.result" DataControl="HfSpotifyRestDC" RangeSize="25"
+                    BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks"
+                    id="searchtitleIterator"/>
+    <accessorIterator MasterBinding="searchtitleIterator" Binds="items" RangeSize="25" DataControl="HfSpotifyRestDC"
+                      BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items"
+                      id="itemsIterator"/>
+    <searchRegion Binds="itemsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="itemsQuery"/>
+  </executables>
+  <bindings>
+    <methodAction id="searchtitle" RequiresUpdateModel="true" Action="invokeMethod" MethodName="searchtitle"
+                  IsViewObjectMethod="false" DataControl="HfSpotifyRestDC" InstanceName="data.HfSpotifyRestDC"
+                  ReturnName="data.HfSpotifyRestDC.methodResults.searchtitle_HfSpotifyRestDC_searchtitle_result">
+      <NamedData NDName="q" NDType="java.lang.String" NDValue="${bindings.searchtitle_q}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="q">
+      <AttrNames>
+        <Item Value="searchtitle_q"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="itemsIterator" id="items">
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items"
+                      Name="items0">
+        <AttrNames>
+          <Item Value="disc_number"/>
+          <Item Value="type"/>
+          <Item Value="uri"/>
+          <Item Value="duration_ms"/>
+          <Item Value="explicit"/>
+          <Item Value="preview_url"/>
+          <Item Value="popularity"/>
+          <Item Value="name"/>
+          <Item Value="track_number"/>
+          <Item Value="href"/>
+          <Item Value="id"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="album"/>
+          <Item Value="external_ids"/>
+          <Item Value="external_urls"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_album">
+        <AttrNames>
+          <Item Value="name"/>
+          <Item Value="album_type"/>
+          <Item Value="href"/>
+          <Item Value="id"/>
+          <Item Value="type"/>
+          <Item Value="uri"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_external_ids">
+        <AttrNames>
+          <Item Value="isrc"/>
+        </AttrNames>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_external_urls">
+        <AttrNames>
+          <Item Value="spotify"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
