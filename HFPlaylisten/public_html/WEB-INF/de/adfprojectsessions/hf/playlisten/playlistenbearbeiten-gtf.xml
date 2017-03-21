@@ -46,7 +46,7 @@
       <from-activity-id>Playliste</from-activity-id>
       <control-flow-case id="__6">
         <from-outcome>goTitel</from-outcome>
-        <to-activity-id>titletest</to-activity-id>
+        <to-activity-id>Titel</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__9">
@@ -61,6 +61,13 @@
       <control-flow-case id="__12">
         <from-outcome>showtitle</from-outcome>
         <to-activity-id>titletest</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>Titel</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>backPlaylist</from-outcome>
+        <to-activity-id>Playliste</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

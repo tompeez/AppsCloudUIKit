@@ -1,5 +1,12 @@
 package oracle.apps.uikit.common.bean;
 
+import javax.el.ELContext;
+import javax.el.ExpressionFactory;
+import javax.el.ValueExpression;
+
+import javax.faces.application.Application;
+import javax.faces.context.FacesContext;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 
@@ -50,4 +57,14 @@ public class UIUtilBean {
         BindingContext bctx = BindingContext.getCurrent();
         ((DCBindingContainer) bctx.getCurrentBindingsEntry()).reportException(ex);
     }
+
+    //Evaluate EL expression like "#{xxx}"
+    public static Object evaluateEL(String elString) {
+        FacesContext _facesCtx = FacesContext.getCurrentInstance();
+        Application app = _facesCtx.getApplication();
+        ExpressionFactory elFactory = app.getExpressionFactory();
+        ELContext elContext = _facesCtx.getELContext();
+        ValueExpression valExp = elFactory.createValueExpression(elContext, elString, Object.class);
+        return valExp.getValue(elContext);
+    } //evaluateEL
 }

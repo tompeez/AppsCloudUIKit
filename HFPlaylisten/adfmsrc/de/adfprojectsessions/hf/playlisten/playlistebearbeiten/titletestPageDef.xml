@@ -28,17 +28,8 @@
       <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items"
                       Name="items0">
         <AttrNames>
-          <Item Value="disc_number"/>
-          <Item Value="type"/>
-          <Item Value="uri"/>
-          <Item Value="duration_ms"/>
-          <Item Value="explicit"/>
-          <Item Value="preview_url"/>
-          <Item Value="popularity"/>
-          <Item Value="name"/>
-          <Item Value="track_number"/>
-          <Item Value="href"/>
           <Item Value="id"/>
+          <Item Value="name"/>
         </AttrNames>
         <Accessors>
           <Item Value="album"/>

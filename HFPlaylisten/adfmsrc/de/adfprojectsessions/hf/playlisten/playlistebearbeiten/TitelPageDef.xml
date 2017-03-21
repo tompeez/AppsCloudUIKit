@@ -8,12 +8,16 @@
     </variableIterator>
     <methodIterator Binds="searchtitle.result" DataControl="HfSpotifyRestDC" RangeSize="25"
                     BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks"
-                    id="searchtitleIterator"/>
+                    id="searchtitleIterator" ChangeEventPolicy="none"/>
     <accessorIterator MasterBinding="searchtitleIterator" Binds="items" RangeSize="25" DataControl="HfSpotifyRestDC"
                       BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items"
-                      id="itemsIterator"/>
+                      id="itemsIterator" Refresh="ifNeeded" RefreshCondition="#{not empty bindings.q.inputValue}"
+                      ChangeEventPolicy="none"/>
     <searchRegion Binds="itemsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="itemsQuery"/>
+    <accessorIterator MasterBinding="itemsIterator" Binds="album" RangeSize="25" DataControl="HfSpotifyRestDC"
+                      BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_album"
+                      id="albumIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
     <methodAction id="searchtitle" RequiresUpdateModel="true" Action="invokeMethod" MethodName="searchtitle"
@@ -26,48 +30,53 @@
         <Item Value="searchtitle_q"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="itemsIterator" id="items">
+    <tree IterBinding="itemsIterator" id="items1">
       <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items"
-                      Name="items0">
+                      Name="track">
         <AttrNames>
-          <Item Value="disc_number"/>
-          <Item Value="type"/>
-          <Item Value="uri"/>
-          <Item Value="duration_ms"/>
-          <Item Value="explicit"/>
-          <Item Value="preview_url"/>
-          <Item Value="popularity"/>
           <Item Value="name"/>
-          <Item Value="track_number"/>
-          <Item Value="href"/>
           <Item Value="id"/>
         </AttrNames>
         <Accessors>
           <Item Value="album"/>
-          <Item Value="external_ids"/>
-          <Item Value="external_urls"/>
+          <Item Value="artists"/>
         </Accessors>
       </nodeDefinition>
-      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_album">
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_album"
+                      Name="album">
         <AttrNames>
           <Item Value="name"/>
-          <Item Value="album_type"/>
-          <Item Value="href"/>
           <Item Value="id"/>
-          <Item Value="type"/>
-          <Item Value="uri"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="images"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_album_images"
+                      Name="images">
+        <AttrNames>
+          <Item Value="width"/>
+          <Item Value="height"/>
+          <Item Value="url"/>
         </AttrNames>
       </nodeDefinition>
-      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_external_ids">
+      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_artists"
+                      Name="artsts">
         <AttrNames>
-          <Item Value="isrc"/>
-        </AttrNames>
-      </nodeDefinition>
-      <nodeDefinition DefName="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_external_urls">
-        <AttrNames>
-          <Item Value="spotify"/>
+          <Item Value="name"/>
+          <Item Value="id"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="albumIterator" id="name">
+      <AttrNames>
+        <Item Value="name"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="albumIterator" id="id">
+      <AttrNames>
+        <Item Value="id"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

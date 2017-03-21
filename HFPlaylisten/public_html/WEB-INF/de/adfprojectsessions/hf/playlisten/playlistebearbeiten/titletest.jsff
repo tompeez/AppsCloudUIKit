@@ -20,61 +20,14 @@
                               rowBandingInterval="0" selectedRowKeys="#{bindings.items.collectionModel.selectedRow}"
                               rowSelection="multiple" fetchSize="#{bindings.items.rangeSize}" id="t1"
                               styleClass="AFStretchWidth">
-                        <af:column headerText="#{bindings.items.hints.disc_number.label}" id="c1">
-                            <af:outputText value="#{row.disc_number}"
-                                           shortDesc="#{bindings.items.hints.disc_number.tooltip}" id="ot1">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.items.hints.disc_number.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.type.label}" id="c2">
-                            <af:outputText value="#{row.type}" shortDesc="#{bindings.items.hints.type.tooltip}"
-                                           id="ot2"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.uri.label}" id="c3">
-                            <af:outputText value="#{row.uri}" shortDesc="#{bindings.items.hints.uri.tooltip}" id="ot3"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.duration_ms.label}" id="c4">
-                            <af:outputText value="#{row.duration_ms}"
-                                           shortDesc="#{bindings.items.hints.duration_ms.tooltip}" id="ot4">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.items.hints.duration_ms.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.explicit.label}" id="c5">
-                            <af:outputText value="#{row.explicit}" shortDesc="#{bindings.items.hints.explicit.tooltip}"
-                                           id="ot5"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.preview_url.label}" id="c6">
-                            <af:outputText value="#{row.preview_url}"
-                                           shortDesc="#{bindings.items.hints.preview_url.tooltip}" id="ot6"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.popularity.label}" id="c7">
-                            <af:outputText value="#{row.popularity}"
-                                           shortDesc="#{bindings.items.hints.popularity.tooltip}" id="ot7">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.items.hints.popularity.format}"/>
-                            </af:outputText>
+                        <af:column headerText="#{bindings.items.hints.id.label}" id="c11">
+                            <af:outputText value="#{row.id}" shortDesc="#{bindings.items.hints.id.tooltip}" id="ot11"/>
                         </af:column>
                         <af:column headerText="#{bindings.items.hints.name.label}" id="c8">
                             <af:outputText value="#{row.name}" shortDesc="#{bindings.items.hints.name.tooltip}"
                                            id="ot8"/>
                         </af:column>
-                        <af:column headerText="#{bindings.items.hints.track_number.label}" id="c9">
-                            <af:outputText value="#{row.track_number}"
-                                           shortDesc="#{bindings.items.hints.track_number.tooltip}" id="ot9">
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.items.hints.track_number.format}"/>
-                            </af:outputText>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.href.label}" id="c10">
-                            <af:outputText value="#{row.href}" shortDesc="#{bindings.items.hints.href.tooltip}"
-                                           id="ot10"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.id.label}" id="c11">
-                            <af:outputText value="#{row.id}" shortDesc="#{bindings.items.hints.id.tooltip}" id="ot11"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.album.name.label}" id="c12">
+                        <af:column headerText="Album Name" id="c12">
                             <af:outputText value="#{row.album.bindings.name.inputValue}"
                                            shortDesc="#{bindings.items.hints.album.name.tooltip}"
                                            rendered="#{row.album != null}" id="ot12"/>
@@ -89,30 +42,10 @@
                                            shortDesc="#{bindings.items.hints.album.href.tooltip}"
                                            rendered="#{row.album != null}" id="ot14"/>
                         </af:column>
-                        <af:column headerText="#{bindings.items.hints.album.id.label}" id="c15">
+                        <af:column headerText="Album ID" id="c15">
                             <af:outputText value="#{row.album.bindings.id.inputValue}"
                                            shortDesc="#{bindings.items.hints.album.id.tooltip}"
                                            rendered="#{row.album != null}" id="ot15"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.album.type.label}" id="c16">
-                            <af:outputText value="#{row.album.bindings.type.inputValue}"
-                                           shortDesc="#{bindings.items.hints.album.type.tooltip}"
-                                           rendered="#{row.album != null}" id="ot16"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.album.uri.label}" id="c17">
-                            <af:outputText value="#{row.album.bindings.uri.inputValue}"
-                                           shortDesc="#{bindings.items.hints.album.uri.tooltip}"
-                                           rendered="#{row.album != null}" id="ot17"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.external_ids.isrc.label}" id="c18">
-                            <af:outputText value="#{row.external_ids.bindings.isrc.inputValue}"
-                                           shortDesc="#{bindings.items.hints.external_ids.isrc.tooltip}"
-                                           rendered="#{row.external_ids != null}" id="ot18"/>
-                        </af:column>
-                        <af:column headerText="#{bindings.items.hints.external_urls.spotify.label}" id="c19">
-                            <af:outputText value="#{row.external_urls.bindings.spotify.inputValue}"
-                                           shortDesc="#{bindings.items.hints.external_urls.spotify.tooltip}"
-                                           rendered="#{row.external_urls != null}" id="ot19"/>
                         </af:column>
                     </af:table>
                 </af:panelFormLayout>

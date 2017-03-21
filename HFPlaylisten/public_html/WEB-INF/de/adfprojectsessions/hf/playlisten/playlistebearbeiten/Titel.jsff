@@ -1,132 +1,70 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:acdc="/appsCloudUIKitDCs">
     <c:set var="hfplaylistenBundle" value="#{adfBundle['de.adfprojectsessions.hf.playlisten.HFPlaylistenBundle']}"/>
     <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
         <f:facet name="pageContents">
-            <af:panelFormLayout id="pfl1">
-                <af:inputText value="#{bindings.q.inputValue}" label="#{bindings.q.hints.label}"
-                              required="#{bindings.q.hints.mandatory}" columns="#{bindings.q.hints.displayWidth}"
-                              maximumLength="#{bindings.q.hints.precision}" shortDesc="#{bindings.q.hints.tooltip}"
-                              id="it1">
-                    <f:validator binding="#{bindings.q.validator}"/>
-                </af:inputText>
-                <af:button actionListener="#{bindings.searchtitle.execute}" text="searchtitle"
-                           disabled="#{!bindings.searchtitle.enabled}" id="b1"/>
-            </af:panelFormLayout>
-            <af:table value="#{bindings.items.collectionModel}" var="row" rows="#{bindings.items.rangeSize}"
-                      emptyText="#{bindings.items.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      rowBandingInterval="0" selectedRowKeys="#{bindings.items.collectionModel.selectedRow}"
-                      rowSelection="multiple" fetchSize="#{bindings.items.rangeSize}"
-                      filterModel="#{bindings.itemsQuery.queryDescriptor}" filterVisible="true"
-                      queryListener="#{bindings.itemsQuery.processQuery}" varStatus="vs" id="t1">
-                <af:column sortProperty="#{bindings.items.hints.disc_number.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.disc_number.label}" id="c1">
-                    <af:outputText value="#{row.disc_number}" shortDesc="#{bindings.items.hints.disc_number.tooltip}"
-                                   id="ot1">
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.items.hints.disc_number.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.type.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.type.label}" id="c2">
-                    <af:outputText value="#{row.type}" shortDesc="#{bindings.items.hints.type.tooltip}" id="ot2"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.uri.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.uri.label}" id="c3">
-                    <af:outputText value="#{row.uri}" shortDesc="#{bindings.items.hints.uri.tooltip}" id="ot3"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.duration_ms.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.duration_ms.label}" id="c4">
-                    <af:outputText value="#{row.duration_ms}" shortDesc="#{bindings.items.hints.duration_ms.tooltip}"
-                                   id="ot4">
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.items.hints.duration_ms.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.explicit.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.explicit.label}" id="c5">
-                    <af:outputText value="#{row.explicit}" shortDesc="#{bindings.items.hints.explicit.tooltip}"
-                                   id="ot5"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.preview_url.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.preview_url.label}" id="c6">
-                    <af:outputText value="#{row.preview_url}" shortDesc="#{bindings.items.hints.preview_url.tooltip}"
-                                   id="ot6"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.popularity.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.popularity.label}" id="c7">
-                    <af:outputText value="#{row.popularity}" shortDesc="#{bindings.items.hints.popularity.tooltip}"
-                                   id="ot7">
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.items.hints.popularity.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.name.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.name.label}" id="c8">
-                    <af:outputText value="#{row.name}" shortDesc="#{bindings.items.hints.name.tooltip}" id="ot8"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.track_number.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.track_number.label}" id="c9">
-                    <af:outputText value="#{row.track_number}" shortDesc="#{bindings.items.hints.track_number.tooltip}"
-                                   id="ot9">
-                        <af:convertNumber groupingUsed="false" pattern="#{bindings.items.hints.track_number.format}"/>
-                    </af:outputText>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.href.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.href.label}" id="c10">
-                    <af:outputText value="#{row.href}" shortDesc="#{bindings.items.hints.href.tooltip}" id="ot10"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.id.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.id.label}" id="c11">
-                    <af:outputText value="#{row.id}" shortDesc="#{bindings.items.hints.id.tooltip}" id="ot11"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.album.name.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.album.name.label}" id="c12">
-                    <af:outputText value="#{row.album.bindings.name.inputValue}"
-                                   shortDesc="#{bindings.items.hints.album.name.tooltip}"
-                                   rendered="#{row.album != null}" id="ot12"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.album.album_type.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.items.hints.album.album_type.label}" id="c13">
-                    <af:outputText value="#{row.album.bindings.album_type.inputValue}"
-                                   shortDesc="#{bindings.items.hints.album.album_type.tooltip}"
-                                   rendered="#{row.album != null}" id="ot13"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.album.href.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.album.href.label}" id="c14">
-                    <af:outputText value="#{row.album.bindings.href.inputValue}"
-                                   shortDesc="#{bindings.items.hints.album.href.tooltip}"
-                                   rendered="#{row.album != null}" id="ot14"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.album.id.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.album.id.label}" id="c15">
-                    <af:outputText value="#{row.album.bindings.id.inputValue}"
-                                   shortDesc="#{bindings.items.hints.album.id.tooltip}" rendered="#{row.album != null}"
-                                   id="ot15"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.album.type.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.album.type.label}" id="c16">
-                    <af:outputText value="#{row.album.bindings.type.inputValue}"
-                                   shortDesc="#{bindings.items.hints.album.type.tooltip}"
-                                   rendered="#{row.album != null}" id="ot16"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.album.uri.name}" filterable="true" sortable="true"
-                           headerText="#{bindings.items.hints.album.uri.label}" id="c17">
-                    <af:outputText value="#{row.album.bindings.uri.inputValue}"
-                                   shortDesc="#{bindings.items.hints.album.uri.tooltip}" rendered="#{row.album != null}"
-                                   id="ot17"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.external_ids.isrc.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.items.hints.external_ids.isrc.label}" id="c18">
-                    <af:outputText value="#{row.external_ids.bindings.isrc.inputValue}"
-                                   shortDesc="#{bindings.items.hints.external_ids.isrc.tooltip}"
-                                   rendered="#{row.external_ids != null}" id="ot18"/>
-                </af:column>
-                <af:column sortProperty="#{bindings.items.hints.external_urls.spotify.name}" filterable="true"
-                           sortable="true" headerText="#{bindings.items.hints.external_urls.spotify.label}" id="c19">
-                    <af:outputText value="#{row.external_urls.bindings.spotify.inputValue}"
-                                   shortDesc="#{bindings.items.hints.external_urls.spotify.tooltip}"
-                                   rendered="#{row.external_urls != null}" id="ot19"/>
-                </af:column>
-            </af:table>
+            <af:panelGroupLayout layout="vertical">
+                            <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfplaylistenBundle.ADD_TITLE}">
+                    <f:facet name="customToolbar"/>
+                    <f:facet name="pageContext"/>
+                </acdc:PageHeaderDC>
+                <af:spacer width="10" height="10" id="s1"/>
+                <af:panelFormLayout id="pfl1">
+                    <af:inputText value="#{bindings.q.inputValue}" label="#{bindings.q.hints.label}"
+                                  required="#{bindings.q.hints.mandatory}" columns="#{bindings.q.hints.displayWidth}"
+                                  maximumLength="#{bindings.q.hints.precision}" shortDesc="#{bindings.q.hints.tooltip}"
+                                  id="it1">
+                        <f:validator binding="#{bindings.q.validator}"/>
+                    </af:inputText>
+                    <af:button actionListener="#{bindings.searchtitle.execute}" text="searchtitle"
+                               disabled="#{!bindings.searchtitle.enabled}" id="b1"/>
+                </af:panelFormLayout>
+                <af:panelGroupLayout id="pgl2" layout="horizontal">
+                    <af:spacer width="300" height="10" id="s2"/>
+                    <af:button text="#{hfplaylistenBundle.ADD_MARKED_TRACKS}" id="b3"
+                               actionListener="#{pageFlowScope.PlaylisteBearbeitenBean.handleAddSelectedTracks}"
+                               partialSubmit="true"/>
+                </af:panelGroupLayout>
+                <af:listView value="#{bindings.items1.collectionModel}" var="item"
+                             emptyText="#{bindings.items1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                             fetchSize="#{bindings.items1.rangeSize}" id="lv1" selection="multiple"
+                             partialTriggers="::b1" binding="#{pageFlowScope.PlaylisteBearbeitenBean.trackViewList}">
+                    <af:listItem id="li1">
+                          <af:panelGridLayout id="pgl1">
+                                    <af:gridRow marginTop="5px" height="20px;" id="gr3">
+                                        <af:gridCell marginStart="5px" rowSpan="3" width="25%" id="gc3">
+                                            <af:iterator id="i1" value="#{item.album.images}" var="img">
+                                                <af:image source="#{img.url}" id="i2" rendered="#{img.width eq 64}"/>
+                                            </af:iterator>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="50%" id="gc4">
+                                            <af:outputFormatted value="#{item.bindings.name.inputValue}" id="of1"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc5">
+                                            <af:outputFormatted value="#{item.bindings.id.inputValue}" id="of2"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="20px;" id="gr4">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc6">
+                                            <af:outputFormatted value="#{item.album.bindings.name.inputValue}" id="of3"/>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc7">
+                                            <af:outputFormatted value="#{item.album.bindings.id.inputValue}" id="of4"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                    <af:gridRow marginTop="5px" height="20px;" marginBottom="5px" id="gr5">
+                                        <af:gridCell marginStart="5px" width="50%" id="gc8">
+                                            <af:iterator id="i3" value="#{item.artists}" var="art">
+                                                <af:outputFormatted value="#{art.name}, " id="of5"/>
+                                            </af:iterator>
+                                        </af:gridCell>
+                                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"/>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                    </af:listItem>
+                </af:listView>
+            </af:panelGroupLayout>
         </f:facet>
         <f:facet name="footerStart"/>
         <f:facet name="footer"/>

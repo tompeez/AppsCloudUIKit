@@ -326,8 +326,8 @@
                <list n="classPath">
                   <url path="../libs/adflibHFModel.jar" jar-entry=""/>
                   <url path="../libs/adflibDemoData.jar" jar-entry=""/>
-                  <url path="../libs/adflibUIKitCommon.jar" jar-entry=""/>
                   <url path="../libs/adflibHfSpotifyRestModel.jar" jar-entry=""/>
+                  <url path="../libs/adflibUIKitCommon.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -673,17 +673,6 @@
             <value n="version" v="1.1"/>
          </hash>
          <hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="libraries" v="ADF Library"/>
-            <value n="name" v="appsCloudUIKitDCs"/>
-            <value n="prefix" v="acdc"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
-            <value n="URI" v="/appsCloudUIKitDCs"/>
-            <value n="version" v="1.0"/>
-         </hash>
-         <hash>
             <hash n="baseLibrary">
                <value n="name" v="JSTL Core"/>
                <value n="version" v="1.2"/>
@@ -759,6 +748,17 @@
             <value n="tldURL" v="@oracle.home@../wlserver/modules/org.glassfish.web.javax.servlet.jsp.jstl.jar!/META-INF/scriptfree.tld"/>
             <value n="URI" v="http://jakarta.apache.org/taglibs/standard/scriptfree"/>
             <value n="version" v="1.2"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="ADF Library"/>
+            <value n="name" v="appsCloudUIKitDCs"/>
+            <value n="prefix" v="acdc"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../libs/adflibUIKitCommon.jar!/META-INF/appsCloudUIKitDCs.tld"/>
+            <value n="URI" v="/appsCloudUIKitDCs"/>
+            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>
