@@ -12,7 +12,15 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  RowClass="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistPosViewRowImpl"
+  ComponentClass="de.adfprojectsesions.hf.model.adfbc.views.HfPlaylistPosViewImpl"
+  RowInterface="de.adfprojectsesions.hf.model.adfbc.views.common.HfPlaylistPosViewRow"
+  ClientRowProxyName="de.adfprojectsesions.hf.model.adfbc.views.client.HfPlaylistPosViewRowClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <EntityUsage
     Name="HfPlaylistPos"
     Entity="de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylistPos"/>

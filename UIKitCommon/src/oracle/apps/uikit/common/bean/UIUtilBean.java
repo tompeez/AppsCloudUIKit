@@ -9,6 +9,7 @@ import javax.faces.context.FacesContext;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.binding.AttributeBinding;
 import oracle.binding.BindingContainer;
@@ -67,4 +68,20 @@ public class UIUtilBean {
         ValueExpression valExp = elFactory.createValueExpression(elContext, elString, Object.class);
         return valExp.getValue(elContext);
     } //evaluateEL
+
+    /**
+     * Gets an iterator binding from the current binding context.
+     * @param iteratorName
+     * @return iterator binding
+     */
+    public static DCIteratorBinding getIterator(String iteratorName) {
+        if (iteratorName == null) {
+            return null;
+        }
+        // Get the data from an ADF tree or table
+        DCBindingContainer dcBindings = (DCBindingContainer) BindingContext.getCurrent().getCurrentBindingsEntry();
+        // Get a attribute value of the current row of iterator
+        DCIteratorBinding iterBind = (DCIteratorBinding) dcBindings.get(iteratorName);
+        return iterBind;
+    }
 }

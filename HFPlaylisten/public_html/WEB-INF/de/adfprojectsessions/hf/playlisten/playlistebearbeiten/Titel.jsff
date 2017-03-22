@@ -76,7 +76,8 @@
                 </af:listView>
             </af:panelGroupLayout>
         </f:facet>
-        <f:facet name="footerStart"/>
+        <f:facet name="footerStart">
+        </f:facet>
         <f:facet name="footer"/>
         <f:facet name="footerEnd"/>
         <f:facet name="startPanel"/>

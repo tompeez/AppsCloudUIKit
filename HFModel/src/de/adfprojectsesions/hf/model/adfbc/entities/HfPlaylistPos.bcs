@@ -1,0 +1,12 @@
+//Groovy Scripts for de.adfprojectsesions.hf.model.adfbc.entities.HfPlaylistPos
+
+package de.adfprojectsesions.hf.model.adfbc.entities
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="IntKey")
+def IntKey_ExpressionScript_Expression()
+{
+(new oracle.jbo.server.SequenceImpl("HF_CAT_PK_SEQ", adf.object.getDBTransaction())).getSequenceNumber()
+}
+

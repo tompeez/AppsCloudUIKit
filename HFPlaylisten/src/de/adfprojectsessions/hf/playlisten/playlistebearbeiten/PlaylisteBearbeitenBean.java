@@ -1,15 +1,19 @@
 package de.adfprojectsessions.hf.playlisten.playlistebearbeiten;
 
+import de.adfprojectsesions.hf.model.adfbc.views.common.HfPlaylistPosViewRow;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
 
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.model.bean.DCDataRow;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.data.RichListView;
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
@@ -22,6 +26,7 @@ import oracle.apps.uikit.memoryCache.SessionState;
 
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.NavigatableRowIterator;
 import oracle.jbo.Row;
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 
@@ -146,6 +151,7 @@ public class PlaylisteBearbeitenBean {
         logger.info("Information");
         RichListView t = getTrackViewList();
         //RichTable t = getTrackTable();
+        int order = 10;
         for (Object key : t.getSelectedRowKeys()) {
             t.setRowKey(key);
             Object o = t.getRowData();
@@ -156,6 +162,8 @@ public class PlaylisteBearbeitenBean {
             String[] attributeNames = r.getAttributeNames();
             Object dataProvider = r.getDataProvider();
             LinkedHashMap m = (LinkedHashMap) dataProvider;
+            Object attrTrackName = r.getAttribute("name");
+            Object track_number = r.getAttribute("track_number");
             Set keySet = m.keySet();
             ArrayList<LinkedHashMap> artists = (ArrayList<LinkedHashMap>) m.getOrDefault("artists", null);
             String nameArtist = "";
@@ -165,13 +173,47 @@ public class PlaylisteBearbeitenBean {
                 }
                 nameArtist += (String) malb.getOrDefault("name", "-");
             }
-            Object attrTrackName = r.getAttribute("name");
             LinkedHashMap album = (LinkedHashMap) m.getOrDefault("album", null);
             Object attrAlbumName = album.getOrDefault("name", "--");
+            Object attrAlbumId = album.getOrDefault("id", "--");
+            Object attrAlbumImages = album.getOrDefault("images", "--");
 
             logger.info("Information: Trackname: " + attrTrackName + " Artist: " + nameArtist + " Album: " +
                         attrAlbumName);
+
+            HfPlaylistPosViewRow title = createTitle();
+            title.setAlbum(attrAlbumName.toString());
+            title.setAlbumId(attrAlbumId.toString());
+            title.setArtist(nameArtist);
+            title.setArtistId("");
+            title.setImageUrl("folgt");
+            title.setOrderNum(order);
+            order = order + 10;
+            if (track_number != null) {
+                title.setTrackId(track_number.toString());
+            }
+            if (attrTrackName != null) {
+                title.setTrackName(attrTrackName.toString());
+            }
+            logger.info("Title angelegt: " + title.getHfPlaylistIk());
         }
+        
+        //don't commit here as there might be other titles to add
+    }
+
+    /**
+     * Create a new Title row
+     * @return
+     */
+    private HfPlaylistPosViewRow createTitle() {
+        DCIteratorBinding iter = UIUtilBean.getIterator("HfPlaylistPosOfPlaylistViewIterator");
+        NavigatableRowIterator naviter = iter.getNavigatableRowIterator();
+
+        Row currentRow = naviter.createRow();
+        naviter.insertRow(currentRow);
+
+        return (HfPlaylistPosViewRow) currentRow;
+        //        }
     }
 
     /**
@@ -216,7 +258,7 @@ public class PlaylisteBearbeitenBean {
 
     public void handleCancelAction(ActionEvent actionEvent) {
         //Filmstrip anschalten
-//        _switchInlineMode("OFF");
+        //        _switchInlineMode("OFF");
 
         OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Rollback");
         if (method == null) {
@@ -241,22 +283,29 @@ public class PlaylisteBearbeitenBean {
     }
 
     public void handleSaveAndClose(ActionEvent actionEvent) {
+        commit();
+        //Filmstrip anschalten
+        //        _switchInlineMode("OFF");
+        return;
+    }
+
+    private Boolean commit() {
         OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Commit");
         if (method == null) {
             _utils.showMessage(ERROR, "Commit nicht gefunden!");
+            return Boolean.FALSE;
         } else {
 
             method.execute();
             // Check for errors
             List<Exception> errors = method.getErrors();
             if (!errors.isEmpty()) {
-                _utils.showMessage(ERROR, "Commit fehlgeschlagen!");
-                errors.get(0).printStackTrace();
+                logger.log(Level.SEVERE, "Commit fehlgeschlagen!", errors.get(0));
+                return Boolean.FALSE;
             }
         }
-        //Filmstrip anschalten
-//        _switchInlineMode("OFF");
-        return;
+
+        return Boolean.TRUE;
     }
 
     public String onSaveAndClose() {

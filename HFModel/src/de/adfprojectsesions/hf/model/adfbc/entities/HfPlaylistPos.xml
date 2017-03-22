@@ -22,7 +22,12 @@
     TableName="HF_PLAYLIST_POS"
     PrimaryKey="true"
     RetrievedOnInsert="true"
-    RetrievedOnUpdate="true"/>
+    RetrievedOnUpdate="true">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="trusted"
+      CodeSourceName="HfPlaylistPosRow"/>
+  </Attribute>
   <Attribute
     Name="HfPlaylistIk"
     IsNotNull="true"
