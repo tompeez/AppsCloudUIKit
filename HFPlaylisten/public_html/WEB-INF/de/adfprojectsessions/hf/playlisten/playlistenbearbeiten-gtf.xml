@@ -29,12 +29,17 @@
     <view id="Titel">
       <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/Titel.jsff</page>
     </view>
-    <view id="titletest">
-      <page>/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/titletest.jsff</page>
-    </view>
     <method-call id="handleExceptiononsearch">
       <method>#{pageFlowScope.PlaylisteBearbeitenBean.handleExceptionOnSearch}</method>
+      <outcome>
+        <to-string/>
+      </outcome>
     </method-call>
+    <task-flow-return id="back">
+      <outcome>
+        <name>start</name>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__2">
       <from-activity-id>SetCurrentRowWithKeyValue</from-activity-id>
       <control-flow-case id="__3">
@@ -48,25 +53,22 @@
         <from-outcome>goTitel</from-outcome>
         <to-activity-id>Titel</to-activity-id>
       </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__9">
-      <from-activity-id>titletest</from-activity-id>
       <control-flow-case id="__10">
-        <from-outcome>backPlaylist</from-outcome>
-        <to-activity-id>Playliste</to-activity-id>
+        <from-outcome>back</from-outcome>
+        <to-activity-id>back</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__11">
       <from-activity-id>handleExceptiononsearch</from-activity-id>
       <control-flow-case id="__12">
         <from-outcome>showtitle</from-outcome>
-        <to-activity-id>titletest</to-activity-id>
+        <to-activity-id>Titel</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <control-flow-rule id="__7">
       <from-activity-id>Titel</from-activity-id>
       <control-flow-case id="__8">
-        <from-outcome>backPlaylist</from-outcome>
+        <from-outcome>back</from-outcome>
         <to-activity-id>Playliste</to-activity-id>
       </control-flow-case>
     </control-flow-rule>

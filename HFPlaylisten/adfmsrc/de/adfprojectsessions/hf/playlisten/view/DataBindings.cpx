@@ -18,8 +18,6 @@
           usageId="de_adfprojectsessions_hf_playlisten_view_PlaylistePageDef"/>
     <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/Titel.jsff"
           usageId="de_adfprojectsessions_hf_playlisten_view_TitelPageDef"/>
-    <page path="/WEB-INF/de/adfprojectsessions/hf/playlisten/playlistebearbeiten/titletest.jsff"
-          usageId="de_adfprojectsessions_hf_playlisten_view_titletestPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="e_adfprojectsessions_hf_playlisten_view_PlaylistenPageDef"
@@ -38,8 +36,6 @@
           path="de.adfprojectsessions.hf.playlisten.playlistebearbeiten.PlaylistePageDef"/>
     <page id="de_adfprojectsessions_hf_playlisten_view_TitelPageDef"
           path="de.adfprojectsessions.hf.playlisten.playlistebearbeiten.TitelPageDef"/>
-    <page id="de_adfprojectsessions_hf_playlisten_view_titletestPageDef"
-          path="de.adfprojectsessions.hf.playlisten.playlistebearbeiten.titletestPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="HfSpotifyRestDC" path="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC"/>

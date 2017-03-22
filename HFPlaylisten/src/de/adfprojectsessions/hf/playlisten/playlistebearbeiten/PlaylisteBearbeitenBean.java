@@ -2,18 +2,25 @@ package de.adfprojectsessions.hf.playlisten.playlistebearbeiten;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Set;
 
+import javax.faces.component.UIViewRoot;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.model.bean.DCDataRow;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.data.RichListView;
-import oracle.adf.view.rich.component.rich.data.RichTable;
+import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
 
 import oracle.apps.uikit.common.bean.CardViewListViewStateBean;
+import oracle.apps.uikit.common.bean.UIUtilBean;
 import oracle.apps.uikit.common.bean.UtilsBean;
 import oracle.apps.uikit.common.declarativeComponents.CardViewListViewDCComponent;
+import oracle.apps.uikit.memoryCache.SessionState;
+
+import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
 import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
@@ -37,8 +44,7 @@ public class PlaylisteBearbeitenBean {
     private CardViewListViewStateBean currentViewState;
     // current select kategorie. If null none is selected
     private Long _selectedPlayliste = null;
-    private RichTable trackTable;
-    private RichListView trackViewList;
+    private ComponentReference trackViewList;
 
     public PlaylisteBearbeitenBean() {
         currentViewState = new CardViewListViewStateBean();
@@ -48,15 +54,29 @@ public class PlaylisteBearbeitenBean {
         // Add event code here...
     }
 
+    /**
+     * Setter.
+     * @param nameSearch
+     */
     public void setNameSearch(String nameSearch) {
         this.nameSearch = nameSearch;
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public String getNameSearch() {
         return nameSearch;
     }
 
+    /**
+     * Handle taskflow exceptions.
+     * @return
+     */
     public String handleExceptionOnSearch() {
+        logger.severe("Error: Exceptionhandler called!");
+
         String ret = "showtitle";
         return ret;
     }
@@ -86,22 +106,42 @@ public class PlaylisteBearbeitenBean {
         return null;
     }
 
+    /**
+     * Setter.
+     * @param currentViewState
+     */
     public void setCurrentViewState(CardViewListViewStateBean currentViewState) {
         this.currentViewState = currentViewState;
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public CardViewListViewStateBean getCurrentViewState() {
         return currentViewState;
     }
 
+    /**
+     * Setter.
+     * @param _selectedPlayliste
+     */
     public void setSelectedPlayliste(Long _selectedPlayliste) {
         this._selectedPlayliste = _selectedPlayliste;
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public Long getSelectedPlayliste() {
         return _selectedPlayliste;
     }
 
+    /**
+     * Handle add title to playlist
+     * @param actionEvent event which triggered the method
+     */
     public void handleAddSelectedTracks(ActionEvent actionEvent) {
         logger.info("Information");
         RichListView t = getTrackViewList();
@@ -112,35 +152,32 @@ public class PlaylisteBearbeitenBean {
             JUCtrlHierNodeBinding rowData = (JUCtrlHierNodeBinding) o;
             Row row = rowData.getRow();
             logger.info("row: " + row);
-            DCDataRow r = (DCDataRow)row;
+            DCDataRow r = (DCDataRow) row;
             String[] attributeNames = r.getAttributeNames();
             Object dataProvider = r.getDataProvider();
-            LinkedHashMap m = (LinkedHashMap)dataProvider;
+            LinkedHashMap m = (LinkedHashMap) dataProvider;
             Set keySet = m.keySet();
-            ArrayList<LinkedHashMap> artists = (ArrayList<LinkedHashMap>)m.getOrDefault("artists", null);
+            ArrayList<LinkedHashMap> artists = (ArrayList<LinkedHashMap>) m.getOrDefault("artists", null);
             String nameArtist = "";
-            for (LinkedHashMap malb : artists){
-                if (!nameArtist.isEmpty()){
+            for (LinkedHashMap malb : artists) {
+                if (!nameArtist.isEmpty()) {
                     nameArtist += "; ";
                 }
-                nameArtist += (String)malb.getOrDefault("name", "-");
+                nameArtist += (String) malb.getOrDefault("name", "-");
             }
             Object attrTrackName = r.getAttribute("name");
-            LinkedHashMap album = (LinkedHashMap)m.getOrDefault("album", null);
-            Object attrAlbumName = album.getOrDefault("name","--");
-            
-            logger.info("Information: Trackname: " + attrTrackName + " Artist: "+nameArtist+ " Album: "+attrAlbumName);
+            LinkedHashMap album = (LinkedHashMap) m.getOrDefault("album", null);
+            Object attrAlbumName = album.getOrDefault("name", "--");
+
+            logger.info("Information: Trackname: " + attrTrackName + " Artist: " + nameArtist + " Album: " +
+                        attrAlbumName);
         }
     }
 
-    public void setTrackTable(RichTable trackTable) {
-        this.trackTable = trackTable;
-    }
-
-    public RichTable getTrackTable() {
-        return trackTable;
-    }
-
+    /**
+     * Handle selection event inside the listview
+     * @param selectionEvent
+     */
     public void trackSelectionListener(SelectionEvent selectionEvent) {
         RowKeySet addedSet = selectionEvent.getAddedSet();
         RowKeySet removedSet = selectionEvent.getRemovedSet();
@@ -153,11 +190,99 @@ public class PlaylisteBearbeitenBean {
         }
     }
 
+    /**
+     * Setter.
+     * @param trackViewList
+     */
     public void setTrackViewList(RichListView trackViewList) {
-        this.trackViewList = trackViewList;
+        if (trackViewList != null) {
+            this.trackViewList = ComponentReference.newUIComponentReference(trackViewList);
+        } else {
+            this.trackViewList = null;
+        }
     }
 
+    /**
+     * Getter.
+     * @return
+     */
     public RichListView getTrackViewList() {
-        return trackViewList;
+        if (this.trackViewList != null) {
+            return (RichListView) trackViewList.getComponent();
+        }
+
+        return null;
     }
+
+    public void handleCancelAction(ActionEvent actionEvent) {
+        //Filmstrip anschalten
+//        _switchInlineMode("OFF");
+
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Rollback");
+        if (method == null) {
+            _utils.showMessage(ERROR, "Rollback nicht gefunden!");
+        } else {
+            method.execute();
+            // Check for errors
+            List<Exception> errors = method.getErrors();
+            if (!errors.isEmpty()) {
+                _utils.showMessage(ERROR, "Rollback fehlgeschlagen!");
+                logger.severe("Error: " + errors.get(0).getMessage());
+                errors.get(0).printStackTrace();
+            }
+        }
+
+        return;
+    }
+
+    public String onCancel() {
+        String ret = "back";
+        return ret;
+    }
+
+    public void handleSaveAndClose(ActionEvent actionEvent) {
+        OperationBinding method = UIUtilBean.getOperationFromCurrentBindings("Commit");
+        if (method == null) {
+            _utils.showMessage(ERROR, "Commit nicht gefunden!");
+        } else {
+
+            method.execute();
+            // Check for errors
+            List<Exception> errors = method.getErrors();
+            if (!errors.isEmpty()) {
+                _utils.showMessage(ERROR, "Commit fehlgeschlagen!");
+                errors.get(0).printStackTrace();
+            }
+        }
+        //Filmstrip anschalten
+//        _switchInlineMode("OFF");
+        return;
+    }
+
+    public String onSaveAndClose() {
+        String ret = "back";
+        return ret;
+    }
+
+    /**
+     * Helper method to switch hte filmstrip on an off
+     * @param mode mode to set [ON|OFF]
+     */
+    private void _switchInlineMode(String mode) {
+        SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
+        if (mode.equals("ON")) {
+            sessionState.setFilmStripShowHandle(false);
+            sessionState.setFilmStripShowStrip("noShow");
+        } else {
+            sessionState.setFilmStripShowHandle(true);
+            sessionState.setFilmStripShowStrip("");
+        } //mode check
+        //Initiate Refresh
+        FacesContext fctx = FacesContext.getCurrentInstance();
+        UIViewRoot vr = fctx.getViewRoot();
+        RichCommandButton actionTrigger = (RichCommandButton) vr.findComponent("pt1:pt_refreshTrigger");
+        ActionEvent actionEvent = new ActionEvent(actionTrigger);
+        actionEvent.queue();
+    } //_switchInlineMode
+
 }

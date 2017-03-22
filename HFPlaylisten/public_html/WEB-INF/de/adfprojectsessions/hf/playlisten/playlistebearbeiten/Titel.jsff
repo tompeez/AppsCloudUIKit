@@ -6,27 +6,35 @@
     <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
         <f:facet name="pageContents">
             <af:panelGroupLayout layout="vertical">
-                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfplaylistenBundle.ADD_TITLE}">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfplaylistenBundle.ADD_TITLE}" cancelButtonVisible="true"
+                                   cancelActionListener="#{pageFlowScope.PlaylisteBearbeitenBean.handleCancelAction}"
+                                   cancelAction="#{pageFlowScope.PlaylisteBearbeitenBean.onCancel}"
+                                   saveAndCloseButtonVisible="true"
+                                   saveAndCloseActionListener="#{pageFlowScope.PlaylisteBearbeitenBean.handleSaveAndClose}"
+                                   saveAndCloseAction="#{pageFlowScope.PlaylisteBearbeitenBean.onSaveAndClose}">
                     <f:facet name="customToolbar"/>
                     <f:facet name="pageContext"/>
                 </acdc:PageHeaderDC>
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:panelFormLayout id="pfl1">
-                    <af:inputText value="#{bindings.q.inputValue}" label="#{bindings.q.hints.label}"
+                    <af:inputText value="#{bindings.q.inputValue}" label="#{hfplaylistenBundle.SEARCH_FOR}"
                                   required="#{bindings.q.hints.mandatory}" columns="#{bindings.q.hints.displayWidth}"
                                   maximumLength="#{bindings.q.hints.precision}" shortDesc="#{bindings.q.hints.tooltip}"
                                   id="it1">
                         <f:validator binding="#{bindings.q.validator}"/>
                     </af:inputText>
-                    <af:button actionListener="#{bindings.searchtitle.execute}" text="searchtitle"
-                               disabled="#{!bindings.searchtitle.enabled}" id="b1"/>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout id="pgl2" layout="vertical">
+                            <af:button actionListener="#{bindings.searchtitle.execute}"
+                                       text="#{hfplaylistenBundle.SEARCH}" disabled="#{!bindings.searchtitle.enabled}"
+                                       id="b1"/>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <af:button text="#{hfplaylistenBundle.ADD_MARKED_TRACKS}" id="b3"
+                                       actionListener="#{pageFlowScope.PlaylisteBearbeitenBean.handleAddSelectedTracks}"
+                                       partialSubmit="true"/>
+                        </af:panelGroupLayout>
+                    </f:facet>
                 </af:panelFormLayout>
-                <af:panelGroupLayout id="pgl2" layout="horizontal">
-                    <af:spacer width="300" height="10" id="s2"/>
-                    <af:button text="#{hfplaylistenBundle.ADD_MARKED_TRACKS}" id="b3"
-                               actionListener="#{pageFlowScope.PlaylisteBearbeitenBean.handleAddSelectedTracks}"
-                               partialSubmit="true"/>
-                </af:panelGroupLayout>
                 <af:listView value="#{bindings.items1.collectionModel}" var="item"
                              emptyText="#{bindings.items1.viewable ? 'No data to display.' : 'Access Denied.'}"
                              fetchSize="#{bindings.items1.rangeSize}" id="lv1" selection="multiple"
@@ -56,8 +64,9 @@
                             </af:gridRow>
                             <af:gridRow marginTop="5px" height="20px;" marginBottom="5px" id="gr5">
                                 <af:gridCell marginStart="5px" width="50%" id="gc8">
-                                    <af:iterator id="i3" value="#{item.artists}" var="art">
-                                        <af:outputFormatted value="#{art.name}, " id="of5"/>
+                                    <af:iterator id="i3" value="#{item.artists}" var="art" varStatus="artStat">
+                                        <af:outputFormatted value="#{art.name}#{!empty item.artists[artStat.count]? ', ' :''}"
+                                                            id="of5"/>
                                     </af:iterator>
                                 </af:gridCell>
                                 <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"/>

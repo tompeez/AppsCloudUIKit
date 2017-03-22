@@ -15,6 +15,8 @@
                       ChangeEventPolicy="none"/>
     <searchRegion Binds="itemsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="itemsQuery"/>
+    <iterator Binds="HfPlaylistPosView" RangeSize="25" DataControl="HFAppModuleDataControl"
+              id="HfPlaylistPosViewIterator"/>
   </executables>
   <bindings>
     <methodAction id="searchtitle" RequiresUpdateModel="true" Action="invokeMethod" MethodName="searchtitle"
@@ -65,5 +67,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="HfPlaylistPosViewIterator" id="CreateInsertPlaylistPos" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="HFAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="HFAppModuleDataControl"/>
   </bindings>
 </pageDefinition>

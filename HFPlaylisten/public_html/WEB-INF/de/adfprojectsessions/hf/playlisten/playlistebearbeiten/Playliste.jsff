@@ -6,7 +6,9 @@
     <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
         <f:facet name="pageContents">
             <af:panelGroupLayout id="pgl1" layout="vertical">
-                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.PLAYLISTEN}">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.PLAYLISTEN}" cancelButtonVisible="false"
+                                   cancelButtonImmediate="false" doneButtonVisible="true"
+                                   doneAction="#{pageFlowScope.PlaylisteBearbeitenBean.onCancel}">
                     <f:facet name="customToolbar"/>
                     <f:facet name="pageContext"/>
                 </acdc:PageHeaderDC>

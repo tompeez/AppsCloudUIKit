@@ -74,6 +74,13 @@
         <to-activity-id>Playlisten</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>start</from-outcome>
+        <to-activity-id>searchDescriptionByUserId</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>
