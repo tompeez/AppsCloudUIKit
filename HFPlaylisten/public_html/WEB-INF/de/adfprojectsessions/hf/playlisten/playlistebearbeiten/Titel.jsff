@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:acdc="/appsCloudUIKitDCs">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:acdc="/appsCloudUIKitDCs">
     <c:set var="hfplaylistenBundle" value="#{adfBundle['de.adfprojectsessions.hf.playlisten.HFPlaylistenBundle']}"/>
     <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
         <f:facet name="pageContents">
             <af:panelGroupLayout layout="vertical">
-                            <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfplaylistenBundle.ADD_TITLE}">
+                <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfplaylistenBundle.ADD_TITLE}">
                     <f:facet name="customToolbar"/>
                     <f:facet name="pageContext"/>
                 </acdc:PageHeaderDC>
@@ -31,37 +32,37 @@
                              fetchSize="#{bindings.items1.rangeSize}" id="lv1" selection="multiple"
                              partialTriggers="::b1" binding="#{pageFlowScope.PlaylisteBearbeitenBean.trackViewList}">
                     <af:listItem id="li1">
-                          <af:panelGridLayout id="pgl1">
-                                    <af:gridRow marginTop="5px" height="20px;" id="gr3">
-                                        <af:gridCell marginStart="5px" rowSpan="3" width="25%" id="gc3">
-                                            <af:iterator id="i1" value="#{item.album.images}" var="img">
-                                                <af:image source="#{img.url}" id="i2" rendered="#{img.width eq 64}"/>
-                                            </af:iterator>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="50%" id="gc4">
-                                            <af:outputFormatted value="#{item.bindings.name.inputValue}" id="of1"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc5">
-                                            <af:outputFormatted value="#{item.bindings.id.inputValue}" id="of2"/>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="20px;" id="gr4">
-                                        <af:gridCell marginStart="5px" width="50%" id="gc6">
-                                            <af:outputFormatted value="#{item.album.bindings.name.inputValue}" id="of3"/>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc7">
-                                            <af:outputFormatted value="#{item.album.bindings.id.inputValue}" id="of4"/>
-                                        </af:gridCell>
-                                    </af:gridRow>
-                                    <af:gridRow marginTop="5px" height="20px;" marginBottom="5px" id="gr5">
-                                        <af:gridCell marginStart="5px" width="50%" id="gc8">
-                                            <af:iterator id="i3" value="#{item.artists}" var="art">
-                                                <af:outputFormatted value="#{art.name}, " id="of5"/>
-                                            </af:iterator>
-                                        </af:gridCell>
-                                        <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"/>
-                                    </af:gridRow>
-                                </af:panelGridLayout>
+                        <af:panelGridLayout id="pgl1">
+                            <af:gridRow marginTop="5px" height="20px;" id="gr3">
+                                <af:gridCell marginStart="5px" rowSpan="3" width="25%" id="gc3">
+                                    <af:iterator id="i1" value="#{item.album.images}" var="img">
+                                        <af:image source="#{img.url}" id="i2" rendered="#{img.width eq 64}"/>
+                                    </af:iterator>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="50%" id="gc4">
+                                    <af:outputFormatted value="#{item.bindings.name.inputValue}" id="of1"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc5">
+                                    <af:outputFormatted value="#{item.bindings.id.inputValue}" id="of2"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="20px;" id="gr4">
+                                <af:gridCell marginStart="5px" width="50%" id="gc6">
+                                    <af:outputFormatted value="#{item.album.bindings.name.inputValue}" id="of3"/>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc7">
+                                    <af:outputFormatted value="#{item.album.bindings.id.inputValue}" id="of4"/>
+                                </af:gridCell>
+                            </af:gridRow>
+                            <af:gridRow marginTop="5px" height="20px;" marginBottom="5px" id="gr5">
+                                <af:gridCell marginStart="5px" width="50%" id="gc8">
+                                    <af:iterator id="i3" value="#{item.artists}" var="art">
+                                        <af:outputFormatted value="#{art.name}, " id="of5"/>
+                                    </af:iterator>
+                                </af:gridCell>
+                                <af:gridCell marginStart="5px" width="25%" marginEnd="5px" id="gc9"/>
+                            </af:gridRow>
+                        </af:panelGridLayout>
                     </af:listItem>
                 </af:listView>
             </af:panelGroupLayout>

@@ -15,9 +15,6 @@
                       ChangeEventPolicy="none"/>
     <searchRegion Binds="itemsIterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="itemsQuery"/>
-    <accessorIterator MasterBinding="itemsIterator" Binds="album" RangeSize="25" DataControl="HfSpotifyRestDC"
-                      BeanClass="de.adfprojectsessions.hf.model.rest.HfSpotifyRestDC.searchtitle_Data_tracks_items_album"
-                      id="albumIterator" ChangeEventPolicy="none"/>
   </executables>
   <bindings>
     <methodAction id="searchtitle" RequiresUpdateModel="true" Action="invokeMethod" MethodName="searchtitle"
@@ -68,15 +65,5 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="albumIterator" id="name">
-      <AttrNames>
-        <Item Value="name"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="albumIterator" id="id">
-      <AttrNames>
-        <Item Value="id"/>
-      </AttrNames>
-    </attributeValues>
   </bindings>
 </pageDefinition>
