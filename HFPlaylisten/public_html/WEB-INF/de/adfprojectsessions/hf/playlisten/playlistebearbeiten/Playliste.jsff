@@ -27,7 +27,8 @@
                             <af:commandButton id="cb2" partialSubmit="true" text="#{hfBundle.ADD_TRACKS}"
                                               action="goTitel"/>
                         </af:toolbar>
-                        <af:panelFormLayout id="pfl2">
+                        <af:panelFormLayout id="pfl2" maxColumns="2" fieldWidth="300" rows="4" labelWidth="100"
+                                            styleClass="AFStretchWidth">
                             <af:inputText value="#{bindings.IntKey.inputValue}" label="#{bindings.IntKey.hints.label}"
                                           required="#{bindings.IntKey.hints.mandatory}" readOnly="true"
                                           columns="#{bindings.IntKey.hints.displayWidth}"
@@ -100,19 +101,29 @@
                                                      titleClickable="false">
                                             <f:facet name="frontContents">
                                                 <af:panelStretchLayout id="psl1" dimensionsFrom="children"
-                                                                       startWidth="0px" endWidth="0px" topHeight="0px"
+                                                                       startWidth="70px" endWidth="0px" topHeight="0px"
                                                                        bottomHeight="0px">
-                                                    <f:facet name="start"/>
+                                                    <f:facet name="start">
+                                                        <af:panelGroupLayout id="pgl7">
+                                                            <af:image source="#{row.imageUrl}" id="i2"/>
+                                                        </af:panelGroupLayout>
+                                                    </f:facet>
                                                     <f:facet name="end"></f:facet>
                                                     <f:facet name="top"/>
                                                     <f:facet name="bottom"/>
                                                     <f:facet name="center">
-                                                        <af:panelGroupLayout id="pgl6" layout="vertical">
-                                                            <af:panelGroupLayout id="pgl4" layout="horizontal">
+                                                        <af:panelGroupLayout id="pgl6" layout="vertical"
+                                                                             styleClass="AFStretchWidth">
+                                                            <af:panelGroupLayout id="pgl4" layout="vertical">
                                                                 <af:outputText value="NR. #{row.intKey}:" id="ot1"
                                                                                inlineStyle="font-weight:bold;"/>
-                                                                <af:spacer width="10" height="10" id="s4"/>
                                                                 <af:outputText value="#{row.album}" id="ot3"/>
+                                                            </af:panelGroupLayout>
+                                                            <af:panelGroupLayout id="pgl8" layout="vertical">
+                                                                <af:outputText value="#{bindings.HfPlaylistPosOfPlaylistView.hints.Artist.label}"
+                                                                               id="ot4"
+                                                                               inlineStyle="font-weight:bold;"/>
+                                                                <af:outputText value="#{row.Artist}" id="ot5"/>
                                                             </af:panelGroupLayout>
                                                             <af:panelLabelAndMessage label="#{bindings.LastChange.hints.label}"
                                                                                      id="plam1">

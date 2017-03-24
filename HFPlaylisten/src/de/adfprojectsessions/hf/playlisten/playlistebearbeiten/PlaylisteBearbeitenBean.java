@@ -176,7 +176,20 @@ public class PlaylisteBearbeitenBean {
             LinkedHashMap album = (LinkedHashMap) m.getOrDefault("album", null);
             Object attrAlbumName = album.getOrDefault("name", "--");
             Object attrAlbumId = album.getOrDefault("id", "--");
+            //get images as arrayList
             Object attrAlbumImages = album.getOrDefault("images", "--");
+            ArrayList<LinkedHashMap> imgs = (ArrayList<LinkedHashMap>) attrAlbumImages;
+            String imgurl = null;
+            if (imgs != null) {
+                for (LinkedHashMap oimg : imgs) {
+                    logger.info("Information " + oimg);
+                    Integer w = (Integer) oimg.getOrDefault("width", null);
+                    if (w != null && w.intValue() == 64) {
+                        imgurl = (String) oimg.getOrDefault("url", null);
+                        break;
+                    }
+                }
+            }
 
             logger.info("Information: Trackname: " + attrTrackName + " Artist: " + nameArtist + " Album: " +
                         attrAlbumName);
@@ -186,7 +199,7 @@ public class PlaylisteBearbeitenBean {
             title.setAlbumId(attrAlbumId.toString());
             title.setArtist(nameArtist);
             title.setArtistId("");
-            title.setImageUrl("folgt");
+            title.setImageUrl(imgurl);
             title.setOrderNum(order);
             order = order + 10;
             if (track_number != null) {
@@ -195,9 +208,9 @@ public class PlaylisteBearbeitenBean {
             if (attrTrackName != null) {
                 title.setTrackName(attrTrackName.toString());
             }
-            logger.info("Title angelegt: " + title.getHfPlaylistIk());
+            logger.info("Title angelegt in Playlist Nr.: " + title.getHfPlaylistIk());
         }
-        
+
         //don't commit here as there might be other titles to add
     }
 
@@ -213,7 +226,6 @@ public class PlaylisteBearbeitenBean {
         naviter.insertRow(currentRow);
 
         return (HfPlaylistPosViewRow) currentRow;
-        //        }
     }
 
     /**
