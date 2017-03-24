@@ -32,10 +32,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="BuildAppsCloudUIKit/BuildAppsCloudUIKit.jpr"/></hash>
-      <hash><url n="URL" path="DemoCRM/DemoCRM.jpr"/></hash>
       <hash><url n="URL" path="DemoData/DemoData.jpr"/></hash>
-      <hash><url n="URL" path="DemoFIN/DemoFIN.jpr"/></hash>
-      <hash><url n="URL" path="DemoHCM/DemoHCM.jpr"/></hash>
       <hash><url n="URL" path="DemoMaster/DemoMaster.jpr"/></hash>
       <hash><url n="URL" path="HFModel/HFModel.jpr"/></hash>
       <hash><url n="URL" path="HFPlaylisten/HFPlaylisten.jpr"/></hash>
