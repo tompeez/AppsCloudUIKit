@@ -10,7 +10,7 @@
                       xmlns="http://xmlns.oracle.com/adfm/datacontrol">
     <Source>
       <Definitions>
-        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/json" ConnectionName="HfSpotify"
+        <Definition xmlns="http://xmlns.oracle.com/adfm/adapter/rest/json" ConnectionName="SpotifyREST"
                     Source="/v1/search?q=##q##&amp;type=track" HttpMethod="GET" id="searchtitle" MethodRef="JSON"
                     SchemaLocation="HfSpotifyRestDC_searchtitle_response_schema.json" ensureKeyAttribute="true"
                     dcStructureVersion="2" RootElement="tracks">

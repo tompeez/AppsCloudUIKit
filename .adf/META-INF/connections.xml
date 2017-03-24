@@ -1,6 +1,5 @@
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-  <Reference name="HfConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="HfConn"
-             xmlns="">
+  <Reference name="HfConn" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="HfConn" xmlns="">
     <Factory className="oracle.jdevimpl.db.adapter.DatabaseProviderFactory1212"/>
     <RefAddresses>
       <StringRefAddr addrType="customUrl">
@@ -15,12 +14,12 @@
       </StringRefAddr>
     </RefAddresses>
   </Reference>
-  <Reference name="HfSpotify" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
+  <Reference name="SpotifyREST" className="oracle.adf.model.connection.rest.RestConnection" xmlns="">
     <Factory className="oracle.adf.model.connection.rest.RestConnectionFactory"/>
     <RefAddresses>
-      <XmlRefAddr addrType="HfSpotify">
+      <XmlRefAddr addrType="SpotifyREST">
         <Contents>
-          <restconnection name="HfSpotify" url="https://api.spotify.com"/>
+          <restconnection name="SpotifyREST" url="https://api.spotify.com"/>
         </Contents>
       </XmlRefAddr>
     </RefAddresses>
