@@ -7,7 +7,7 @@
   <path id="library.ADF.Model.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adftransactionsdt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/adf-dt-at-rt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfdt_common.jar"/>
@@ -32,7 +32,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.ldap/ojmisc.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.share/commons-el.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.share/jsp-el-api.jar"/>

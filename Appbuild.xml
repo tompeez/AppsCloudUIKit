@@ -4,12 +4,11 @@
 <project xmlns="antlib:org.apache.tools.ant" name="AppsCloudUIKit" basedir=".">
   <property environment="env"/>
   <property file="Appbuild.properties"/>
-  <target name="deploy" description="Deploy JDeveloper profiles" depends="info">
+  <target name="deploy" description="Deploy JDeveloper profiles">
     <taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask"
              classpath="${oracle.jdeveloper.ant.library}"/>
     <ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}"
-                  ora:buildscript="${oracle.jdeveloper.deploy.dir}/ojdeploy-build.xml"
-                  ora:statuslog="${oracle.jdeveloper.deploy.dir}/ojdeploy-statuslog.xml">
+                  ora:buildscript="${oracle.jdeveloper.deploy.dir}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.deploy.dir}/ojdeploy-statuslog.xml">
       <ora:deploy>
         <ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}"/>
         <ora:parameter name="profile" value="${oracle.jdeveloper.deploy.profile.name}"/>

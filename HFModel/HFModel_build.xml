@@ -15,7 +15,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/bc4j-mbeans.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/db-ca.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/jdev-cm.jar"/>
@@ -28,11 +28,12 @@
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl2.jar"/>
     <pathelement location="${oracle.commons}/modules/com.sun.mail.javax.mail.jar"/>
+    <pathelement location="${install.dir}/wlserver/modules/javax.transaction.javax.transaction-api.jar"/>
   </path>
   <path id="library.ADF.Model.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adftransactionsdt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/adf-dt-at-rt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfdt_common.jar"/>
@@ -48,38 +49,6 @@
     <pathelement location="${oracle.commons}/modules/oracle.adf.security/adf-controller-security.jar"/>
     <pathelement location="${oracle.commons}/modules/com.sun.mail.javax.mail.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-jndi-local.jar"/>
-  </path>
-  <path id="library.MDS.Runtime">
-    <pathelement location="${oracle.commons}/modules/oracle.mds/mdsrt.jar"/>
-  </path>
-  <path id="library.MDS.Runtime.Dependencies">
-    <pathelement location="${oracle.commons}/modules/oracle.mds/oramds.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/adf-share-support.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/adflogginghandler.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share.ca/adf-share-ca.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share.ca/adf-share-base.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.servlet.javax.servlet-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.servlet.jsp.javax.servlet.jsp-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/org.glassfish.javax.el.jar"/>
-    <pathelement location="${oracle.home}/ide/macros/../../../oracle_common/modules/oracle.jdbc/ojdbc7dms.jar"/>
-    <pathelement location="${oracle.commons}/jlib/commons-cli-1.0.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/commons-el.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/jsp-el-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/oracle-el.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.bali.share/share.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xmlef/xmlef.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.dms/dms.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xdk/xml.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.nlsrtl/orai18n.jar"/>
-    <pathelement location="${install.dir}/coherence/lib/coherence.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.ucp.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-nodeps.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.jmx/jmxframework.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.jmx/jmxspi.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.management.j2ee.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.toplink/eclipselink.jar"/>
   </path>
   <path id="library.BC4J.Security">
     <pathelement location="${oracle.commons}/modules/oracle.jdbc/ojdbc7dms.jar"/>
@@ -134,16 +103,23 @@
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl-log4j.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl2.jar"/>
   </path>
+  <path id="library.ADF.Common.Web.Runtime">
+    <pathelement location="${oracle.commons}/modules/oracle.adf.model/adflibfilter.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.adf.share.ca/adf-share-base.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-nodeps.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl2.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl-log4j.jar"/>
+  </path>
   <path id="classpath">
     <path refid="library.BC4J.Runtime"/>
     <path refid="library.ADF.Model.Runtime"/>
-    <path refid="library.MDS.Runtime"/>
-    <path refid="library.MDS.Runtime.Dependencies"/>
     <path refid="library.BC4J.Security"/>
     <path refid="library.Oracle.JDBC"/>
     <path refid="library.BC4J.Oracle.Domains"/>
     <path refid="library.Resource.Bundle.Support"/>
     <path refid="library.ADF.Common.Runtime"/>
+    <path refid="library.ADF.Common.Web.Runtime"/>
   </path>
   <target name="init">
     <tstamp/>
@@ -172,7 +148,7 @@
   </target>
   <target name="compile" description="Compile Java source files" depends="init">
     <javac destdir="${output.dir}" classpathref="classpath" debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}" encoding="UTF8" source="1.8" target="1.8">
+           deprecation="${javac.deprecation}" encoding="UTF8" source="1.8" target="1.8" includeantruntime="false">
       <src path="src"/>
     </javac>
   </target>

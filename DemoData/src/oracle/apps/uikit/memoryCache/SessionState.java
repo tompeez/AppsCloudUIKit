@@ -143,7 +143,7 @@ public class SessionState {
         int idx = 1;
         _infoletsList = new ArrayList<Infolet>();
         //id, rendered, contentTFId, contentTFName
-        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/LeadsFlow.xml", "LeadsFlow"));
+        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/flow/NotImplementedFlow.xml", "NotImplementedFlow"));
 //        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/OpportunitiesFlow.xml", "OpportunitiesFlow"));
 //        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/DealRegistrationFlow.xml", "DealRegistrationFlow"));
 //        _infoletsList.add(new Infolet(idx++, true, "WEB-INF/oracle/apps/uikit/crm/infolets/flow/MaintenanceSRsFlow.xml", "MaintenanceSRsFlow"));

@@ -53,52 +53,20 @@
   <path id="library.ADF.Web.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfmweb.jar"/>
   </path>
-  <path id="library.MDS.Runtime">
-    <pathelement location="${oracle.commons}/modules/oracle.mds/mdsrt.jar"/>
-  </path>
-  <path id="library.MDS.Runtime.Dependencies">
-    <pathelement location="${oracle.commons}/modules/oracle.mds/oramds.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/adf-share-support.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/adflogginghandler.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share.ca/adf-share-ca.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share.ca/adf-share-base.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.servlet.javax.servlet-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.servlet.jsp.javax.servlet.jsp-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/org.glassfish.javax.el.jar"/>
-    <pathelement location="${oracle.home}/ide/macros/../../../oracle_common/modules/oracle.jdbc/ojdbc7dms.jar"/>
-    <pathelement location="${oracle.commons}/jlib/commons-cli-1.0.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/commons-el.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/jsp-el-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.share/oracle-el.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.bali.share/share.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xmlef/xmlef.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.dms/dms.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xdk/xml.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.nlsrtl/orai18n.jar"/>
-    <pathelement location="${install.dir}/coherence/lib/coherence.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.ucp.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-nodeps.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.jmx/jmxframework.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.jmx/jmxspi.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.management.j2ee.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.toplink/eclipselink.jar"/>
-  </path>
   <path id="library.Commons.Beanutils.1.6">
     <pathelement location="${oracle.commons}/modules/org.apache.commons.beanutils_1.8.3.jar"/>
   </path>
   <path id="library.Commons.Logging.1.0.4">
-    <pathelement location="${oracle.commons}/modules/org.apache.commons.logging_1.1.1.jar"/>
+    <pathelement location="${oracle.commons}/modules/org.apache.commons.logging_1.2.jar"/>
   </path>
   <path id="library.Commons.Collections.3.1">
     <pathelement location="${oracle.commons}/modules/com.bea.core.apache.commons.collections.jar"/>
   </path>
   <path id="library.Apache.Http.Components">
-    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpclient-4.1.2.jar"/>
-    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpclient-cache-4.1.2.jar"/>
-    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpcore-4.1.2.jar"/>
-    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpmime-4.1.2.jar"/>
+    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpclient-4.5.1.jar"/>
+    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpclient-cache-4.5.1.jar"/>
+    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpcore-4.4.3.jar"/>
+    <pathelement location="${oracle.commons}/modules/org.apache.http.components.httpmime-4.5.1.jar"/>
   </path>
   <path id="library.ADF.DVT.Faces.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-utils.jar"/>
@@ -107,7 +75,6 @@
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-trinidad.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-shared-js.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-faces.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.adf.view/prefuse.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/batik-anim.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/batik-awt-util.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/batik-bridge.jar"/>
@@ -132,9 +99,6 @@
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-databindings.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-facesbindings.jar"/>
   </path>
-  <path id="library.ADF.DVT.Faces.Databinding.MDS.Runtime">
-    <pathelement location="${oracle.commons}/modules/oracle.adf.model/dvt-databindings-mds.jar"/>
-  </path>
   <path id="library.ADF.Common.Web.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adflibfilter.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.share.ca/adf-share-base.jar"/>
@@ -143,17 +107,11 @@
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl-log4j.jar"/>
   </path>
-  <path id="library.Oracle.JEWT">
-    <pathelement location="${oracle.commons}/modules/oracle.bali.share/share.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.bali.jewt/jewt4.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.bali.jewt/olaf2.jar"/>
-    <pathelement location="${oracle.home}/jlib/inspect4.jar"/>
-  </path>
   <path id="library.Resource.Bundle.Support">
     <pathelement location="${oracle.commons}/modules/oracle.javatools/resourcebundle.jar"/>
   </path>
   <path id="library.Resource.Bundle.Variable.Resolver">
-    <pathelement location="${oracle.home}/jlib/bundleresolver.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.adf.view/bundleresolver.jar"/>
   </path>
   <path id="library.ADF.Faces.Databinding.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/adf-faces-databinding-rt.jar"/>
@@ -161,10 +119,14 @@
   <path id="library.ADF.Library">
     <pathelement location="../libs/adflibDemoData.jar"/>
     <pathelement location="../libs/adflibUIKitCommon.jar"/>
+    <pathelement location="../libs/adflibHFModel.jar"/>
   </path>
   <path id="library.Trinidad.Runtime.11">
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/trinidad-api.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/trinidad-impl.jar"/>
+  </path>
+  <path id="library.JSTL.1.2.Tags">
+    <pathelement location="${install.dir}/wlserver/modules/org.glassfish.web.javax.servlet.jsp.jstl.jar"/>
   </path>
   <path id="library.Oracle.XML.Parser.v2">
     <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
@@ -177,7 +139,7 @@
   <path id="library.ADF.Model.Runtime">
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adftransactionsdt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/adf-dt-at-rt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfdt_common.jar"/>
@@ -205,7 +167,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/bc4j-mbeans.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/db-ca.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/jdev-cm.jar"/>
@@ -218,6 +180,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl2.jar"/>
     <pathelement location="${oracle.commons}/modules/com.sun.mail.javax.mail.jar"/>
+    <pathelement location="${install.dir}/wlserver/modules/javax.transaction.javax.transaction-api.jar"/>
   </path>
   <path id="library.Oracle.JDBC">
     <pathelement location="${oracle.home}/ide/macros/../../../oracle_common/modules/oracle.jdbc/ojdbc7dms.jar"/>
@@ -231,9 +194,6 @@
   <path id="library.BC4J.Oracle.Domains">
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
   </path>
-  <path id="library.JSTL.1.2.Tags">
-    <pathelement location="${install.dir}/wlserver/modules/org.glassfish.web.javax.servlet.jsp.jstl.jar"/>
-  </path>
   <path id="classpath">
     <pathelement location="../HFModel/classes"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.share/adf-share-support.jar"/>
@@ -246,7 +206,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.idm/identitystore.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfm.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/bc4j-mbeans.jar"/>
-    <pathelement location="${oracle.commons}/modules/groovy-all-2.3.7.jar"/>
+    <pathelement location="${oracle.commons}/modules/groovy-all-2.4.6.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.xdk/xmlparserv2.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/db-ca.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/jdev-cm.jar"/>
@@ -259,6 +219,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.odl/ojdl2.jar"/>
     <pathelement location="${oracle.commons}/modules/com.sun.mail.javax.mail.jar"/>
+    <pathelement location="${install.dir}/wlserver/modules/javax.transaction.javax.transaction-api.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adftransactionsdt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/adf-dt-at-rt.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.model/adfdt_common.jar"/>
@@ -266,23 +227,6 @@
     <pathelement location="${oracle.commons}/modules/oracle.adf.security/adf-share-security.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.security/adf-controller-security.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-jndi-local.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.mds/mdsrt.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.mds/oramds.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.servlet.javax.servlet-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.servlet.jsp.javax.servlet.jsp-api.jar"/>
-    <pathelement location="${oracle.commons}/modules/org.glassfish.javax.el.jar"/>
-    <pathelement location="${oracle.home}/ide/macros/../../../oracle_common/modules/oracle.jdbc/ojdbc7dms.jar"/>
-    <pathelement location="${oracle.commons}/jlib/commons-cli-1.0.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.bali.share/share.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xmlef/xmlef.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.dms/dms.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.xdk/xml.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.nlsrtl/orai18n.jar"/>
-    <pathelement location="${install.dir}/coherence/lib/coherence.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.ucp.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-nodeps.jar"/>
-    <pathelement location="${oracle.commons}/modules/javax.management.j2ee.jar"/>
-    <pathelement location="${oracle.commons}/modules/oracle.toplink/eclipselink.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.jdbc/ojdbc7dms.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.ldap/ldapjclnt11.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.jps/jps-api.jar"/>
@@ -299,8 +243,12 @@
     <pathelement location="${oracle.commons}/modules/oracle.osdt/osdt_ws_sx.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.iau/fmw_audit.jar"/>
     <pathelement location="${install.dir}/wlserver/modules/javax.security.jacc.jar"/>
+    <pathelement location="${oracle.home}/ide/macros/../../../oracle_common/modules/oracle.jdbc/ojdbc7dms.jar"/>
     <pathelement location="${oracle.home}/ide/macros/../../../oracle_common/modules/oracle.nlsrtl/orai18n.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.dms/dms.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.share/adf-share-multi-tenancy.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.adf.model/adflibfilter.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.javatools/javatools-nodeps.jar"/>
     <path refid="library.JSP.Runtime"/>
     <path refid="library.JSF.2.2"/>
     <path refid="library.JSTL.1.2"/>
@@ -310,22 +258,19 @@
     <path refid="library.ADF.Faces.Runtime.11"/>
     <path refid="library.ADF.Common.Runtime"/>
     <path refid="library.ADF.Web.Runtime"/>
-    <path refid="library.MDS.Runtime"/>
-    <path refid="library.MDS.Runtime.Dependencies"/>
     <path refid="library.Commons.Beanutils.1.6"/>
     <path refid="library.Commons.Logging.1.0.4"/>
     <path refid="library.Commons.Collections.3.1"/>
     <path refid="library.Apache.Http.Components"/>
     <path refid="library.ADF.DVT.Faces.Runtime"/>
     <path refid="library.ADF.DVT.Faces.Databinding.Runtime"/>
-    <path refid="library.ADF.DVT.Faces.Databinding.MDS.Runtime"/>
     <path refid="library.ADF.Common.Web.Runtime"/>
-    <path refid="library.Oracle.JEWT"/>
     <path refid="library.Resource.Bundle.Support"/>
     <path refid="library.Resource.Bundle.Variable.Resolver"/>
     <path refid="library.ADF.Faces.Databinding.Runtime"/>
     <path refid="library.ADF.Library"/>
     <path refid="library.Trinidad.Runtime.11"/>
+    <path refid="library.JSTL.1.2.Tags"/>
     <path refid="library.Oracle.XML.Parser.v2"/>
     <path refid="library.JDeveloper.Runtime"/>
     <path refid="library.ADF.Model.Runtime"/>
@@ -333,7 +278,6 @@
     <path refid="library.Oracle.JDBC"/>
     <path refid="library.Connection.Manager"/>
     <path refid="library.BC4J.Oracle.Domains"/>
-    <path refid="library.JSTL.1.2.Tags"/>
   </path>
   <target name="init">
     <tstamp/>
@@ -362,7 +306,7 @@
   </target>
   <target name="compile" description="Compile Java source files" depends="init">
     <javac destdir="${output.dir}" classpathref="classpath" debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}" encoding="UTF8" source="1.8" target="1.8">
+           deprecation="${javac.deprecation}" encoding="UTF8" source="1.8" target="1.8" includeantruntime="false">
       <src path="src"/>
     </javac>
   </target>

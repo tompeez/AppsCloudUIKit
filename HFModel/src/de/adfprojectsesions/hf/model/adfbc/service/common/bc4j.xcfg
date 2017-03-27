@@ -1,14 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
+<!---->
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule">
       <AppModuleConfig DeployPlatform="LOCAL" name="HFAppModuleLocal" ApplicationName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule" jbo.project="de.adfprojectsesions.hf.model.HFModel">
-         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="jdbc/HfConnDS"/>
          <Security AppModuleJndiName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule"/>
          <Custom ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" ns0:JDBCDataSource="java:comp/env/jdbc/HfConnDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
       <AppModuleConfig jbo.project="de.adfprojectsesions.hf.model.HFModel" ApplicationName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule" DeployPlatform="LOCAL" name="HFAppModuleShared">
          <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.resetnontransactionalstate="false" jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
-         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="jdbc/HfConnDS"/>
          <Security AppModuleJndiName="de.adfprojectsesions.hf.model.adfbc.service.HFAppModule"/>
          <Custom ns0:JDBCDataSource="java:comp/env/jdbc/HfConnDS" ns0:ns0="http://xmlns.oracle.com/bc4j/configuration" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
       </AppModuleConfig>
