@@ -64,7 +64,7 @@
                                                             </af:panelGroupLayout>
                                                             <af:selectOneChoice value="#{row.HfUserIk}"
                                                                                 label="#{bindings.HfUserIk.label}"
-                                                                                id="soc1" disabled="true">
+                                                                                id="soc1" readOnly="true">
                                                                 <f:selectItems value="#{bindings.HfUserIk.items}"
                                                                                id="si3"/>
                                                                 <f:validator binding="#{bindings.HfUserIk.validator}"/>
@@ -72,7 +72,7 @@
                                                             <af:selectOneChoice value="#{row.HfCatIk}"
                                                                                 label="#{bindings.HfCatIk.label}"
                                                                                 shortDesc="#{bindings.HfCatIk.hints.tooltip}"
-                                                                                id="soc5" disabled="true">
+                                                                                id="soc5" readOnly="true">
                                                                 <f:selectItems value="#{bindings.HfCatIk.items}"
                                                                                id="si9"/>
                                                                 <f:validator binding="#{bindings.HfCatIk.validator}"/>
