@@ -125,6 +125,19 @@
       <value n="j2eeWebAppName" v="AppsCloudUIKit-BuildAppsCloudUIKit-webapp"/>
       <value n="j2eeWebContextRoot" v="AppsCloudUIKit-BuildAppsCloudUIKit-context-root"/>
    </hash>
+   <hash n="oracle.jdeveloper.runner.RunConfigurations">
+      <hash n="runConfigurationDefinitions">
+         <hash n="Default">
+            <value n="custom" v="false"/>
+            <value n="name" v="Default"/>
+            <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
+               <value n="viewActivityId" v="Login"/>
+            </hash>
+            <value n="runActiveFile" v="false"/>
+            <url n="targetURL" path="../DemoMaster/public_html/WEB-INF/adfc-config.xml"/>
+         </hash>
+      </hash>
+   </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
       <url n="outputDirectory" path="classes/"/>
    </hash>

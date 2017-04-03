@@ -53,7 +53,7 @@
                                                             <af:selectOneChoice value="#{row.HfUserIk}"
                                                                                 label="#{bindings.HfUserIk1.label}"
                                                                                 shortDesc="#{bindings.HfUserIk1.hints.tooltip}"
-                                                                                id="soc4" disabled="true">
+                                                                                id="soc4" readOnly="true">
                                                                 <f:selectItems value="#{bindings.HfUserIk1.items}"
                                                                                id="si8"/>
                                                                 <f:validator binding="#{bindings.HfUserIk1.validator}"/>
@@ -61,7 +61,7 @@
                                                             <af:selectOneChoice value="#{row.HfCatIk}"
                                                                                 label="#{bindings.HfCatIk.label}"
                                                                                 shortDesc="#{bindings.HfCatIk.hints.tooltip}"
-                                                                                id="soc5" disabled="true">
+                                                                                id="soc5" readOnly="true">
                                                                 <f:selectItems value="#{bindings.HfCatIk.items}"
                                                                                id="si9"/>
                                                                 <f:validator binding="#{bindings.HfCatIk.validator}"/>
