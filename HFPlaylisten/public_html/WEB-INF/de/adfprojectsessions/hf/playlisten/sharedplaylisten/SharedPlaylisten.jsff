@@ -6,6 +6,7 @@
     <af:pageTemplate viewId="/oracle/apps/uikit/common/pageTemplates/MainPageTemplate.jspx" id="pt1">
         <f:facet name="pageContents">
             <af:panelGroupLayout id="pgl1" layout="vertical">
+                <af:outputText value="#{pageFlowScope.SharedPlaylistenBean.initSharedList}" id="ot9" visible="false"/>
                 <acdc:PageHeaderDC id="phdc1" pageTitle="#{hfBundle.SHAREDPLAYLISTEN}">
                     <f:facet name="customToolbar"/>
                     <f:facet name="pageContext"/>

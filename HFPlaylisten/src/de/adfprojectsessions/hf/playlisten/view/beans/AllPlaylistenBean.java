@@ -7,6 +7,7 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
@@ -88,7 +89,7 @@ public class AllPlaylistenBean {
         return null;
     }
 
-    /** 
+    /**
      * handle search event.
      * @param actionEvent event which triggered the search
      */
@@ -164,7 +165,7 @@ public class AllPlaylistenBean {
         Map map = method.getParamsMap();
         map.put("rowKey", plId);
         method.execute();
-        
+
         //check for errors
         List<Exception> errors = method.getErrors();
         if (!errors.isEmpty()) {
@@ -177,7 +178,7 @@ public class AllPlaylistenBean {
     }
 
 
-    /** 
+    /**
      * Setter.
      * @param currentViewState
      */
@@ -202,10 +203,10 @@ public class AllPlaylistenBean {
         String ret = "doneCreateEdit";
         return ret;
     }
-    
+
     /**
      * Handle cancel of Create new Card row event.
-     * @param actionEvent event which triggered the cancel event 
+     * @param actionEvent event which triggered the cancel event
      */
     public void handleCreateEditCancel(ActionEvent actionEvent) {
         //Filmstrip anschalten
@@ -220,7 +221,7 @@ public class AllPlaylistenBean {
             List<Exception> errors = method.getErrors();
             if (!errors.isEmpty()) {
                 _utils.showMessage(ERROR, "Rollback fehlgeschlagen!");
-                _logger.severe("Error: "+ errors.get(0).getMessage());
+                _logger.severe("Error: " + errors.get(0).getMessage());
                 errors.get(0).printStackTrace();
             }
         }
@@ -268,7 +269,7 @@ public class AllPlaylistenBean {
         //Filmstrip abschalten
         _switchInlineMode("ON");
     }
-    
+
     /**
      * Helper method to switch hte filmstrip on an off
      * @param mode mode to set [ON|OFF]
@@ -289,7 +290,7 @@ public class AllPlaylistenBean {
         ActionEvent actionEvent = new ActionEvent(actionTrigger);
         actionEvent.queue();
     } //_switchInlineMode
-    
+
 
     /**
      * Setter.
@@ -309,5 +310,16 @@ public class AllPlaylistenBean {
 
     public void handleDeletePlaylist(ActionEvent actionEvent) {
         // Add event code here...
+    }
+
+    /**
+     * Getter.
+     * @return empty String
+     */
+    public String getInitSharedList() {
+        // getter to initialize the VO before showing it to the user
+        DCIteratorBinding binding = UIUtilBean.getIterator("HfSharedPlaylistViewIterator");
+        binding.executeQuery();
+        return "";
     }
 }
