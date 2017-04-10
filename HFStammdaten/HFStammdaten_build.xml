@@ -75,6 +75,7 @@
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-trinidad.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-shared-js.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/dvt-faces.jar"/>
+    <pathelement location="${oracle.commons}/modules/oracle.adf.view/prefuse.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/batik-anim.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/batik-awt-util.jar"/>
     <pathelement location="${oracle.commons}/modules/oracle.adf.view/batik-bridge.jar"/>
@@ -293,8 +294,7 @@
     <taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask"
              classpath="${oracle.jdeveloper.ant.library}"/>
     <ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}"
-                  ora:buildscript="${oracle.jdeveloper.deploy.dir}/ojdeploy-build.xml"
-                  ora:statuslog="${oracle.jdeveloper.deploy.dir}/ojdeploy-statuslog.xml">
+                  ora:buildscript="${oracle.jdeveloper.deploy.dir}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.deploy.dir}/ojdeploy-statuslog.xml">
       <ora:deploy>
         <ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}"/>
         <ora:parameter name="project" value="${oracle.jdeveloper.project.name}"/>
@@ -305,8 +305,8 @@
     </ora:ojdeploy>
   </target>
   <target name="compile" description="Compile Java source files" depends="init">
-    <javac destdir="${output.dir}" classpathref="classpath" debug="${javac.debug}" nowarn="${javac.nowarn}"
-           deprecation="${javac.deprecation}" encoding="UTF8" source="1.8" target="1.8" includeantruntime="false">
+    <javac destdir="${output.dir}" classpathref="classpath" debug="${javac.debug}" nowarn="${javac.nowarn}" deprecation="${javac.deprecation}" encoding="UTF8"
+           source="1.8" target="1.8">
       <src path="src"/>
     </javac>
   </target>

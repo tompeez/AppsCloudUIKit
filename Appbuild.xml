@@ -4,20 +4,19 @@
 <project xmlns="antlib:org.apache.tools.ant" name="AppsCloudUIKit" basedir=".">
     <property environment="env"/>
     <property file="Appbuild.properties"/>
-    <target name="deploy" description="Deploy JDeveloper profiles" depends="makeDemoData, makeUIKitCommon, makeHFModel, makeHFSpotifyRestModel, makeHFStammdaten, makeHFPlaylisten, makeDemoMaster">
-        <taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask"
-                 classpath="${oracle.jdeveloper.ant.library}"/>
-        <ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}"
-                      ora:buildscript="${oracle.jdeveloper.deploy.dir}/ojdeploy-build.xml"
-                      ora:statuslog="${oracle.jdeveloper.deploy.dir}/ojdeploy-statuslog.xml">
-            <ora:deploy>
-                <ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}"/>
-                <ora:parameter name="profile" value="${oracle.jdeveloper.deploy.profile.name}"/>
-                <ora:parameter name="nocompile" value="false"/>
-                <ora:parameter name="outputfile" value="${oracle.jdeveloper.deploy.outputfile}"/>
-            </ora:deploy>
-        </ora:ojdeploy>
-    </target>
+  <target name="deploy" description="Deploy JDeveloper profiles">
+    <taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask"
+             classpath="${oracle.jdeveloper.ant.library}"/>
+    <ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}"
+                  ora:buildscript="${oracle.jdeveloper.deploy.dir}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.deploy.dir}/ojdeploy-statuslog.xml">
+      <ora:deploy>
+        <ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}"/>
+        <ora:parameter name="profile" value="${oracle.jdeveloper.deploy.profile.name}"/>
+        <ora:parameter name="nocompile" value="false"/>
+        <ora:parameter name="outputfile" value="${oracle.jdeveloper.deploy.outputfile}"/>
+      </ora:deploy>
+    </ora:ojdeploy>
+  </target>
     <target name="info">
         <echo level="info">appbuild: middleware.home=${middleware.home}</echo>
         <echo level="info">appbuild: env.ORACLE_HOME=${oracle.home}</echo>
