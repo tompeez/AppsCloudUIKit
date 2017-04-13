@@ -5,9 +5,13 @@ package oracle.apps.uikit.data;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.Date;
 
-public class Opportunity {
+public class Opportunity implements Serializable {
+    @SuppressWarnings("compatibility:1860643588128825145")
+    private static final long serialVersionUID = 1L;
     private int _id;
     private String _name;
     private String _account;

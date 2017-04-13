@@ -1,11 +1,15 @@
 package oracle.apps.uikit.data;
 
+import java.io.Serializable;
+
 /*
  * Copyright (c) 2016, 2013, Oracle and/or its affiliates. All rights reserved.
  *
 **/
 
-public class FinancialReport {
+public class FinancialReport implements Serializable {
+    @SuppressWarnings("compatibility:3295075163774091978")
+    private static final long serialVersionUID = 1L;
     private int _id;
     private String _name;
     private String _description;

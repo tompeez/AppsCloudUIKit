@@ -5,9 +5,13 @@ package oracle.apps.uikit.data;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.Date;
 
-public class EvaluationTask {
+public class EvaluationTask implements Serializable {
+    @SuppressWarnings("compatibility:-6991635141083553900")
+    private static final long serialVersionUID = 1L;
     private int _id;
     private String _name;
     private String _status;

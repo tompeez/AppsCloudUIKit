@@ -5,6 +5,8 @@ package oracle.apps.uikit.memoryCache;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -20,7 +22,9 @@ import oracle.apps.uikit.data.Node;
 import oracle.apps.uikit.data.Opportunity;
 import oracle.apps.uikit.data.Person;
 
-public class SessionState {
+public class SessionState implements Serializable {
+    @SuppressWarnings("compatibility:-5662792177223522368")
+    private static final long serialVersionUID = 1L;
     private boolean _welcomePopupActive;
     private String _welcomeMode; //'springboard', 'infolets'
     private boolean _showChildren; //grid cluster children

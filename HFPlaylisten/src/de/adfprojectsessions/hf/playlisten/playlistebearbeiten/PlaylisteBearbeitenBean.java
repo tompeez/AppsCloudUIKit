@@ -2,6 +2,8 @@ package de.adfprojectsessions.hf.playlisten.playlistebearbeiten;
 
 import de.adfprojectsesions.hf.model.adfbc.views.common.HfPlaylistPosViewRow;
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -34,7 +36,9 @@ import org.apache.myfaces.trinidad.event.SelectionEvent;
 import org.apache.myfaces.trinidad.model.RowKeySet;
 import org.apache.myfaces.trinidad.util.ComponentReference;
 
-public class PlaylisteBearbeitenBean {
+public class PlaylisteBearbeitenBean implements Serializable {
+    @SuppressWarnings("compatibility:1811965230640140676")
+    private static final long serialVersionUID = 1L;
     private static ADFLogger logger = ADFLogger.createADFLogger(PlaylisteBearbeitenBean.class);
     private static final String ERROR = "ERROR";
 

@@ -5,12 +5,17 @@ package oracle.apps.uikit.bean;
  *
 **/
 
+import java.io.Serializable;
+
 import javax.faces.event.ActionEvent;
+
 import oracle.apps.uikit.common.bean.UtilsBean;
 import oracle.apps.uikit.data.Node;
 import oracle.apps.uikit.memoryCache.SessionState;
 
-public class ExperimentalBean {
+public class ExperimentalBean implements Serializable {
+    @SuppressWarnings("compatibility:3983226539946164245")
+    private static final long serialVersionUID = 1L;
     private UtilsBean _utils = new UtilsBean();
 
     public void handleShiny(ActionEvent actionEvent) {

@@ -1,5 +1,7 @@
 package de.adfprojectsessions.hf.playlisten.view.beans;
 
+import java.io.Serializable;
+
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +25,9 @@ import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.util.ComponentReference;
 
-public class AllPlaylistenBean {
+public class AllPlaylistenBean implements Serializable {
+    @SuppressWarnings("compatibility:-795463315493784793")
+    private static final long serialVersionUID = 1L;
 
     private static ADFLogger _logger = ADFLogger.createADFLogger(AllPlaylistenBean.class);
     private static final String ERROR = "ERROR";

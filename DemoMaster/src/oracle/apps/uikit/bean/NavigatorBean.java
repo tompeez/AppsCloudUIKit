@@ -5,17 +5,22 @@ package oracle.apps.uikit.bean;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
+
 import oracle.apps.uikit.common.bean.UtilsBean;
 import oracle.apps.uikit.data.Node;
 import oracle.apps.uikit.memoryCache.SessionState;
 
-public class NavigatorBean {
+public class NavigatorBean implements Serializable {
     private UtilsBean _utils = new UtilsBean();
 
     public void handleNavNodeSelection(ActionEvent ae) {

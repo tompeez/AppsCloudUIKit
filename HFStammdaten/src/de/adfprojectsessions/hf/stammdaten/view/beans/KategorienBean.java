@@ -1,5 +1,7 @@
 package de.adfprojectsessions.hf.stammdaten.view.beans;
 
+import java.io.Serializable;
+
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +28,9 @@ import org.apache.myfaces.trinidad.event.SelectionEvent;
 import org.apache.myfaces.trinidad.model.RowKeySet;
 import org.apache.myfaces.trinidad.util.ComponentReference;
 
-public class KategorienBean {
+public class KategorienBean implements Serializable {
+    @SuppressWarnings("compatibility:3978572524247381449")
+    private static final long serialVersionUID = 1L;
     private static ADFLogger _logger = ADFLogger.createADFLogger(KategorienBean.class);
     private static final String ERROR = "ERROR";
 

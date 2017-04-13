@@ -1,5 +1,7 @@
 package de.adfprojectsessions.hf.stammdaten.view.beans;
 
+import java.io.Serializable;
+
 import java.util.List;
 
 import javax.faces.component.UIViewRoot;
@@ -15,7 +17,9 @@ import oracle.apps.uikit.memoryCache.SessionState;
 
 import oracle.binding.OperationBinding;
 
-public class AnwenderBean {
+public class AnwenderBean implements Serializable {
+    @SuppressWarnings("compatibility:-7083841733801711934")
+    private static final long serialVersionUID = 1L;
     private static ADFLogger _logger = ADFLogger.createADFLogger(AnwenderBean.class);
     private static final String MSG_METHODNOTFOUND =
         "Die Änderungen konnte aktuell nicht ausgeführt werden! Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.";

@@ -33,6 +33,7 @@ package oracle.apps.uikit.common.bean;
 **/
 
 import java.io.IOException;
+import java.io.Serializable;
 
 import java.text.SimpleDateFormat;
 
@@ -62,14 +63,16 @@ import oracle.adf.view.rich.context.AdfFacesContext;
 
 import org.apache.myfaces.trinidad.context.RequestContext;
 
-public class UtilsBean {
-    private FacesContext _facesCtx = FacesContext.getCurrentInstance();
-    private ADFContext _adfCtx = ADFContext.getCurrent();
-    private AdfFacesContext _adfFacesCtx = AdfFacesContext.getCurrentInstance();
-    private ControllerContext _conCtx = ControllerContext.getInstance();
-    private RequestContext _reqCtx = RequestContext.getCurrentInstance();
-    private SecurityContext _secCtx = _adfCtx.getSecurityContext();
-    private ExternalContext _extCtx = _facesCtx.getExternalContext();
+public class UtilsBean implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    private transient FacesContext _facesCtx = FacesContext.getCurrentInstance();
+    private transient ADFContext _adfCtx = ADFContext.getCurrent();
+    private transient AdfFacesContext _adfFacesCtx = AdfFacesContext.getCurrentInstance();
+    private transient ControllerContext _conCtx = ControllerContext.getInstance();
+    private transient RequestContext _reqCtx = RequestContext.getCurrentInstance();
+    private transient SecurityContext _secCtx = _adfCtx.getSecurityContext();
+    private transient ExternalContext _extCtx = _facesCtx.getExternalContext();
 
     //Format Example - "d MMM yyyy", "d MMM yyyy hh:mm aaa"
     public String getFormattedDate(Date date, String format){

@@ -5,10 +5,14 @@ package oracle.apps.uikit.data;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Person implements Serializable {
+    @SuppressWarnings("compatibility:-2900051156170015564")
+    private static final long serialVersionUID = 1L;
     private int _id;
     private String _photo;
     private String _photoLarge;

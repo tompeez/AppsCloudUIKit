@@ -1,5 +1,7 @@
 package oracle.apps.uikit.common.bean;
 
+import java.io.Serializable;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.el.ValueExpression;
@@ -17,7 +19,10 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.JboException;
 
-public class UIUtilBean {
+public class UIUtilBean implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     public UIUtilBean() {
         super();
     }

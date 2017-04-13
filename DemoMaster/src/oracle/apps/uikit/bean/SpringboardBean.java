@@ -5,30 +5,47 @@ package oracle.apps.uikit.bean;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
 import oracle.adf.view.rich.component.rich.layout.RichPanelGroupLayout;
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
+
 import oracle.apps.uikit.common.bean.UtilsBean;
 import oracle.apps.uikit.data.Node;
 import oracle.apps.uikit.memoryCache.SessionState;
 
-public class SpringboardBean {
+import org.apache.myfaces.trinidad.util.ComponentReference;
+
+public class SpringboardBean implements Serializable {
+    @SuppressWarnings("compatibility:-2903827690742868569")
+    private static final long serialVersionUID = 1L;
     private UtilsBean _utils = new UtilsBean();
-    private RichPanelGroupLayout _featureGridCanvas;
+    private ComponentReference _featureGridCanvas;
 
     //Accessors
-    public void setFeatureGridCanvas(RichPanelGroupLayout l) { _featureGridCanvas = l; }
-    public RichPanelGroupLayout getFeatureGridCanvas() { return _featureGridCanvas; }
+    public void setFeatureGridCanvas(RichPanelGroupLayout l) {
+        _featureGridCanvas = ComponentReference.newUIComponentReference(l);
+    }
 
-    public void handleNodeSelection(ActionEvent userActionEvent){
-        SessionState sessionState = (SessionState)_utils.getSessionScope().get("SessionState");
+    public RichPanelGroupLayout getFeatureGridCanvas() {
+        if (_featureGridCanvas == null) {
+            return null;
+        }
+        return (RichPanelGroupLayout) _featureGridCanvas.getComponent();
+    }
+
+    public void handleNodeSelection(ActionEvent userActionEvent) {
+        SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
         int nodeId = sessionState.getAccessedNodeId();
         Node node = _getNodeFromListUsingId(nodeId);
-        if (node.isGroup()){
+        if (node.isGroup()) {
             //This is a group node. Show/Hide children as required.
             if (node.getShowChildren()) {
                 node.setShowChildren(false);
@@ -51,89 +68,89 @@ public class SpringboardBean {
             //Initiate Navigation
             FacesContext fctx = FacesContext.getCurrentInstance();
             UIViewRoot vr = fctx.getViewRoot();
-            RichCommandButton actionTrigger = (RichCommandButton)vr.findComponent("pt1:pt_navigationTrigger");
+            RichCommandButton actionTrigger = (RichCommandButton) vr.findComponent("pt1:pt_navigationTrigger");
             ActionEvent actionEvent = new ActionEvent(actionTrigger);
             actionEvent.queue();
-        }//Check node type
-    }//_handleNodeSelection
+        } //Check node type
+    } //_handleNodeSelection
 
-    private Node _getNodeFromListUsingId(int nodeId){
+    private Node _getNodeFromListUsingId(int nodeId) {
         boolean found = false;
-        SessionState sessionState = (SessionState)_utils.getSessionScope().get("SessionState");
+        SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
         List<Node> nodeList = sessionState.getNodeList();
         Node requiredNode = nodeList.get(0);
-        for (Node node : nodeList){
-            if (node.getId() == nodeId){
+        for (Node node : nodeList) {
+            if (node.getId() == nodeId) {
                 requiredNode = node;
                 found = true;
             } else {
-                if (node.getChildren() != null){
-                    for (Node childNode : node.getChildren()){
-                        if (childNode.getId() == nodeId){
+                if (node.getChildren() != null) {
+                    for (Node childNode : node.getChildren()) {
+                        if (childNode.getId() == nodeId) {
                             requiredNode = childNode;
                             found = true;
-                        }//check if required node
+                        } //check if required node
                         if (found)
                             break;
-                    }//loop through children
-                }//null check
-            }//check if required node
+                    } //loop through children
+                } //null check
+            } //check if required node
             if (found)
                 break;
-        }//loop through nodes
+        } //loop through nodes
         return requiredNode;
-    }//_getNodeFromListUsingId
+    } //_getNodeFromListUsingId
 
     //Close all group nodes except passed reference
-    private void _closeAllOtherGroups(Node nodeToKeepOpen){
-        SessionState sessionState = (SessionState)_utils.getSessionScope().get("SessionState");
+    private void _closeAllOtherGroups(Node nodeToKeepOpen) {
+        SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
         List<Node> nodeList = sessionState.getNodeList();
         for (Node node : nodeList)
             if (node.isGroup())
                 if (node.getId() != nodeToKeepOpen.getId())
                     node.setShowChildren(false);
-    }//_closeAllOtherGroups
+    } //_closeAllOtherGroups
 
     //Close all group nodes
-    private void _closeAllGroups(){
-        SessionState sessionState = (SessionState)_utils.getSessionScope().get("SessionState");
+    private void _closeAllGroups() {
+        SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
         List<Node> nodeList = sessionState.getNodeList();
         for (Node node : nodeList)
             if (node.isGroup())
                 node.setShowChildren(false);
-    }//_closeAllGroups
+    } //_closeAllGroups
 
     //Check if node is a group child and if so, build peer list
-    private boolean _isGroupChild(int nodeId){
+    private boolean _isGroupChild(int nodeId) {
         boolean isGroupChild = false;
         boolean found = false;
-        SessionState sessionState = (SessionState)_utils.getSessionScope().get("SessionState");
+        SessionState sessionState = (SessionState) _utils.getSessionScope().get("SessionState");
         List<Node> nodeList = sessionState.getNodeList();
         List<Node> filmStripNodeList = new ArrayList<Node>();
-        for (Node node : nodeList){
-            if (node.getId() == nodeId){
+        for (Node node : nodeList) {
+            if (node.getId() == nodeId) {
                 //Found at top level, so no peers
                 found = true;
             } else {
                 //Check if this is a group node with children
-                if (node.isGroup() && node.getChildren() != null){
+                if (node.isGroup() && node.getChildren() != null) {
                     //Look through children
-                    for (Node childNode : node.getChildren()){
+                    for (Node childNode : node.getChildren()) {
                         filmStripNodeList.add(childNode);
-                        if (childNode.getId() == nodeId){
+                        if (childNode.getId() == nodeId) {
                             isGroupChild = true;
                             found = true;
-                        }//check if required node
-                    }//loop through children
+                        } //check if required node
+                    } //loop through children
                     if (!found)
                         filmStripNodeList.clear();
-                }//check group node
-            }//check if required node
+                } //check group node
+            } //check if required node
             if (found)
                 break;
-        }//loop through nodes
+        } //loop through nodes
         sessionState.setFilmStripNodeList(filmStripNodeList);
         return isGroupChild;
-    }//_isGroupChild
+    } //_isGroupChild
 
 }//SpringboardBean

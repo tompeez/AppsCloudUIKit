@@ -5,11 +5,15 @@ package oracle.apps.uikit.data;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Evaluation {
+public class Evaluation implements Serializable {
+    @SuppressWarnings("compatibility:-4286070399736396311")
+    private static final long serialVersionUID = 1L;
     private int _id;
     private String _name;
     private String _type;

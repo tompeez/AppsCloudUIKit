@@ -1,5 +1,7 @@
 package oracle.apps.uikit.bean;
 
+import java.io.Serializable;
+
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,9 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.Row;
 
-public class LoginBean {
+public class LoginBean implements Serializable {
+    @SuppressWarnings("compatibility:2174888454500577010")
+    private static final long serialVersionUID = 1L;
     private static final String VIEWID_WELCOMEPAGE = "Welcome";
     private static final String MSG_METHODNOTFOUND =
         "Die Anmelderoutine konnte aktuell nicht ausgeführt werden! Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.";

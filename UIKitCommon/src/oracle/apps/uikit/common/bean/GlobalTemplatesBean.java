@@ -5,12 +5,17 @@ package oracle.apps.uikit.common.bean;
  *
 **/
 
+import java.io.Serializable;
+
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+
 import oracle.adf.view.rich.component.rich.nav.RichCommandButton;
 
-public class GlobalTemplatesBean {
+public class GlobalTemplatesBean implements Serializable {
+    @SuppressWarnings("compatibility:-2078509379984336072")
+    private static final long serialVersionUID = 1L;
 
     //==========================================================================
     // SimpleUIShell.jspx Routines

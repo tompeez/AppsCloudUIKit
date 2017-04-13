@@ -5,10 +5,14 @@ package oracle.apps.uikit.common.bean;
  *
 **/
 
+import java.io.Serializable;
+
 import oracle.adf.controller.TaskFlowId;
 import oracle.adf.controller.binding.TaskFlowBindingAttributes;
 
-public class InfoTile extends TaskFlowBindingAttributes {
+public class InfoTile extends TaskFlowBindingAttributes implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     private String _tfName;
     private String _tfId;
 

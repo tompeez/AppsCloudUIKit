@@ -5,10 +5,14 @@ package oracle.apps.uikit.data;
  *
 **/
 
+import java.io.Serializable;
+
 import oracle.adf.controller.TaskFlowId;
 import oracle.adf.controller.binding.TaskFlowBindingAttributes;
 
-public class Infolet extends TaskFlowBindingAttributes{
+public class Infolet extends TaskFlowBindingAttributes implements Serializable {
+    @SuppressWarnings("compatibility:3552832325569853852")
+    private static final long serialVersionUID = 1L;
     private int _infoletId;
     private boolean _rendered;
     private String _contentTFName;

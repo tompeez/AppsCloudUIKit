@@ -5,10 +5,14 @@ package oracle.apps.uikit.data;
  *
 **/
 
+import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class Node implements Serializable {
+    @SuppressWarnings("compatibility:-6347486754033246700")
+    private static final long serialVersionUID = 1L;
     private int _id;
     private String _name;
     private String _icon; //base icon name only e.g. 'dashboard'
